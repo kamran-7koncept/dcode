@@ -20,30 +20,20 @@ Route::get('/product/{id_enc}',[App\Http\Controllers\ProductController::class, '
 
 Route::get('/',[App\Http\Controllers\ProductController::class, 'index']);
 
-Route::get('/products', [App\Http\Controllers\CartController::class, 'shop'])->name('shop');
+/*Route::get('/products', [App\Http\Controllers\CartController::class, 'shop'])->name('shop');
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'cart'])->name('cart.index');
 Route::post('/add', [App\Http\Controllers\CartController::class, 'add'])->name('cart.store');
 Route::post('/update', [App\Http\Controllers\CartController::class, 'update'])->name('cart.update');
 Route::post('/remove', [App\Http\Controllers\CartController::class, 'remove'])->name('cart.remove');
 Route::post('/clear', [App\Http\Controllers\CartController::class, 'clear'])->name('cart.clear');
-
-
-/*Route::get('/', function () {
-    return view('welcome');
-});
 */
+
  
  Route::get('/admin', function(){
 	return view('auth.login');
 });
  Route::middleware(['VerifyRequest'])->group(function () {
-
-Route::get('/home', function () {
-    return view('admin.index');
-    });
-
  
-
 Route::get('/logout', function(){
     Session::flush();
     Auth::logout();
@@ -63,6 +53,12 @@ Route::get('/mobile/create', function () {
     return view('admin.add_product');
 });
 
+Route::get('/admin/info/{id}', [App\Http\Controllers\Admin\SpecificationController::class,'specifications']);
+
+
+Route::post('admin/specifications', [App\Http\Controllers\Admin\SpecificationController::class,'store']);
+
+
 Route::post('/admin/product/create', [App\Http\Controllers\Admin\ProductController::class,'store']);
 Route::post('/admin/product/creativity', [App\Http\Controllers\Admin\ProductController::class,'creativity']);
 
@@ -71,10 +67,9 @@ Route::post('/admin/product/colors', [App\Http\Controllers\Admin\ProductControll
 Route::get('/admin/orders', [App\Http\Controllers\Admin\OrderController::class,'index']);
 
 Route::get('/admin/products',[App\Http\Controllers\Admin\ProductController::class,'index']);
-Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
  });
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+ Auth::routes();
+ 

@@ -17,7 +17,7 @@
                 <div class="container" style="width: 70%">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h1 class="text-center">Add new Product</h1>
+                            <h2 class="text-center">Add new Product</h2>
                         </div>
                         <div class="col-sm-12 mt-4">
                     @if(session()->has('success'))

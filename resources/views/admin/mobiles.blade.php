@@ -18,7 +18,7 @@
 
                     <!-- Page Heading -->
                     <strong class="h3 mb-2 text-gray-800">Mobiles</strong> 
-                    <a  href="/mobile/create" class="btn btn-info float-right w-25" name="create" value="Create">Create</a>
+                    <a  href="/mobile/create" class="btn btn-info float-right w-20">New Product</a>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4 " style="margin-top: 20px"> 
                         <div class="card-body">
@@ -43,10 +43,9 @@
                                     <thead>
                                         <tr>
                                             <th>Sr#</th>
-                                            <th>Image</th>
+                                            <!-- <th>Image</th> -->
                                             <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Shipping Cost</th>
+                                            <th>Price</th> 
                                             <th>Description</th> 
                                             <th>Action</th>
                                         </tr>
@@ -58,18 +57,29 @@
                                         <tr>
                                             
                                             <td>{{$count++}}</td>
-                                            <td><a href="#"><img src='{{url("/images/$product->image_path")}}' class="card-img-top mx-auto" height="100" width="100" alt="{{ $product->image_path }}"></a></td>
+                                            <!-- <td><a href="#"><img src='{{url("/images/$product->image_path")}}' class="card-img-top mx-auto" height="100" width="100" alt="{{ $product->image_path }}"></a></td> -->
                                             <td>{{$product->name}}</td>
-                                            <td>{{$product->price}}</td>
-                                            <td>{{$product->shipping_cost}}</td>
+                                            <td>{{$product->price}}</td> 
                                             <td>{{$product->description}}</td>
                                             <td>
+
                                                 <form method="POST" action='{{url("/admin/product/$product->id")}}'>
                                                     @method('PUT')
                                                     @csrf
-                                                    <button class="btn btn-info">edit</button>
+                                                    <a  href='{{url("/admin/info/$product->id")}}' class="btn btn-info">+</a>
 
-                                                <button type="submit" class="btn btn-info">Delete</button>
+                                                    <a href="#" class="btn btn-primary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-flag"></i>
+                                        </span>
+                                         
+                                    </a>
+
+                                                <button type="submit" class="btn btn-danger btn-icon-split"><span class="icon text-white-50">
+                                            <i class="fas fa-trash"></i>
+                                        </span></button>
+
+                                                
                                                 </form>
                                                 
 

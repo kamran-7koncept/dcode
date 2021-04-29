@@ -20,8 +20,7 @@ class CreateProductsTable extends Migration
                 $table->string('name')->unique();
                 $table->string('slug')->unique();
                 $table->string('details')->nullable();
-                $table->double('price');
-                $table->double('shipping_cost');
+                $table->double('price'); 
                 $table->text('description');
                 $table->integer('category_id')->nullable();
                 $table->unsignedInteger('brand_id')->unsigned()->nullable();
