@@ -66,7 +66,7 @@ https://www.telemart.pk/infinix-note-8-6gb-128gb-dual-sim-price-in-pakistan.html
                                     <strong style="color: #4e73df">Display</strong>
                                 </div>
                                 <div class="form-group">
-                                    <label for="Mobile Display Type">Display Type</label>
+                                    <label for="Mobile Display Type">Display</label>
                                     <input type="text" class="form-control" name="display_type" placeholder="Mobile Display like 1B Color, 120HZ" required="" title="like 1B Color, 120HZ!">
                                 </div>
                                 <div class="form-group">
