@@ -25,8 +25,7 @@ class ProductController extends Controller
 			        
 				$rules = [
 		            'name' => 'required',
-				            'price' => 'required',
-				            'shipping' => 'required',
+				            'price' => 'required', 
 				            'description' => 'required',
 				            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 				            'overview_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -43,13 +42,12 @@ class ProductController extends Controller
 				$request->image->move(public_path('images'), $imageName);
 
 				
-				 
 				$slug = Str::slug($request->input('name'), '-');
 				$values = array('name' => $request->input('name'),
                     'slug' => $slug,
                     'details' => $request->input('details'),
-                    'price' => $request->input('price'),
-                    'shipping_cost' => $request->input('shipping'),
+                    'price' => $request->input('price'),/*
+                    'shipping_cost' => $request->input('shipping'),*/
                     'description' => $request->input('description'),
                     'image_path' => $imageName,
                 );
@@ -82,7 +80,6 @@ class ProductController extends Controller
         $product_id=$request->input('product_id');
 
          $collection = array();
-        
          
         if ($color_name) {
             foreach ($color_name as $name) { 
@@ -90,6 +87,28 @@ class ProductController extends Controller
             }
 
             DB::table('product_colors')->insert($collection); 
+
+        if($request->hasfile('color_imgs'))
+         {
+            $count =1;
+            foreach($request->file('color_imgs') as $file)
+            {
+                $name = $count++."-".Auth::id()."-".time().'.'.$file->extension();
+                $file->move(public_path().'/images/', $name);  
+                $data[] = $name;  
+            } 
+
+            foreach ($data as $image_info) {
+                $values = array(
+                    'img_name' => $image_info,
+                    'product_id'=>$product_id,
+                );
+
+                 DB::table('color_images')->insertGetId($values);
+                
+            }
+
+         }
         
         }
 

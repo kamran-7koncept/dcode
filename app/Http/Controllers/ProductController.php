@@ -17,8 +17,6 @@ class ProductController extends Controller
     }
 
     public function Details($enc_id){
-    	 
-               
     	$product = DB::table('products')
         ->join('product_details', 'products.id', '=', 'product_details.product_id')
     	->where('products.id',$enc_id) 
@@ -30,7 +28,13 @@ class ProductController extends Controller
         $colors = DB::table('product_colors')
     	->where('product_id',$enc_id) 
         ->get(); 
-        return view('product_details',compact('product','product_creativities','colors'));
+
+        $color_images = DB::table('color_images')
+        ->join('products', 'products.id', '=', 'color_images.product_id')
+        ->where('color_images.product_id',$enc_id) 
+        ->get();
+
+        return view('product_details',compact('product','product_creativities','colors','color_images'));
     }
 
     public function order(Request $request){
@@ -79,5 +83,7 @@ class ProductController extends Controller
             } 
         }
     }
+
+    
 
 }

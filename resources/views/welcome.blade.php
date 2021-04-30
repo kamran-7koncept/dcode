@@ -39,7 +39,7 @@
   </a>
 </div>
 
-    <div class="container" style="margin-top: 80px;">
+    <div class="container-fluid" style="margin-top: 80px;">
        <!--  <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>

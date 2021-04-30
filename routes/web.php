@@ -15,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 Route::POST('/order-now', [App\Http\Controllers\ProductController::class, 'order_now']);
 
 Route::POST('/order', [App\Http\Controllers\ProductController::class, 'order']);
+Route::get('/compare-specifications', [App\Http\Controllers\CompareController::class, 'index']);
 
 Route::get('/product/{id_enc}',[App\Http\Controllers\ProductController::class, 'details']);
+
+Route::get('/mobile/details/{id}',[App\Http\Controllers\CompareController::class, 'show']);
+
 
 Route::get('/',[App\Http\Controllers\ProductController::class, 'index']);
 

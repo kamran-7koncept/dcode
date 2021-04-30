@@ -118,14 +118,44 @@
           <div class="col-sm-12">
             <h3 class="text-center">Colors Available</h3>
           </div>
-            @foreach($colors as $color)
+            @foreach($color_images as $color_image)
           <div class="col-sm-4">
             
             <img src='{{url("/images/$product_creativitie->creativity_img")}}' class="card-img-top mx-auto" alt="{{ $product_creativitie->creativity_img }}"/>
-            <p class="text-center">{{$color->color_name}}</p>
                                 
           </div>
           @endforeach
+         
+
+          @foreach($colors as $color)
+          @if(count($colors) == 2)
+          <div class="col-sm-6">
+            
+            <p class="text-center">{{$color->color_name}}</p>
+                                
+          </div>
+          @elseif(count($colors) == 3)
+          <div class="col-sm-4">
+            
+            <p class="text-center">{{$color->color_name}}</p>
+                                
+          </div>
+          @elseif(count($colors) == 4)
+          <div class="col-sm-3">
+            
+            <p class="text-center">{{$color->color_name}}</p>
+                                
+          </div>
+          @else
+          <div class="col-sm-12">
+            
+            <p class="text-center">{{$color->color_name}}</p>
+                                
+          </div>
+          @endif
+
+          @endforeach
+           
           </div>
 
          <div class="col-sm-12" >

@@ -156,7 +156,7 @@
         swal("Upload!", "Product Added Successfully!", "success");
          
          document.getElementById("loadimg").style.display="none";   
-      //     location.reload();                                 
+           location.reload();                                 
           },
             error: function (jqXHR, textStatus, errorThrown,strMessage) {
                  
