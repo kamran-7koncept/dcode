@@ -24,7 +24,11 @@
 <!--     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css"> -->
         <!-- Custom styles for this page -->
     <link href="{{asset('datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-
+<style type="text/css">
+    .dropdown-toggle:after {
+     display: none;
+    }
+</style>
 
 </head>
 

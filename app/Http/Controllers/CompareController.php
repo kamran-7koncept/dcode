@@ -47,14 +47,25 @@ class CompareController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show_left($id)
     {
         $specifications = DB::table('specifications')
         ->join('products', 'products.id', '=', 'specifications.product_id')
         ->where('specifications.product_id',$id) 
         ->first();
 
-        return compact('specifications');
+        return view('ajax/compare_specs',compact('specifications'));
+    }
+
+    public function show_right($name)
+    {
+        $specifications = DB::table('specifications')
+        ->join('products', 'products.id', '=', 'specifications.product_id')
+        ->where('products.name','like', $name) 
+        ->first();
+       /* ->where('products.name','like', "%$name%") */
+
+        return view('ajax/compare_specs',compact('specifications'));
     }
 
     /**

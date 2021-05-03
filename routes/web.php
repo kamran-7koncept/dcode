@@ -19,8 +19,8 @@ Route::get('/compare-specifications', [App\Http\Controllers\CompareController::c
 
 Route::get('/product/{id_enc}',[App\Http\Controllers\ProductController::class, 'details']);
 
-Route::get('/mobile/details/{id}',[App\Http\Controllers\CompareController::class, 'show']);
-
+Route::get('/mobile/details/{id}',[App\Http\Controllers\CompareController::class, 'show_left']);
+Route::get('/mobile/compare_details/{name}',[App\Http\Controllers\CompareController::class, 'show_right']);
 
 Route::get('/',[App\Http\Controllers\ProductController::class, 'index']);
 

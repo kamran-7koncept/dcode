@@ -39,14 +39,14 @@
                                         </button>
                                     </div>
                                      @endif
-                                <table class="table table-striped table-bordered dt-responsive nowrap" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-striped table-bordered dt-responsive nowrap" id="dataTable" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Sr#</th>
                                             <!-- <th>Image</th> -->
                                             <th>Name</th>
                                             <th>Price</th> 
-                                            <th>Description</th> 
+                                            <th >Description</th> 
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -60,13 +60,25 @@
                                             <!-- <td><a href="#"><img src='{{url("/images/$product->image_path")}}' class="card-img-top mx-auto" height="100" width="100" alt="{{ $product->image_path }}"></a></td> -->
                                             <td>{{$product->name}}</td>
                                             <td>{{$product->price}}</td> 
-                                            <td>{{$product->description}}</td>
+                                            <td >{{$product->description}}</td>
                                             <td>
 
                                                 <form method="POST" action='{{url("/admin/product/$product->id")}}'>
                                                     @method('PUT')
                                                     @csrf
-                                                    <a  href='{{url("/admin/info/$product->id")}}' class="btn btn-info">+</a>
+                                                    
+
+   <a  href="#" class="btn btn-info dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href='{{url("/admin/info/$product->id")}}'>Add Specifications</a>
+    <a class="dropdown-item" href='{{url("/admin/sleek/$product->id")}}'>Update Sleek</a>
+    <a class="dropdown-item" href='{{url("/admin/colors/$product->id")}}'>Update Colors</a>
+    <a class="dropdown-item" href='{{url("/admin/overview/$product->id")}}'>Update Overview</a>
+    <a class="dropdown-item" href='{{url("/admin/creativity/$product->id")}}'>Update Creativity</a>
+    <a class="dropdown-item" href='{{url("/admin/overview/$product->id")}}'>Update Overview</a>
+  </div>
+
 
                                                     <a href="#" class="btn btn-primary btn-icon-split">
                                         <span class="icon text-white-50">

@@ -145,7 +145,7 @@ class ProductController extends Controller
                 if ($product_detail_id > 0) {
                 	 return redirect('/mobile/create')->with('success','You have successfully upload image.'); 
                 }else{
-                	return back()->with('error','Operation unsuccessfull'); 
+                	return back()->with('error','Operation Unsuccessfull'); 
                 }
 	        }     
         			 

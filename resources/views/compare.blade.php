@@ -18,85 +18,23 @@
     </div>
     <div class="container mt-5">
       <div class="row">
-          <div class="col-sm-6">
+          <div class="col-sm-6" >
             <p>Please Enter Model name</p>
             <input type="text" name="mobile_name" class=" ">
              <button type="button" class="btn btn-sm btn-success">Search</button>
-             <img src='{{url("/images/-1619438297.png")}}' class="card-img-top mx-auto mt-4">
-              
-            <table class="table table-bordered mt-5">
-              <tbody>
-                <tr>
-                  <td>Connectivity</td>
-                   <td>4G/LTE</td>
-                </tr>
-                <tr>
-                  <td>Display</td>
-                   <td>187*453 mn</td>
-                </tr>
-                <tr>
-                  <td>Sensor</td>
-                   <td>Accelerometer, proximity</td>
-                </tr>
-                <tr>
-                  <td>COMMS</td>
-                   <td>Wi-Fi 802.11 b/g/n, hotspot</td>
-                </tr>
-                <tr>
-                  <td>Internal Storage</td>
-                   <td>64GB</td>
-                </tr>
-                <tr>
-                  <td>External Storage</td>
-                   <td>64GB</td>
-                </tr>
-                <tr>
-                  <td> RAM</td>
-                   <td>6GB</td>
-                </tr>
-                <tr>
-                  <td>Resolution</td>
-                   <td>720 * 720 pixel</td>
-                </tr>
-              </tbody>
- 
-            </table>
+             
+             <div id="mobile_left_detail">
+            
+      
+          </div>
           </div>
           <div class="col-sm-6">
             <p>Please Enter Model name</p>
-             <input type="text" name="mobile_name" class=" ">
-             <button type="button" class="btn btn-sm btn-success">Search</button>
-             <img src='{{url("/images/-1619438297.png")}}' class="card-img-top mx-auto mt-4">
-
-            <table class="table table-bordered mt-5">
-              <tbody>
-                <tr>
-                  <td>Connectivity</td>
-                   <td>4G/LTE</td>
-                </tr>
-                <tr>
-                  <td>Display</td>
-                   <td>187*453 mn</td>
-                </tr>
-                <tr>
-                  <td>Internal Storage</td>
-                   <td>64GB</td>
-                </tr>
-                <tr>
-                  <td>External Storage</td>
-                   <td>64GB</td>
-                </tr>
-                <tr>
-                  <td> RAM</td>
-                   <td>6GB</td>
-                </tr>
-                <tr>
-                  <td>Resolution</td>
-                   <td>720 * 720 pixel</td>
-                </tr>
-              </tbody>
- 
-            </table>
+             <input type="text" name="mobile_name"id="right_search"  class=" ">
+             <button type="button" onclick="compare_mobile()"  class="btn btn-sm btn-success">Search</button>
+             <div id="mobile_right_detail">
+            
+          </div>
           </div>
       </div>
       
