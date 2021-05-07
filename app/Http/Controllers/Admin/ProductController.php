@@ -113,6 +113,34 @@ class ProductController extends Controller
         }
 
     }
+
+    public function update_colors(Request $request){
+        $color_name=$request->input('color_name');
+        $product_id=$request->input('product_id');
+
+
+        if($request->hasfile('color_imgs'))
+         {
+            $count =1;
+            foreach($request->file('color_imgs') as $file)
+            {
+                $name = $count++."-".Auth::id()."-".time().'.'.$file->extension();
+                $file->move(public_path().'/images/', $name);  
+                $data[] = $name;  
+            } 
+
+             for ($i=0; $i < sizeof($request->ids) ; $i++) { 
+                        
+                    DB::table('product_colors')->where('color_id', $request->ids[$i])->update(['color_name' => $request->color_name[$i]]);
+
+                   }
+            return redirect('/mobile/products')->with('success','You have successfully Updated info.'); 
+            //     DB::table('color_images')->insertGetId($values);
+                
+            }
+        
+        }
+    
     // not needed now code is in store function
     public function overview(Request $request){
     	$product_id = $request->input('product_id');

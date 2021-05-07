@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::POST('/order-now', [App\Http\Controllers\ProductController::class, 'order_now']);
 
 Route::POST('/order', [App\Http\Controllers\ProductController::class, 'order']);
+
 Route::get('/compare-specifications', [App\Http\Controllers\CompareController::class, 'index']);
 
 Route::get('/product/{id_enc}',[App\Http\Controllers\ProductController::class, 'details']);
@@ -59,14 +60,25 @@ Route::get('/mobile/create', function () {
 
 Route::get('/admin/info/{id}', [App\Http\Controllers\Admin\SpecificationController::class,'specifications']);
 
+Route::get('/admin/specifications/{id}', [App\Http\Controllers\Admin\SpecificationController::class,'update_specifications']);
 
-Route::post('admin/specifications', [App\Http\Controllers\Admin\SpecificationController::class,'store']);
+Route::get('/admin/colors/{id}', [App\Http\Controllers\Admin\SpecificationController::class,'update_colors']);
+
+
+Route::post('/admin/specifications', [App\Http\Controllers\Admin\SpecificationController::class,'store']);
+
+Route::post('/admin/update-specifications', [App\Http\Controllers\Admin\SpecificationController::class,'update']);
+
+
 
 
 Route::post('/admin/product/create', [App\Http\Controllers\Admin\ProductController::class,'store']);
 Route::post('/admin/product/creativity', [App\Http\Controllers\Admin\ProductController::class,'creativity']);
 
 Route::post('/admin/product/colors', [App\Http\Controllers\Admin\ProductController::class,'colors']);
+
+
+Route::post('/admin/update-colors/', [App\Http\Controllers\Admin\ProductController::class,'update_colors']);
 
 Route::get('/admin/orders', [App\Http\Controllers\Admin\OrderController::class,'index']);
 

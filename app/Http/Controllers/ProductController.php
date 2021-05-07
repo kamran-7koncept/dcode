@@ -52,13 +52,13 @@ class ProductController extends Controller
             'customer_name' => 'required|string|min:3|max:255',
             'customer_address' => 'required|string|min:3|max:255',
             'customer_email' => 'required|string|email|max:255',
-            'customer_contact' => 'required|string|min:7|max:255', 
-            'customer_city' => 'required|string|min:7|max:255', 
+            'customer_contact' => 'required', 
+            'customer_city' => 'required|string|max:255', 
 
         ];
         $validator = Validator::make($request->all(),$rules);
         if ($validator->fails()) {
-            return back()->with('error', "Validation Error");
+            return redirect('/')->with('error', "Validation Error");
         }else{
             
             try{ 

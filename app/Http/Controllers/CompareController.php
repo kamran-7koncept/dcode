@@ -61,7 +61,7 @@ class CompareController extends Controller
     {
         $specifications = DB::table('specifications')
         ->join('products', 'products.id', '=', 'specifications.product_id')
-        ->where('products.name','like', $name) 
+        ->where('products.name','like', "%$name%") 
         ->first();
        /* ->where('products.name','like', "%$name%") */
 
