@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductVideo extends Model
 {
     use HasFactory;
-    protected $fillable = ['product_id', 'video_name'];
+    protected $fillable = ['product_id', 'video_name','video_link'];
 
     public function product()
     {

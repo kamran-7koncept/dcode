@@ -19,6 +19,7 @@ class CreateProductVideosTable extends Migration
             $table->bigIncrements('video_id');
             $table->unsignedBigInteger('product_id');
             $table->string('video_name');
+            $table->string('video_link');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });

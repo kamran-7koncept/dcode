@@ -60,6 +60,9 @@ Route::get('/mobile/create', function () {
 
 Route::get('/admin/info/{id}', [App\Http\Controllers\Admin\SpecificationController::class,'specifications']);
 
+Route::get('/admin/video/{id}', [App\Http\Controllers\Admin\ProductController::class,'video_view']);
+
+
 Route::get('/admin/specifications/{id}', [App\Http\Controllers\Admin\SpecificationController::class,'update_specifications']);
 
 Route::get('/admin/colors/{id}', [App\Http\Controllers\Admin\SpecificationController::class,'update_colors']);
@@ -69,6 +72,14 @@ Route::post('/admin/specifications', [App\Http\Controllers\Admin\SpecificationCo
 
 Route::post('/admin/update-specifications', [App\Http\Controllers\Admin\SpecificationController::class,'update']);
 
+Route::post('/admin/update-sleek', [App\Http\Controllers\Admin\ProductController::class,'sleek_update']);
+ 
+
+ Route::post('/admin/update-product', [App\Http\Controllers\Admin\ProductController::class,'update_product']);
+
+Route::get('/admin/sleek/{id}', [App\Http\Controllers\Admin\ProductController::class,'update_sleek_view']);
+
+Route::get('/admin/creativity/{id}', [App\Http\Controllers\Admin\ProductController::class,'update_creativity_view']);
 
 
 
@@ -78,7 +89,18 @@ Route::post('/admin/product/creativity', [App\Http\Controllers\Admin\ProductCont
 Route::post('/admin/product/colors', [App\Http\Controllers\Admin\ProductController::class,'colors']);
 
 
+Route::post('/admin/update-creativity', [App\Http\Controllers\Admin\ProductController::class,'update_creativity']);
+
+
 Route::post('/admin/update-colors/', [App\Http\Controllers\Admin\ProductController::class,'update_colors']);
+
+Route::post('/admin/add-videos/', [App\Http\Controllers\Admin\ProductController::class,'videos']);
+
+
+Route::get('/admin/update-product/{id}', [App\Http\Controllers\Admin\ProductController::class,'update_product_view']);
+
+Route::get('/admin/view-product/{id}', [App\Http\Controllers\Admin\ProductController::class,'detail_view']);
+
 
 Route::get('/admin/orders', [App\Http\Controllers\Admin\OrderController::class,'index']);
 

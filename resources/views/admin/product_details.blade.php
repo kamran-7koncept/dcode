@@ -65,130 +65,113 @@
       <div class="row">
         <div class="col-12">
           <div class="card mb-4">
-            <div class="card-header pb-0">
-              <strong>Products</strong>
+                  <div class="container" style="margin-top: 50px;">
+       
+        <div class="row">
 
-              <a  href="/mobile/create" class="btn btn-info" style="float:right">New Product</a>
-            </div>
-             @if(session()->has('success'))
-                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session()->get('success') }}
-                   <button type="button" style="float: right" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                  </button>
-                 </div>
+          <div class="col-sm-6">
+            <h3>
+              @if($product->overview_img != "")
+              {{$product->name}}
+              @else
+              <p class="text-center"> No overview Info</p>
               @endif
-                 @if(session()->has('error'))
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                     {{ session()->get('error') }}
-                     <button type="button" style="float: right" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">×</span>
-                    </button>
-                  </div>
-                @endif
-            <div class="card-body px-0 pt-0 pb-2">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center justify-content-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Details</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Action</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php $count =1;?>
-                    @foreach($products as $product)
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-                          <div>
-                            <img src='{{url("/images/$product->image_path")}}' class="avatar avatar-sm rounded-circle me-2">
-                          </div>
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm">{{$product->name}}</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">{{$product->price}}</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">{{$product->description}}</span>
-                      </td>
-
-                      <!-- <td class="align-middle text-center">
-                        <div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">60%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </td> -->
-                      <td class="align-middle">
-        <!-- <button class="btn btn-link text-secondary mb-0">
-            <i class="fa fa-ellipsis-v text-xs"></i>
-        </button> -->
- 
-
-        <form method="POST" action='{{url("/admin/product/$product->id")}}'>
-             @method('PUT')
-             @csrf
-              <div class="dropdown">
-               <!--  <a  href='{{url("/admin/info/$product->id")}}' class="btn btn-info  " id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</a>
-                 --> 
-                 <a class="btn btn-info" href='{{url("/admin/view-product/$product->id")}}'><i class="fas fa-eye"></i></a>
-              </div>
-              <div class="dropdown ">
-                <a  href='#' class="btn btn-info btn-icon-split" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon text-white-50">
-                    +
-                </span></a>
-                <div class="dropdown-content" style="margin-left: -100px">
-                  <a  href='{{url("/admin/info/$product->id")}}' id="dropdownMenuLink" class="dropdown-item" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Specifications</a>
-                  <a class="dropdown-item"  href='{{url("/admin/video/$product->id")}}' id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Videos</a>
-            </div>
+            </h3>
+             
+          </div>
+           <div class="col-sm-6">
+            
+            <a href="#" class="float-right" name="specification" id="specifications">Specification</a>
 
           </div>
-<!-- 
-            <a href="#" class="btn btn-primary btn-icon-split">
-                <span class="icon text-white-50">
-                    <i class="fas fa-flag"></i>
-                </span>
-                                         
-            </a> -->
-             <div class="dropdown">
-                <a  href='#' class="btn btn-primary btn-icon-split" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon text-white-50">
-                    <i class="fas fa-flag"></i>
-                </span></a>
-                <div class="dropdown-content" style="margin-left: -100px">
-                  <a class="dropdown-item" href='{{url("/admin/specifications/$product->id")}}'>Update Specifications</a>
-                <a class="dropdown-item" href='{{url("/admin/sleek/$product->id")}}'>Update Sleek</a>
-                <a class="dropdown-item" href='{{url("/admin/colors/$product->id")}}'>Update Colors</a>
-                <a class="dropdown-item" href='{{url("/admin/creativity/$product->id")}}'>Update Creativity</a>
-                <a class="dropdown-item" href='{{url("/admin/update-product/$product->id")}}'>Update Product Info</a>
+          <div class="col-sm-12">
+            @if($product->overview_img != "")
+            <img src='{{url("/images/$product->overview_img")}}' class="card-img-top mx-auto" alt="{{ $product->overview_img }}">
+            @else
 
-            </div>
-
+            <p class="text-center">No Overview image Available</p>
+            @endif
           </div>
 
-            <button type="submit" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger btn-icon-split">
-              <span class="icon text-white-50">
-                <i class="fas fa-trash"></i>
-              </span>
-            </button>
-        </form>
-                      </td>
-                    </tr>
-                    @endforeach
-                    
-                  </tbody>
-                </table>
-              </div>
-            </div>
+            <?php 
+          if (count($product_creativities) > 0 ) { 
+            ?>
+            <div class="col-sm-12">
+            <h3 class="text-center">More Modes To Free Your Creaivity</h3>
+          </div>
+            @foreach($product_creativities as $product_creativitie)
+          <div class="col-sm-6">
+            
+            <img src='{{url("/images/$product_creativitie->creativity_img")}}' class="card-img-top mx-auto" alt="{{ $product_creativitie->creativity_img }}"
+                                >
+          </div>
+          @endforeach
+        <?php
+              }else{
+                echo "<p class='text-center'>Creativity Images unavailable</p>";
+              }
+          ?>
+          <div class="col-sm-12">
+            <h3 class="text-center">Colors Available</h3>
+          </div>
+            @foreach($color_images as $color_image)
+          <div class="col-sm-4">
+            
+            <img src='{{url("/images/$product_creativitie->creativity_img")}}' class="card-img-top mx-auto" alt="{{ $product_creativitie->creativity_img }}"/>
+                                
+          </div>
+          @endforeach
+         
+          @if(count($colors) > 0 )
+          @foreach($colors as $color)
+          @if(count($colors) == 2)
+          <div class="col-sm-6">
+            
+            <p class="text-center">{{$color->color_name}}</p>
+                                
+          </div>
+          @elseif(count($colors) == 3)
+          <div class="col-sm-4">
+            
+            <p class="text-center">{{$color->color_name}}</p>
+                                
+          </div>
+          @elseif(count($colors) == 4)
+          <div class="col-sm-3">
+            
+            <p class="text-center">{{$color->color_name}}</p>
+                                
+          </div>
+          @else
+          <div class="col-sm-12">
+            
+            <p class="text-center">{{$color->color_name}}</p>
+                                
+          </div>
+          @endif
+
+          @endforeach
+          @else
+          <p class="text-center">No Colors Available</p>
+           @endif
+          </div>
+
+         <div class="col-sm-12" >
+            <h3 class="text-center">Sleek Stylish Design</h3>
+            @if($product->sleek_img != "")
+            <img src='{{url("/images/$product->sleek_img")}}' class="card-img-top mx-auto" alt="{{ $product->sleek_img }}">
+            @else
+            <p class="text-center">No Sleek Images Available </p>
+            @endif
+        </div>
+        @foreach($videos as $video)
+        <div class="col-sm-4" >
+          <iframe width="853" height="480" src="{{ $video->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </div>
+        @endforeach
+
+        </div>
           </div>
         </div>
       </div>

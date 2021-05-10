@@ -19,6 +19,7 @@ class CreateProductDetailsTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->string('overview_img');
             $table->string('sleek_img');
+            $table->string('sleek_info');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });

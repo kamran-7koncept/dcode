@@ -8,7 +8,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Admin</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Products</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Add Product</li>
           </ol>
          
         </nav>
@@ -39,22 +39,21 @@
               <a href="javascript:;" class="nav-link text-body p-0">
                 <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
               </a>
-            </li>  
-            <li class="nav-item dropdown pe-2 d-flex align-items-center">
+            </li> -->
+            <!-- <li class="nav-item dropdown pe-2 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa fa-bell cursor-pointer"></i>
               </a>
-               <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+              <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                  
                  
-               <li>
-                  <a class="dropdown-item" href="/logout" onclick="return confirm('Are you sure you want to Logout?');">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Logout
+                <li>
+                  <a class="dropdown-item border-radius-md" href="javascript:;">
+                    logout
                   </a>
-                </li> 
+                </li>
               </ul>
-            </li>-->
+            </li> -->
           </ul>
         </div>
       </div>
@@ -66,14 +65,12 @@
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <strong>Products</strong>
-
-              <a  href="/mobile/create" class="btn btn-info" style="float:right">New Product</a>
+              <strong style="margin-left: 35%;">Update Product</strong>
             </div>
              @if(session()->has('success'))
                  <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session()->get('success') }}
-                   <button type="button" style="float: right" class="close" data-dismiss="alert" aria-label="Close">
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">×</span>
                   </button>
                  </div>
@@ -81,112 +78,50 @@
                  @if(session()->has('error'))
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                      {{ session()->get('error') }}
-                     <button type="button" style="float: right" class="close" data-dismiss="alert" aria-label="Close">
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">×</span>
                     </button>
                   </div>
                 @endif
-            <div class="card-body px-0 pt-0 pb-2">
+            <div class="card-body px-0 pt-0 pb-2" style="width: 70%;margin-left: 14%;">
               <div class="table-responsive p-0">
-                <table class="table align-items-center justify-content-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Details</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Action</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php $count =1;?>
-                    @foreach($products as $product)
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-                          <div>
-                            <img src='{{url("/images/$product->image_path")}}' class="avatar avatar-sm rounded-circle me-2">
-                          </div>
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm">{{$product->name}}</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">{{$product->price}}</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">{{$product->description}}</span>
-                      </td>
+               
 
-                      <!-- <td class="align-middle text-center">
-                        <div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">60%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                           <form  method="POST" enctype="multipart/form-data" >
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                <input type="text" name="product_id" value="{{$product->id}}" />
+                                 <label for="Mobile Sleek">Colors </label><br>
+                                
+                                    <div class="form-group" >
+                                   
+                                    <input type="text" class="form-control"  name="color_name[]" placeholder="Mobile Color" required="" multiple>
+                                    </div>
+                                <div class="form-group" id="new_fields">
+
+                                </div>
+                                 
+                                <div class="form-group">
+                                    <label for="Mobile Sleek">Colors </label><br>
+                                    <input type="file"  name="color_imgs[]" placeholder="mobile Creativity images here" required="" multiple>
+                                </div>
+
+                                <div class="col-md-4 mt-5">
+                                
+                                </div>
+                            
+                            <div class="form-group">
+                                    <button class="btn btn-info w-25" type="submit">Next</button>
+                                    <button type="button" onclick="add_field()" class="btn btn-info w-25 float-right"> Add Color</button>
                             </div>
-                          </div>
+                            </form>
+
+
                         </div>
-                      </td> -->
-                      <td class="align-middle">
-        <!-- <button class="btn btn-link text-secondary mb-0">
-            <i class="fa fa-ellipsis-v text-xs"></i>
-        </button> -->
- 
-
-        <form method="POST" action='{{url("/admin/product/$product->id")}}'>
-             @method('PUT')
-             @csrf
-              <div class="dropdown">
-               <!--  <a  href='{{url("/admin/info/$product->id")}}' class="btn btn-info  " id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</a>
-                 --> 
-                 <a class="btn btn-info" href='{{url("/admin/view-product/$product->id")}}'><i class="fas fa-eye"></i></a>
-              </div>
-              <div class="dropdown ">
-                <a  href='#' class="btn btn-info btn-icon-split" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon text-white-50">
-                    +
-                </span></a>
-                <div class="dropdown-content" style="margin-left: -100px">
-                  <a  href='{{url("/admin/info/$product->id")}}' id="dropdownMenuLink" class="dropdown-item" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Specifications</a>
-                  <a class="dropdown-item"  href='{{url("/admin/video/$product->id")}}' id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Videos</a>
-            </div>
-
-          </div>
-<!-- 
-            <a href="#" class="btn btn-primary btn-icon-split">
-                <span class="icon text-white-50">
-                    <i class="fas fa-flag"></i>
-                </span>
-                                         
-            </a> -->
-             <div class="dropdown">
-                <a  href='#' class="btn btn-primary btn-icon-split" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon text-white-50">
-                    <i class="fas fa-flag"></i>
-                </span></a>
-                <div class="dropdown-content" style="margin-left: -100px">
-                  <a class="dropdown-item" href='{{url("/admin/specifications/$product->id")}}'>Update Specifications</a>
-                <a class="dropdown-item" href='{{url("/admin/sleek/$product->id")}}'>Update Sleek</a>
-                <a class="dropdown-item" href='{{url("/admin/colors/$product->id")}}'>Update Colors</a>
-                <a class="dropdown-item" href='{{url("/admin/creativity/$product->id")}}'>Update Creativity</a>
-                <a class="dropdown-item" href='{{url("/admin/update-product/$product->id")}}'>Update Product Info</a>
-
-            </div>
-
-          </div>
-
-            <button type="submit" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger btn-icon-split">
-              <span class="icon text-white-50">
-                <i class="fas fa-trash"></i>
-              </span>
-            </button>
-        </form>
-                      </td>
-                    </tr>
-                    @endforeach
                     
-                  </tbody>
-                </table>
+                            <div style="display: none;" id="loadimg">
+                            <center><br><br><br><img src="{{asset('./storage/images/loading.gif') }}" style="position: unset;" ><br>
+                            <strong>Loading data please wait ...</strong></center>
+                            </div>
               </div>
             </div>
           </div>
@@ -309,6 +244,41 @@
   </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
+      <script src="{{asset('/js/functions.js')}}"></script>
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <script type="text/javascript">
+
+       function bind_options(){
+           
+             
+              var _binddata = "<label for='Mobile Color'>Colors </label><br><input type='text' name='color_name[]' placeholder='Mobile Color' class='form-control' required />";
+            //  console.log(_binddata); 
+              document.getElementById("new_fields").innerHTML +=_binddata
+            
+           // $('#dropdown_option').html(_binddata);
+            }
+
+            function add_field(){
+
+                var x = document.getElementById("new_fields");
+                // create an input field to insert
+                var new_field1 = document.createElement("label");
+                var new_field = document.createElement("input");
+                // set input field data type to text
+                new_field.setAttribute("type", "text");
+                // set input field name 
+                new_field.setAttribute("name", "color_name[]");
+                new_field.setAttribute("class", "form-control mt-2");  
+
+                // select last position to insert element before it
+                var pos = x.childElementCount;
+
+                // insert element
+                x.insertBefore(new_field, x.childNodes[pos]);
+            }
+    </script>
 </body>
 
 </html>
