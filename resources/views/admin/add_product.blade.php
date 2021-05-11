@@ -95,11 +95,11 @@
                                     <label for="Mobile Price">Price</label>
                                     <input type="number" min="0" class="form-control" name="price" placeholder="mobile Price here" required="">
                                 </div>
-                                
+                               <!--  
                                 <div class="form-group">
                                     <label for="Mobile Details">Details </label>
                                     <textarea class="form-control" name="details" required="" rows="5" placeholder="Mobile Description Here"></textarea>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label for="Mobile Description">Description </label>
                                     <textarea class="form-control" name="description" required="" rows="5" placeholder="Mobile Description Here"></textarea>
