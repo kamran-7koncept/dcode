@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator; 
+use App\Models\ProductDetail;
+use App\Models\ProductVideo;
+use App\Models\ProductCreativity;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Specification;
@@ -219,6 +222,21 @@ class SpecificationController extends Controller
                 $specifications = DB::table('specifications')->insertGetId($values);	 
 
                 if ($specifications > 0) {
+                    $product = Product::where('id', $request->product_id)->get();
+                    $product_detail = ProductDetail::where('product_id', $request->product_id)->get();
+                    $product_videos = ProductVideo::where('product_id', $request->product_id)->get();
+                    $product_creativity = ProductCreativity::where('product_id', $request->product_id)->get();
+                    
+
+                    if (count($product) > 0 && count($product_detail) > 0 && count($product_videos) > 0 && count($product_creativity) > 0) {
+
+                    $aa =    Product::where('id', $request->product_id)
+                        ->update([
+                                'status' => 1
+                            ]);
+                        
+
+                    }
   
                 	 return redirect('/admin/products')->with('success','Operation Successfull'); 
                 }else{

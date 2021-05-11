@@ -88,12 +88,14 @@
                 @endif
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
-                <table class="table align-items-center justify-content-center mb-0">
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+                <table id="myTable"  class="table align-items-center justify-content-center mb-0">
                   <thead>
-                    <tr>
+                    <tr class="header">
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Details</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Action</th>
                       <th></th>
                     </tr>
@@ -117,6 +119,11 @@
                       </td>
                       <td>
                         <span class="text-xs font-weight-bold">{{$product->description}}</span>
+                      </td>
+                      <td>
+                        <span class="text-xs font-weight-bold"><?php if($product->status == 1){echo "Complete";}else{
+                          echo "Incomplete";
+                        } ?></span>
                       </td>
 
                       <!-- <td class="align-middle text-center">
@@ -192,7 +199,7 @@
           </div>
         </div>
       </div>
-      <footer class="footer pt-3">
+     <!--  <footer class="footer pt-3">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-4">
@@ -223,7 +230,7 @@
             </div>
           </div>
         </div>
-      </footer>
+      </footer> -->
     </div>
   </main>
   <div class="fixed-plugin">
@@ -297,6 +304,8 @@
   <script src="{{asset('/assets/js/core/bootstrap.min.js')}}"></script>
   <script src="{{asset('/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="{{asset('/assets/js/functions.js')}}"></script>
+
   <script src="{{asset('assets/js/soft-ui-dashboard.min.js?v=1.0.1')}}"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
@@ -306,6 +315,26 @@
       }
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
+
+
+    function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
   </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>

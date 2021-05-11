@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
+use App\Models\WebPage;
 
 class CompareController extends Controller
 {
@@ -15,9 +16,11 @@ class CompareController extends Controller
      */
     public function index()
     {
-         $products = Product::all(); 
+        $products = Product::all(); 
+         
+        $pages =  WebPage::all();
 
-        return view('compare',compact('products'));
+        return view('compare',compact('products','pages'));
     }
 
     /**

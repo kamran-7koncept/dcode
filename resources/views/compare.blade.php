@@ -7,7 +7,9 @@
         <div class="row">
              <div class="col-sm-3 bg-dark scrollable " >
                      @foreach($products as $product)
+                     @if($product->status == 1)
                       <a class="btn btn-info mt-1 ml-5 mobiles-list" onclick="mobile({{$product->id}})">{{$product->name}}</a><br> 
+                      @endif
                      @endforeach
               </div>
               <div class="col-sm-9">
@@ -18,12 +20,12 @@
     </div>
     <div class="container mt-5">
       <div class="row">
-          <div class="col-sm-6" >
-            <p>Please Enter Model name</p>
+          <div class="col-sm-6 mt-4" >
+            <!-- <p>Please Enter Model name</p>
             <input type="text" name="mobile_name" class=" ">
-             <button type="button" class="btn btn-sm btn-success">Search</button>
-             
-             <div id="mobile_left_detail">
+             <button type="button"  class="btn btn-sm btn-success">Search</button>
+              -->
+             <div id="mobile_left_detail" class="mt-5">
             
       
           </div>

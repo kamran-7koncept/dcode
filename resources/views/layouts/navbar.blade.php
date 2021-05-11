@@ -13,15 +13,13 @@
                 <li class="nav-item float-left">
                     <a class="nav-link font-10 text-dark" href="/">Home</a>
                 </li>  
+                <li class="nav-item float-left ml-2">
+                    <a class="nav-link font-10 text-dark" href="/compare-specifications">Compare</a>
+                </li>
                  
-                <li class="nav-item">
-                    <a class="nav-link font-10 text-dark" href="#'">About</a>
-                </li> 
-                <li class="nav-item">
-                    <a class="nav-link font-10 text-dark" href="#">Contact us</a>
-                </li> 
-               <li class="nav-item">
+                
+             <!--   <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
+                                </li> -->
     </div>
 </nav>

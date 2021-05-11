@@ -27,13 +27,10 @@
                 <li class="nav-item float-left">
                     <a class="nav-link font-10 text-dark" href="/">Home</a>
                 </li>  
-                 
-                <li class="nav-item">
-                    <a class="nav-link font-10 text-dark" href="#'">About</a>
-                </li> 
-                <li class="nav-item">
-                    <a class="nav-link font-10 text-dark" href="#">Contact us</a>
-                </li> 
+                 <li class="nav-item float-left ml-2">
+                    <a class="nav-link font-10 text-dark" href="/compare-specifications">Compare</a>
+                </li>
+               
                 <li class="nav-item">
                   <form method="POST" action='{{url("/order/")}}'>
                     @csrf
@@ -119,11 +116,20 @@
             <h3 class="text-center">Colors Available</h3>
           </div>
             @foreach($color_images as $color_image)
+            @if(count($color_images) == 2)
+          <div class="col-sm-6">
+            
+            <img src='{{url("/images/$product_creativitie->creativity_img")}}' class="card-img-top mx-auto" alt="{{ $product_creativitie->creativity_img }}"/>
+                                
+          </div>
+          @endif
+          @if(count($color_images) == 3)
           <div class="col-sm-4">
             
             <img src='{{url("/images/$product_creativitie->creativity_img")}}' class="card-img-top mx-auto" alt="{{ $product_creativitie->creativity_img }}"/>
                                 
           </div>
+          @endif
           @endforeach
          
 
@@ -167,6 +173,7 @@
 
 
         </div>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

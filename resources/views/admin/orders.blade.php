@@ -13,6 +13,7 @@
       
     </nav>
     <!-- End Navbar -->
+
     <div class="container-fluid py-4">
        
       <div class="row">
@@ -37,13 +38,51 @@
                                         </button>
                                     </div>
                                      @endif
+<style>
+* {
+  box-sizing: border-box;
+}
 
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 30%;
+  font-size: 12px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  float: right;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+           
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
-                <table class="table align-items-center justify-content-center mb-0">
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+                <table  id="myTable" class="table align-items-center justify-content-center mb-0">
                   <thead>
 
-                    <tr>
+                    <tr class="header">
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Customer</th>
@@ -56,7 +95,7 @@
                   <tbody>
                      
                      @foreach($orders as $order)
-                    <tr>
+                    <tr >
                       <td>
                         <div class="d-flex px-2">
                           <div>
@@ -86,7 +125,7 @@
                         </button> -->
 
                         <form method="POST" action='{{url("/admin/order/$order->order_id")}}'>
-                          <a class="btn btn-info" href='{{url("/admin/view-order/$order->order_id")}}'><i class="fas fa-eye"></i></a>
+                          <a onclick="document.getElementById('id{{$order->order_id}}').style.display='block'" class="btn btn-info" href='#'><i class="fas fa-eye"></i></a>
                             @method('PUT')
                             @csrf
                       <button type="submit" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger btn-icon-split"><span class="icon text-white-50">
@@ -95,6 +134,29 @@
                       </form>
                       </td>
                     </tr>
+                    <div class="w3-container">
+   
+                     <!--  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button> -->
+
+                      <div id="id{{$order->order_id}}" class="w3-modal">
+                        <div class="w3-modal-content">
+                          <div class="w3-container">
+                            <span onclick="document.getElementById('id{{$order->order_id}}').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                            <h3 class="text-center">Order Details</h3>
+                            <p class="text-left">Order# = {{$order->order_id}}</p>
+
+                            <p class="text-left">Customer Name = {{$order->customer_name}}</p>
+                             <p class="text-left">Customer Email = {{$order->customer_email}}</p>
+                             <p class="text-left">Product Name = {{$order->name}}</p>
+                             <p class="text-left">Product price  = {{$order->price}}</p>
+                             <p class="text-left">Contact Number = {{$order->contact}}</p>
+                             <p class="text-left">City  = {{$order->city}}</p>
+                             <p class="text-left">Address  = {{$order->address}}</p>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     @endforeach
                   </tbody>
                 </table>
@@ -103,7 +165,7 @@
           </div>
         </div>
       </div>
-      <footer class="footer pt-3">
+     <!--  <footer class="footer pt-3">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-4">
@@ -134,7 +196,7 @@
             </div>
           </div>
         </div>
-      </footer>
+      </footer> -->
     </div>
   </main>
   <div class="fixed-plugin">
@@ -217,6 +279,25 @@
       }
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
+
+    function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
   </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>

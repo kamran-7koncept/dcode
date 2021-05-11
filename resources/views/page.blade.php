@@ -72,41 +72,7 @@
                 </div>
                  <br>
                 <div class="row">
-                    @foreach($products as $pro)
-                    @if($pro->status == 1)
-                        <div class="col-lg-4">
-                            <div class="card" style="margin-bottom: 20px; height: auto;"> 
-                                <img src='{{url("/images/$pro->image_path")}}' class="card-img-top mx-auto" alt="{{ $pro->image_path }}"
-                                >
-                                <div class="card-body">
-                                    <h6 class="card-title">{{ $pro->name }}</h6>
-                                    <p>${{ $pro->price }}</p>
-                                    <?php 
-                                      $id_enc=  \Crypt::encrypt($pro->id);
-                                    ?>
-                                        <!-- <input type="hidden" value="{{ $pro->id }}" id="id" name="id">
-
-                                        <input type="hidden" value="{{ $pro->id }}" id="id" name="id">
-                                        <input type="hidden" value="{{ $pro->name }}" id="name" name="name">
-                                        <input type="hidden" value="{{ $pro->price }}" id="price" name="price">
-                                        <input type="hidden" value="{{ $pro->image_path }}" id="img" name="img">
-                                        <input type="hidden" value="{{ $pro->slug }}" id="slug" name="slug">
-                                        <input type="hidden" value="1" id="quantity" name="quantity"> -->
-                                        <div class="card-footer" style="background-color: white;">
-                                              <div class="row">
-
-                                                <a class="btn btn-secondary btn-sm"   title="Product Details"  href='{{url("/product/$pro->id")}}'>
-                                                      View Details
-                                                </a>
-                                                
-                                            </div>
-                                        </div>
-                                     
-                                </div>
-                            </div>
-                        </div>
-                        @endif
-                    @endforeach
+                  {!! $page->body_content !!}
                 </div>
 
             </div> 

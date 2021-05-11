@@ -16,6 +16,12 @@ Route::POST('/order-now', [App\Http\Controllers\ProductController::class, 'order
 
 Route::POST('/order', [App\Http\Controllers\ProductController::class, 'order']);
 
+Route::get('/order', function(){
+	return Redirect('/')->with('error','Please Pick a product');
+});
+
+/*Route::get('/user/{name}', [App\Http\Controllers\WebPageController::class,'page']);
+*/
 Route::get('/compare-specifications', [App\Http\Controllers\CompareController::class, 'index']);
 
 Route::get('/product/{id_enc}',[App\Http\Controllers\ProductController::class, 'details']);
@@ -58,6 +64,10 @@ Route::get('/mobile/create', function () {
     return view('admin.add_product');
 });
 
+Route::get('/admin/add-page', function () {
+    return view('admin.add_page');
+});
+
 Route::get('/admin/info/{id}', [App\Http\Controllers\Admin\SpecificationController::class,'specifications']);
 
 Route::get('/admin/video/{id}', [App\Http\Controllers\Admin\ProductController::class,'video_view']);
@@ -69,6 +79,10 @@ Route::get('/admin/colors/{id}', [App\Http\Controllers\Admin\SpecificationContro
 
 
 Route::post('/admin/specifications', [App\Http\Controllers\Admin\SpecificationController::class,'store']);
+
+
+Route::post('/admin/create-page', [App\Http\Controllers\Admin\DashboardController::class,'store']);
+
 
 Route::post('/admin/update-specifications', [App\Http\Controllers\Admin\SpecificationController::class,'update']);
 

@@ -29,7 +29,7 @@ class ProductController extends Controller
         $product_count = DB::table('products')
         ->join('product_details', 'products.id', '=', 'product_details.product_id')
         ->where('products.id',$id) 
-        ->count(); 
+        ->get(); 
          $product_creativities = DB::table('product_creativities')
         ->where('product_id',$id) 
         ->get();  
@@ -43,7 +43,7 @@ class ProductController extends Controller
         ->join('products', 'products.id', '=', 'color_images.product_id')
         ->where('color_images.product_id',$id) 
         ->get();
-        if ($product_count > 0) {
+        if (count($product_count) > 0) {
               return view('admin.product_details',compact('product','product_creativities','colors','color_images','videos'));
         }else{
            return  redirect('/admin/products/')->with('error','pick a valid Product');
@@ -399,6 +399,20 @@ class ProductController extends Controller
 
             $videos = DB::table('product_videos')->insert($collection);  
             if ($videos) {
+                $product = Product::where('id', $request->product_id)->get();
+                    $product_detail = ProductDetail::where('product_id', $request->product_id)->get();
+                    $product_videos = ProductVideo::where('product_id', $request->product_id)->get();
+                    $product_creativity = ProductCreativity::where('product_id', $request->product_id)->get();
+                    
+
+                    if (count($product) > 0 && count($product_detail) > 0 && count($product_videos) > 0 && count($product_creativity) > 0) {
+
+                       $aa = Product::where('id', $request->product_id)
+                        ->update([
+                                'status' => 1
+                            ]);
+                       
+                    }
                return redirect('/admin/products')->with('success','videos added successfully');
             }else{
                return redirect('/admin/products')->with('error','videos Not Added');

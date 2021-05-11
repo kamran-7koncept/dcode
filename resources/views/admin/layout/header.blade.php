@@ -15,6 +15,8 @@
   </title>
   <!--     Fonts and icons     -->
     <link href="{{asset('css/multisteps.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/w3modal.css')}}" rel="stylesheet" type="text/css">
+    
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->

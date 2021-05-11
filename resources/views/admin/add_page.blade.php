@@ -8,7 +8,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Admin</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Product</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">New Page</li>
           </ol>
          
         </nav>
@@ -35,26 +35,7 @@
                 </div>
               </a>
             </li>
-            <!-- <li class="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0">
-                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-              </a>
-            </li>  
-            <li class="nav-item dropdown pe-2 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-bell cursor-pointer"></i>
-              </a>
-               <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-                 
-                 
-               <li>
-                  <a class="dropdown-item" href="/logout" onclick="return confirm('Are you sure you want to Logout?');">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Logout
-                  </a>
-                </li> 
-              </ul>
-            </li>-->
+           
           </ul>
         </div>
       </div>
@@ -65,117 +46,49 @@
       <div class="row">
         <div class="col-12">
           <div class="card mb-4">
-                  <div class="container" style="margin-top: 50px;">
-       
-        <div class="row">
-
-          <div class="col-sm-6">
-            <h3>
-              @if($product->overview_img != "")
-              {{$product->name}}
-              @else
-              <p class="text-center"> No overview Info</p>
+            @if(session()->has('success'))
+                 <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session()->get('success') }}
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                  </button>
+                 </div>
               @endif
-            </h3>
-             
-          </div>
-           <div class="col-sm-6">
-            
-            <a href="#" class="float-right" name="specification" id="specifications">Specification</a>
-
-          </div>
-          <div class="col-sm-12">
-            @if($product->overview_img != "")
-            <img src='{{url("/images/$product->overview_img")}}' class="card-img-top mx-auto" alt="{{ $product->overview_img }}">
-            @else
-
-            <p class="text-center">No Overview image Available</p>
-            @endif
-          </div>
-
-            <?php 
-          if (count($product_creativities) > 0 ) { 
-            ?>
-            <div class="col-sm-12">
-            <h3 class="text-center">More Modes To Free Your Creaivity</h3>
-          </div>
-            @foreach($product_creativities as $product_creativitie)
-          <div class="col-sm-6">
-            
-            <img src='{{url("/images/$product_creativitie->creativity_img")}}' class="card-img-top mx-auto" alt="{{ $product_creativitie->creativity_img }}"
-                                >
-          </div>
-          @endforeach
-        <?php
-              }else{
-                echo "<p class='text-center'>Creativity Images unavailable</p>";
-              }
-          ?>
-          <div class="col-sm-12">
-            <h3 class="text-center">Colors Available</h3>
-          </div>
-            @foreach($color_images as $color_image)
-          <div class="col-sm-4">
-            
-            <img src='{{url("/images/$product_creativitie->creativity_img")}}' class="card-img-top mx-auto" alt="{{ $product_creativitie->creativity_img }}"/>
-                                
-          </div>
-          @endforeach
-         
-          @if(count($colors) > 0 )
-          @foreach($colors as $color)
-          @if(count($colors) == 2)
-          <div class="col-sm-6">
-            
-            <p class="text-center">{{$color->color_name}}</p>
-                                
-          </div>
-          @elseif(count($colors) == 3)
-          <div class="col-sm-4">
-            
-            <p class="text-center">{{$color->color_name}}</p>
-                                
-          </div>
-          @elseif(count($colors) == 4)
-          <div class="col-sm-3">
-            
-            <p class="text-center">{{$color->color_name}}</p>
-                                
-          </div>
-          @else
-          <div class="col-sm-12">
-            
-            <p class="text-center">{{$color->color_name}}</p>
-                                
-          </div>
-          @endif
-
-          @endforeach
-          @else
-          <p class="text-center">No Colors Available</p>
-           @endif
-          </div>
-
-         <div class="col-sm-12" >
-            <h3 class="text-center">Sleek Stylish Design</h3>
-            @if($product->sleek_img != "")
-            <img src='{{url("/images/$product->sleek_img")}}' class="card-img-top mx-auto" alt="{{ $product->sleek_img }}">
-            @else
-            <p class="text-center">No Sleek Images Available </p>
-            @endif
-        </div>
-        @foreach($videos as $video)
-        <div class="col-sm-4" >
-          <iframe width="853" height="480" src="{{ $video->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-        </div>
-        @endforeach
-
-        </div>
-          </div>
+                 @if(session()->has('error'))
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                     {{ session()->get('error') }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                @endif
+            <div class="container" style="margin-top: 50px;">
+                <form method="post" action='{{url("/admin/create-page/")}}' class="" style="width: 80%;margin-left: 10%">
+                  @csrf
+                  <input type="hidden" name="body_type" value="1">
+                  <div class="form-group">
+                    <label>Page Name</label>
+                  <input type="text" name="pagename" class="form-control" required="">
+                  </div>
+                  <div class="form-group">
+                    <button type="button" id="add_field_button" onclick="add_field()">Add Text Area</button>
+                    <button type="button">Add Form</button>
+                    
+                  </div>
+                  <div id="new_fields" class="form-group">
+                    
+                  </div>
+                  <div class="form-group">
+                    <button type="soft-ui-dashboard" class="btn btn-info">Create</button>
+                  </div>
+                  
+                </form>
+            </div>
         </div>
       </div>
-      <footer class="footer pt-3">
+    </div>
+
+<!--       <footer class="footer pt-3">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-4">
@@ -206,7 +119,7 @@
             </div>
           </div>
         </div>
-      </footer>
+      </footer> -->
     </div>
   </main>
   <div class="fixed-plugin">
@@ -289,7 +202,30 @@
       }
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
-  </script>
+         
+            function add_field(){
+
+                var x = document.getElementById("new_fields");
+                // create an input field to insert
+                var new_field1 = document.createElement("label");
+                var new_field = document.createElement("textarea");
+                // set input field data type to text
+            //    new_field.setAttribute("type", "text");
+                // set input field name 
+                new_field.setAttribute("name", "list");
+                new_field.setAttribute("class", "form-control mt-2");  
+
+                // select last position to insert element before it
+                var pos = x.childElementCount;
+
+                // insert element
+                x.insertBefore(new_field, x.childNodes[pos]);
+
+                
+                document.getElementById("add_field_button").style.display = "none";
+
+            }
+    </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>

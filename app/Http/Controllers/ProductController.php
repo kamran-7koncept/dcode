@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Validator; 
+use Illuminate\Support\Facades\Validator;
+use App\Models\WebPage;
 class ProductController extends Controller
 {
     //
@@ -13,10 +14,14 @@ class ProductController extends Controller
     	$products = DB::table('products')
         /* ->limit(3)*/
         ->get();
-        return view('welcome',compact('products'));
+
+        $pages =  WebPage::all();
+        return view('welcome',compact('products','pages'));
     }
 
     public function Details($enc_id){
+        $pages =  WebPage::all();
+
     	$product = DB::table('products')
         ->join('product_details', 'products.id', '=', 'product_details.product_id')
     	->where('products.id',$enc_id) 
@@ -34,7 +39,7 @@ class ProductController extends Controller
         ->where('color_images.product_id',$enc_id) 
         ->get();
 
-        return view('product_details',compact('product','product_creativities','colors','color_images'));
+        return view('product_details',compact('product','product_creativities','colors','color_images','pages'));
     }
 
     public function order(Request $request){
