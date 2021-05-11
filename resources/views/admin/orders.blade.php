@@ -173,7 +173,7 @@
                               <input type="hidden" name="order_id" value="{{$order->order_id}}">
                               <div class="form-group">
                                 <select class="form-control" name="status" >
-                                <option disabled=""selected>---Choose Status---</option>
+                                <option disabled="" selected>---Choose Status---</option>
                                  <option value="1">Dispatched</option>
                                  <option value="2">Delivered</option>
                                  <option value="0">Pending</option>
