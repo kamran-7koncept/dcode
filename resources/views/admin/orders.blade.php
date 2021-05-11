@@ -88,6 +88,7 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Customer</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Address</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Contact</th>
+                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Action</th>
                       <th></th>
                     </tr>
@@ -98,6 +99,7 @@
                     <tr >
                       <td>
                         <div class="d-flex px-2">
+                          <a href="#" onclick="document.getElementById('id{{$order->order_id}}').style.display='block'">
                           <div>
                             <img src='{{url("/images/$order->image_path")}}' class="avatar avatar-sm rounded-circle me-2">
                           </div>
@@ -105,6 +107,7 @@
                             <h6 class="mb-0 text-sm">{{$order->name}}</h6>
                           </div>
                         </div>
+                      </a>
                       </td>
                        <td>
                         <p class="text-sm font-weight-bold mb-0">{{$order->price}}</p>
@@ -117,6 +120,19 @@
                       </td>
                       <td>
                         <span class="text-xs font-weight-bold">{{$order->contact}}</span>
+                      </td>
+                      <td>
+                        <span class="text-xs font-weight-bold">
+                          <?php
+                          if($order->status == 0){
+                          echo "<b style='color: red'>Pending</b>";
+                          }elseif($order->status == 1){
+                          echo "<b style='color: blue'>Dispatched</b>";
+                          }else{
+                          echo "<b style='color: green'>Delivered</b>";
+                         }
+                          ?>
+                        </span>
                       </td>
                        
                       <td class="align-middle">
@@ -152,7 +168,21 @@
                              <p class="text-left">Contact Number = {{$order->contact}}</p>
                              <p class="text-left">City  = {{$order->city}}</p>
                              <p class="text-left">Address  = {{$order->address}}</p>
+                             <form method="post" action='{{url("/admin/update-order/")}}'>
+                              @csrf
+                              <input type="hidden" name="order_id" value="{{$order->order_id}}">
+                              <div class="form-group">
+                                <select class="form-control" name="status" >
+                                <option disabled=""selected>---Choose Status---</option>
+                                 <option value="1">Dispatched</option>
+                                 <option value="2">Delivered</option>
+                                 <option value="0">Pending</option>
+                               </select>
+                               <input type="submit" class="mt-3" name="update-status" value="Update">
+                                </div>
+                               
 
+                             </form>
                           </div>
                         </div>
                       </div>

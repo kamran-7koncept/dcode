@@ -1,48 +1,6 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $title ?? 'E-COMMERCE STORE' }}</title>
-    <link rel="stylesheet" href={{ url('css/app.css') }}>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-</head>
-<body style="background-color: #f8f9fa;">
-<div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white">
-   <a class="navbar-brand" href="{{ url('/') }}">
-           <img src="{{asset('./storage/img/logo.png')}}" class="img img-responsive">
-        </a>
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+@extends('layouts.app')
 
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-         
-        <div class="navbar-nav ml-auto">
-            <ul class="navbar-nav ml-auto ">
-                <li class="nav-item float-left">
-                    <a class="nav-link font-10 text-dark" href="/">Home</a>
-                </li>  
-                 <li class="nav-item float-left ml-2">
-                    <a class="nav-link font-10 text-dark" href="/compare-specifications">Compare</a>
-                </li>
-               
-                <li class="nav-item">
-                  <form method="POST" action='{{url("/order/")}}'>
-                    @csrf
-                    <input type="hidden" name="product_id" value="{{$product->id}}">
-                    <button class="btn btn-success" href="#">Order Now</button>
-                  </form>
-                </li>
-    </div>
-</nav>
-    <main class="py-4">
-     
-
+@section('content')
 <div id="demo" class="carousel slide margin-t-35 " data-ride="carousel">
   <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -170,14 +128,16 @@
             <img src='{{url("/images/$product->sleek_img")}}' class="card-img-top mx-auto" alt="{{ $product->sleek_img }}">
             
         </div>
+        @foreach($videos as $video)
 
+        <div class="col-sm-4">
+        {!! $video->video_link !!}
+        <p class="text-center">{{$video->video_name}}</p>
+          
+        </div>
+        @endforeach
 
         </div>
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</body>
-</html>
+        
+ 
+@endsection

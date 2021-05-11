@@ -61,9 +61,9 @@
               <div class="table-responsive p-0">
 
                            <form action='{{url("/admin/add-videos/")}}' method="POST" enctype="multipart/form-data" >
-                            <input type="number" id="video_counter" name="counter" value="1">
+                            <input type="hidden" id="video_counter" name="counter" value="1">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                <input type="text" class="product_id_thrd" name="product_id" value="{{$product->id}}" />
+                                <input type="hidden" class="product_id_thrd" name="product_id" value="{{$product->id}}" />
                                 
                                  <label for="Mobile Sleek">Videos </label><br>
                                 <textarea type="text" name="video_link[]" class="form-control mt-2"></textarea>

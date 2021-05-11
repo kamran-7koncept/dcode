@@ -24,6 +24,17 @@ Route::get('/order', function(){
 */
 Route::get('/compare-specifications', [App\Http\Controllers\CompareController::class, 'index']);
 
+Route::get('/about-us',function (){
+	return view('about-us');
+});
+Route::get('/policies',function (){
+	return view('policies');
+});
+Route::get('/terms-conditions',function (){
+	return view('terms-conditions');
+});
+
+
 Route::get('/product/{id_enc}',[App\Http\Controllers\ProductController::class, 'details']);
 
 Route::get('/mobile/details/{id}',[App\Http\Controllers\CompareController::class, 'show_left']);
@@ -90,6 +101,10 @@ Route::post('/admin/update-sleek', [App\Http\Controllers\Admin\ProductController
  
 
  Route::post('/admin/update-product', [App\Http\Controllers\Admin\ProductController::class,'update_product']);
+
+
+Route::post('/admin/update-order', [App\Http\Controllers\Admin\OrderController::class,'update_order']);
+
 
 Route::get('/admin/sleek/{id}', [App\Http\Controllers\Admin\ProductController::class,'update_sleek_view']);
 

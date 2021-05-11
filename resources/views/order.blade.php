@@ -53,6 +53,7 @@
                   <div class="col-sm-12">
                     <form method="POST" action='{{url("/order-now/")}}' style="margin-left:25%;width: 50%">
                     @csrf
+                    <h3 class="text-center">{{$product->name}}</h3>
                     <input type="hidden" name="product_id" value="{{$product->id}}">
                      <div class="form-group">
                        <label>Customer Name</label>

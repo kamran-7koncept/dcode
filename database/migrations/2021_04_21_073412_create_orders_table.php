@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('order_id');
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('customer_id');
+            $table->integer('status')->default('0');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('customer_id')->references('customer_id')->on('customer_details')->onDelete('cascade');
             $table->timestamps();

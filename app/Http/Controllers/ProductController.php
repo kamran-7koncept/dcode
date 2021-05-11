@@ -39,7 +39,11 @@ class ProductController extends Controller
         ->where('color_images.product_id',$enc_id) 
         ->get();
 
-        return view('product_details',compact('product','product_creativities','colors','color_images','pages'));
+        $videos = DB::table('product_videos')
+        ->where('product_id',$enc_id) 
+        ->get();
+
+        return view('product_details',compact('product','product_creativities','colors','color_images','pages','videos'));
     }
 
     public function order(Request $request){

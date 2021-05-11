@@ -131,4 +131,3 @@ function fixStepIndicator(n) {
     }       
   }
 }
-</script>

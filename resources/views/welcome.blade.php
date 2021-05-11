@@ -113,4 +113,5 @@
            <!--  <a href="/products" class="btn btn-info bg-dark align-center">Show All</a> -->
         </div>
     </div>
+    
 @endsection

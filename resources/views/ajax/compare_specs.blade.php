@@ -1,5 +1,6 @@
+              <h3 class="text-center">{{$specifications->name}}</h3>
+             
              <img src='{{url("/images/$specifications->image_path")}}' class="card-img-top mx-auto mt-4">
-              
             <table class="table table-bordered mt-5">
               <tbody>
                 <tr>

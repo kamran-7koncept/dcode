@@ -19,6 +19,21 @@ class OrderController extends Controller
         return view('admin.orders',compact('orders'));
     }
 
+        public function update_order(Request $request){
+        $order_id = $request->order_id;
+        $order_status = $request->status;
+
+        $result = DB::table('orders')->where('order_id', $order_id)->update(['status' => $order_status]);
+
+        if ($result) {
+             return redirect('/admin/orders')->with('success','Product info has been updated');
+        }else{
+            return redirect('/admin/orders')->with('error','not updated');
+        }
+        
+
+    }
+
     public function destroy($id)
         {
 		$result=	Order::where('order_id', $id)
