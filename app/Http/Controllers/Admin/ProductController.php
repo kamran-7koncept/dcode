@@ -231,7 +231,9 @@ class ProductController extends Controller
 
         if($request->hasfile('color_imgs'))
          {
-            $count =0;
+            $count =1;
+            $number=0;
+
             foreach($request->file('color_imgs') as $file)
             {
                 $collection = array();
@@ -240,9 +242,20 @@ class ProductController extends Controller
                 $file->move(public_path().'/images/', $name);  
                 $data[] = $name; 
 
-                $collection[] = array('color_name' => $request->color_name[$count-1],
+                
+                if ($request->color_name[$number++]) {
+
+                     $collection[] = array('color_name' => $request->color_name[$number++],
                  'product_id' =>$product_id,
                  'color_img' =>$name);
+
+                }else{
+
+                     $collection[] = array(
+                 'product_id' =>$product_id,
+                 'color_img' =>$name);
+
+                }
             DB::table('product_colors')->insert($collection); 
 
 

@@ -76,8 +76,9 @@
                     @if($pro->status == 1)
                         <div class="col-lg-4">
                             <div class="card" style="margin-bottom: 20px; height: auto;"> 
-                                <img src='{{url("/images/$pro->image_path")}}' class="card-img-top mx-auto" alt="{{ $pro->image_path }}"
+                               <a class="btn btn-secondary btn-sm"   title="Product Details"  href='{{url("/product/$pro->id")}}'> <img src='{{url("/images/$pro->image_path")}}' class="card-img-top mx-auto" alt="{{ $pro->image_path }}"
                                 >
+                              </a>
                                 <div class="card-body">
                                     <h6 class="card-title">{{ $pro->name }}</h6>
                                     <p>${{ $pro->price }}</p>

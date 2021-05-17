@@ -125,7 +125,7 @@
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <input type="hidden" class="product_id_sec" name="product_id" id="product_id_sec" value="" />
                                 <div class="form-group">
-                                    <label for="Mobile Sleek">Cretivity Image </label><br>
+                                    <label for="Mobile Sleek">Cretivity Image <b>(choose only 2 images)</b> </label><br>
                                     <input type="file"  name="creativity_imgs[]" placeholder="mobile Creativity images here" required="" multiple>
                                 </div>
                                 <div class="form-group">
@@ -136,7 +136,7 @@
                            <form id="product_info_third" style="display: none" method="POST" enctype="multipart/form-data" >
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <input type="hidden" class="product_id_thrd" name="product_id" id="product_id_thrd" value="" />
-                                 <label for="Mobile Sleek">Colors </label><br>
+                                 <label for="Mobile Sleek">Colors <b>(keep number of images and names same)</b> </label><br>
                                 
                                     <div class="form-group" >
                                    
