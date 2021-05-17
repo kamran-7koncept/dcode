@@ -11,7 +11,9 @@ use App\Models\ProductCreativity;
 use Illuminate\Support\Facades\Auth; 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
+use Illuminate\Support\Str; 
+use Illuminate\Support\Facades\File; 
+
 
 class ProductController extends Controller
 {
@@ -39,9 +41,9 @@ class ProductController extends Controller
         $videos = DB::table('product_videos')
         ->where('product_id',$id) 
         ->get();
-        $color_images = DB::table('color_images')
-        ->join('products', 'products.id', '=', 'color_images.product_id')
-        ->where('color_images.product_id',$id) 
+        $color_images = DB::table('product_colors')
+        ->join('products', 'products.id', '=', 'product_colors.product_id')
+        ->where('product_colors.product_id',$id) 
         ->get();
         if (count($product_count) > 0) {
               return view('admin.product_details',compact('product','product_creativities','colors','color_images','videos'));
@@ -66,7 +68,10 @@ class ProductController extends Controller
 
         return view('admin.update-creativity',compact('product','creativity'));
     }
-        public function update_creativity(Request $request){
+
+
+
+    public function update_creativity(Request $request){
        
         $product_id=$request->id;
 
@@ -82,11 +87,16 @@ class ProductController extends Controller
             } 
 
              for ($i=0; $i < sizeof($request->ids) ; $i++) { 
-                        
+                $creativity_image = DB::table('product_creativities')
+                ->where('creativity_id', $request->ids[$i])
+                ->first();
+                $image_name = $creativity_image->creativity_img;
+                 File::delete('images/'.$image_name);
+                 
                 DB::table('product_creativities')->where('creativity_id', $request->ids[$i])->update(['creativity_img' => $data[$i]]);
-
-
+                
                    }
+                    
             return redirect('/admin/products')->with('success','You have successfully Updated info.'); 
             //     DB::table('color_images')->insertGetId($values);
                 
@@ -102,6 +112,13 @@ class ProductController extends Controller
 
          $imageName = Auth::id()."-".time().'.'.$request->image->extension();  
         $request->image->move(public_path('images'), $imageName); 
+
+        $product_image = DB::table('products')
+                ->where('id', $request->product_id)
+                ->first();
+                $image_name = $product_image->image_path;
+                 File::delete('images/'.$image_name);
+                 
 
         $result = DB::table('products')->where('id', $request->product_id)->update(['name' => $request->name,'price' => $request->price,'details' => $request->details,'description' => $request->description,'image_path' => $imageName]);
         if ($result) {
@@ -187,26 +204,52 @@ class ProductController extends Controller
         $color_name=$request->input('color_name');
         $product_id=$request->input('product_id');
 
-         $collection = array();
+    //     $collection = array();
          
         if ($color_name) {
-            foreach ($color_name as $name) { 
-                $collection[] = array('color_name' => $name, 'product_id' =>$product_id);
+
+           /* foreach ($color_name as $name) { 
+                if($request->hasfile('color_imgs'))
+                     {
+                        for ($i=0; $i < sizeof($request->color_imgs) ; $i++) { 
+                            $collection[] = array('color_name' => $name, 'product_id' =>$product_id,
+                                'color_img' =>$product_id,
+                            );
+
+                        }
+                     }else{
+
+                        $collection[] = array('color_name' => $name, 'product_id' =>$product_id);
+
+                     }
+
             }
 
-            DB::table('product_colors')->insert($collection); 
+            DB::table('product_colors')->insert($collection); */
+    
+         
 
         if($request->hasfile('color_imgs'))
          {
-            $count =1;
+            $count =0;
             foreach($request->file('color_imgs') as $file)
             {
+                $collection = array();
+
                 $name = $count++."-".Auth::id()."-".time().'.'.$file->extension();
                 $file->move(public_path().'/images/', $name);  
-                $data[] = $name;  
+                $data[] = $name; 
+
+                $collection[] = array('color_name' => $request->color_name[$count-1],
+                 'product_id' =>$product_id,
+                 'color_img' =>$name);
+            DB::table('product_colors')->insert($collection); 
+
+
             } 
 
-            foreach ($data as $image_info) {
+           /* foreach ($data as $image_info) {
+
                 $values = array(
                     'img_name' => $image_info,
                     'product_id'=>$product_id,
@@ -214,7 +257,7 @@ class ProductController extends Controller
 
                  DB::table('color_images')->insertGetId($values);
                 
-            }
+            }*/
 
          }
         
@@ -223,6 +266,7 @@ class ProductController extends Controller
     }
 
     public function update_colors(Request $request){
+        //in progress
         $color_name=$request->input('color_name');
         $product_id=$request->input('product_id');
 
@@ -238,13 +282,32 @@ class ProductController extends Controller
             } 
 
              for ($i=0; $i < sizeof($request->ids) ; $i++) { 
+
+                $color_image = DB::table('product_colors')
+                ->where('color_id', $request->ids[$i])
+                ->first();
+                $image_name = $color_image->color_img;
+                 File::delete('images/'.$image_name);
+                 
                         
-                DB::table('product_colors')->where('color_id', $request->ids[$i])->update(['color_name' => $request->color_name[$i]]);
+                DB::table('product_colors')->where('color_id', $request->ids[$i])->update(['color_name' => $request->color_name[$i],
+                    'color_img' => $data[$i]]);
 
                    }
             return redirect('/mobile/products')->with('success','You have successfully Updated info.'); 
             //     DB::table('color_images')->insertGetId($values);
                 
+            }else{
+
+
+             for ($i=0; $i < sizeof($request->ids) ; $i++) { 
+ 
+                        
+                DB::table('product_colors')->where('color_id', $request->ids[$i])->update(['color_name' => $request->color_name[$i]]);
+
+                   }
+
+            return redirect('/mobile/products')->with('success','You have successfully Updated info.');
             }
         
         }
@@ -323,8 +386,7 @@ class ProductController extends Controller
 
 
     public function sleek_update(Request $request){
-        // in progress
-
+        
          $product_id=$request->product_id;
 
 
@@ -333,7 +395,15 @@ class ProductController extends Controller
              
             if (!$request->hasfile('sleek_imgs') && $request->hasfile('overview_imgs')) {
                  $imageName = Auth::id()."-".time().'.'.$request->overview_imgs->extension();  
-            $request->overview_imgs->move(public_path('images'), $imageName); 
+            $request->overview_imgs->move(public_path('images'), $imageName);
+
+            $sleek_image = DB::table('product_details')
+                ->where('product_id', $request->product_id)
+                ->first();
+            $image_name = $sleek_image->overview_img;
+                 File::delete('images/'.$image_name);
+                 
+
 
                 $res =  ProductDetail::where('product_id', $request->product_id)
         ->update(['sleek_info' => $request->sleek_info,
@@ -343,7 +413,17 @@ class ProductController extends Controller
             }elseif($request->hasfile('sleek_imgs') && !$request->hasfile('overview_imgs')){
             $overview_imgs_name = "11".Auth::id()."-".time().'.'.$request->sleek_imgs->extension();  
             $request->sleek_imgs->move(public_path('images'), $overview_imgs_name);
-                $res =  ProductDetail::where('product_id', $request->product_id)
+            
+
+            $sleek_image = DB::table('product_details')
+                ->where('product_id', $request->product_id)
+                ->first();
+            $image_name = $sleek_image->sleek_img;
+                 File::delete('images/'.$image_name);
+               
+
+
+            $res =  ProductDetail::where('product_id', $request->product_id)
         ->update(['sleek_img' => $overview_imgs_name,
                     'sleek_info' => $request->sleek_info,
                     'overview_info' => $request->overview_info]);
@@ -354,6 +434,16 @@ class ProductController extends Controller
             $request->overview_imgs->move(public_path('images'), $overview_imgs_name);
              $imageName = Auth::id()."-".time().'.'.$request->sleek_imgs->extension();  
             $request->sleek_imgs->move(public_path('images'), $imageName); 
+
+            $sleek_image = DB::table('product_details')
+                ->where('product_id', $request->product_id)
+                ->first();
+            $image_name = $sleek_image->sleek_img;
+                 File::delete('images/'.$image_name);
+
+            $image_name2 = $sleek_image->overview_img;
+                 File::delete('images/'.$image_name2);
+                  
 
                 $res =  ProductDetail::where('product_id', $request->product_id)
         ->update(['sleek_img' => $imageName,

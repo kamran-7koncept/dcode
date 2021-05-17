@@ -34,9 +34,9 @@ class ProductController extends Controller
     	->where('product_id',$enc_id) 
         ->get(); 
 
-        $color_images = DB::table('color_images')
-        ->join('products', 'products.id', '=', 'color_images.product_id')
-        ->where('color_images.product_id',$enc_id) 
+        $color_images = DB::table('product_colors')
+        ->join('products', 'products.id', '=', 'product_colors.product_id')
+        ->where('product_colors.product_id',$enc_id) 
         ->get();
 
         $videos = DB::table('product_videos')

@@ -73,18 +73,19 @@
           <div class="col-sm-12">
             <h3 class="text-center">Colors Available</h3>
           </div>
+
             @foreach($color_images as $color_image)
             @if(count($color_images) == 2)
           <div class="col-sm-6">
             
-            <img src='{{url("/images/$product_creativitie->creativity_img")}}' class="card-img-top mx-auto" alt="{{ $product_creativitie->creativity_img }}"/>
+            <img src='{{url("/images/$color_image->color_img")}}' class="card-img-top mx-auto" alt="{{ $color_image->color_img }}"/>
                                 
           </div>
           @endif
           @if(count($color_images) == 3)
           <div class="col-sm-4">
             
-            <img src='{{url("/images/$product_creativitie->creativity_img")}}' class="card-img-top mx-auto" alt="{{ $product_creativitie->creativity_img }}"/>
+            <img src='{{url("/images/$color_image->color_img")}}' class="card-img-top mx-auto" alt="{{ $color_image->color_img }}"/>
                                 
           </div>
           @endif
@@ -92,19 +93,19 @@
          
 
           @foreach($colors as $color)
-          @if(count($colors) == 2)
+          @if(count($colors) == 2 && $color->color_name != "")
           <div class="col-sm-6">
             
             <p class="text-center">{{$color->color_name}}</p>
                                 
           </div>
-          @elseif(count($colors) == 3)
+          @elseif(count($colors) == 3 && $color->color_name != "")
           <div class="col-sm-4">
             
             <p class="text-center">{{$color->color_name}}</p>
                                 
           </div>
-          @elseif(count($colors) == 4)
+          @elseif(count($colors) == 4 && $color->color_name != "")
           <div class="col-sm-3">
             
             <p class="text-center">{{$color->color_name}}</p>

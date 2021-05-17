@@ -114,10 +114,11 @@
           <div class="col-sm-12">
             <h3 class="text-center">Colors Available</h3>
           </div>
+
             @foreach($color_images as $color_image)
           <div class="col-sm-4">
             
-            <img src='{{url("/images/$product_creativitie->creativity_img")}}' class="card-img-top mx-auto" alt="{{ $product_creativitie->creativity_img }}"/>
+            <img src='{{url("/images/$color_image->color_img")}}' class="card-img-top mx-auto" alt="{{ $color_image->color_img }}"/>
                                 
           </div>
           @endforeach
@@ -164,15 +165,13 @@
             <p class="text-center">No Sleek Images Available </p>
             @endif
         </div>
-        <div class="col-sm-12 mt-3" >
-        @foreach($videos as $video)
-
-         <!--  <iframe width="853" height="480" src="{{ $video->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --> 
-          {!! $video->video_link !!}
-          @endforeach
-        </div>
         
-
+        @foreach($videos as $video)
+          <div class="col-sm-4 mt-3" >
+          {!! $video->video_link !!}
+           </div>
+          @endforeach
+       
         </div>
           </div>
         </div>
