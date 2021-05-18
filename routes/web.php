@@ -125,6 +125,7 @@ Route::post('/admin/update-colors/', [App\Http\Controllers\Admin\ProductControll
 
 Route::post('/admin/add-videos/', [App\Http\Controllers\Admin\ProductController::class,'videos']);
 
+Route::post('/admin/verify-product', [App\Http\Controllers\Admin\ProductController::class,'verify_product']);
 
 Route::get('/admin/update-product/{id}', [App\Http\Controllers\Admin\ProductController::class,'update_product_view']);
 

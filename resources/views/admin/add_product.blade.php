@@ -89,7 +89,9 @@
                                   <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <div class="form-group">
                                     <label for="Mobile Name">Name</label>
-                                    <input type="text" class="form-control" name="name" placeholder="mobile name here" required="">
+                                    <input type="text" class="form-control" name="name" id="mobile_name" placeholder="mobile name here" required="">
+                                     <span id="duplicate_product" style="color: red"></span>
+                
                                 </div>
                                 <div class="form-group">
                                     <label for="Mobile Price">Price</label>
@@ -117,7 +119,7 @@
                                     <input type="file" min="0"  name="sleek_img" placeholder="mobile Description here" required="">
                                 </div>
                                 <div class="form-group">
-                                    <button  class="btn btn-info w-25" type="submit" >Next</button>
+                                    <button id="add_product"  class="btn btn-info w-25" type="submit" >Next</button>
                                 </div>
                             </form>
 
@@ -315,13 +317,13 @@
          console.log(strMessage.product_id);
 */
           document.getElementById("product_id_sec").value = strMessage.product_id;
-
+          swal("Upload!", "Product info uploaded Successfully!", "success");
          document.getElementById("loadimg").style.display="none"; 
          document.getElementById("product_info_second").style.display="block";
                                            
           },
             error: function (jqXHR, textStatus, errorThrown,strMessage) {
-                  
+              swal("Upload Failed!", "Product info was not uploaded !", "failure");
          console.log(strMessage);
 
                      console.log(jqXHR);
@@ -352,12 +354,13 @@
          console.log(strMessage);
          console.log(status);
          */
+         swal("Upload!", "Creativity Info uploaded Successfully!", "success");
          document.getElementById("loadimg").style.display="none";   
          document.getElementById("product_info_third").style.display="block";
                                              
           },
             error: function (jqXHR, textStatus, errorThrown,strMessage) {
-                 
+              swal("Upload Failed!", "Creativity Images are not uploaded!", "failure");
          console.log(strMessage);
 
                      console.log(jqXHR);
@@ -391,6 +394,7 @@
            location.reload();                                 
           },
             error: function (jqXHR, textStatus, errorThrown,strMessage) {
+        swal("Upload Failed!", "Colors are not uploaded Successfully!", "failure");
                  
          console.log(strMessage);
 
@@ -429,6 +433,61 @@
                 // insert element
                 x.insertBefore(new_field, x.childNodes[pos]);
             }
+
+
+
+            // count images
+            $(".creativity_form").click(function(){
+                var $fileUpload = $("input[type='file']");
+                if (parseInt($fileUpload.get(0).files.length)>2){
+                 alert("You can only upload a maximum of 2 files");
+                }
+            }); 
+
+        $( "#mobile_name" ).keyup(function(event) { 
+
+        let name  = this.value;
+        
+        $.ajax( {
+                url: "{{url('/admin/verify-product')}}",
+                type: "POST",
+                data: {name:name},
+                 headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+                dataType: "text",
+                success: function(strMessage,status) {
+               
+                if (strMessage > 0 ) { 
+
+                  document.getElementById("add_product").disabled = true; 
+                   document.getElementById("duplicate_product").style.color="red";
+
+                  $("#duplicate_product").text("You can not Enter Same Product Name Twice")
+
+
+                }else{
+
+
+                  $("#duplicate_product").text("");
+
+                  document.getElementById("add_product").disabled = false;
+
+
+                }
+                                                                    
+                },
+                  error: function (jqXHR, textStatus, errorThrown) {
+                  document.getElementById("add_product").disabled = true;
+                
+                        
+                           console.log(jqXHR);
+                           console.log(textStatus);
+                           console.log(errorThrown);    
+                      }
+            });
+});   
+
     </script>
 </body>
 

@@ -23,7 +23,7 @@ class OrderController extends Controller
         $order_id = $request->order_id;
         $order_status = $request->status;
 
-        $result = DB::table('orders')->where('order_id', $order_id)->update(['status' => $order_status]);
+        $result = DB::table('orders')->where('order_id', $order_id)->update(['order_status' => $order_status]);
 
         if ($result) {
              return redirect('/admin/orders')->with('success','Product info has been updated');
@@ -42,7 +42,7 @@ class OrderController extends Controller
             return back()->with('success', 'Order has been deleted!!');
 
 			}else{
-            return back()->with('failure', "Order Does't Exist!!");
+            return back()->with('error', "Order Does't Exist!!");
 
 			}
         }

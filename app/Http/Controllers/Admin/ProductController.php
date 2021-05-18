@@ -242,10 +242,11 @@ class ProductController extends Controller
                 $file->move(public_path().'/images/', $name);  
                 $data[] = $name; 
 
-                
-                if ($request->color_name[$number++]) {
+                if ($number <= sizeof($request->color_name) && $color_name[$number] != "")
+            //    if ($request->color_name[$number++]) 
+                {
 
-                     $collection[] = array('color_name' => $request->color_name[$number++],
+                     $collection[] = array('color_name' => $request->color_name[$number],
                  'product_id' =>$product_id,
                  'color_img' =>$name);
 
@@ -256,6 +257,7 @@ class ProductController extends Controller
                  'color_img' =>$name);
 
                 }
+                $number++;
             DB::table('product_colors')->insert($collection); 
 
 
@@ -470,7 +472,7 @@ class ProductController extends Controller
         if($res){
             return redirect('/admin/products')->with('success','You have successfully Updated Sleek info.'); 
         }else{
-        return back()->with('failure','not Updated Sleek info.'); 
+        return back()->with('error','not Updated Sleek info.'); 
         }
             
             //     DB::table('color_images')->insertGetId($values);
@@ -483,7 +485,7 @@ class ProductController extends Controller
                 if($res){
             return redirect('/admin/products')->with('success','You have successfully Updated Sleek info.'); 
         }else{
-        return back()->with('failure','not Updated Sleek info.'); 
+        return back()->with('error','not Updated Sleek info.'); 
         }
             }
         
@@ -572,9 +574,26 @@ class ProductController extends Controller
             return back()->with('success', 'Product has been deleted!!');
 
             }else{
-            return back()->with('failure', "Order Does't Exist!!");
+            return back()->with('error', "Order Does't Exist!!");
 
             }
             
         }
+    public function verify_product(Request $request){
+
+            $name = $request->name;
+
+            $product =  Product::where('name', $name)->count();
+            
+
+            if ($product > 0) {
+
+                return 1;
+                
+            }else{
+
+                return 0;
+
+            }
+         }
 }

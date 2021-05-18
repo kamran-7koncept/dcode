@@ -25,20 +25,20 @@
             @if(session()->has('success'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 {{ session()->get('success') }}
-                                <button type="button" class="close" data-dismiss="alert" style="float: right" aria-label="Close">
+                                <!-- <button type="button" class="close" data-dismiss="alert" style="float: right" aria-label="Close">
                                     <span aria-hidden="true">×</span>
-                                </button>
+                                </button> -->
                                 </div>
                                     @endif
                                     @if(session()->has('error'))
                                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                     {{ session()->get('error') }}
-                                        <button type="button" style="float: right" class="close" data-dismiss="alert" aria-label="Close">
+                                        <!-- <button type="button" style="float: right" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">×</span>
-                                        </button>
+                                        </button> -->
                                     </div>
                                      @endif
-<style>
+<!-- <style>
 * {
   box-sizing: border-box;
 }
@@ -74,7 +74,7 @@
 #myTable tr.header, #myTable tr:hover {
   background-color: #f1f1f1;
 }
-</style>
+</style> -->
            
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
@@ -88,6 +88,7 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Customer</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Address</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Contact</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">City</th>
                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Action</th>
                       <th></th>
@@ -115,21 +116,30 @@
                       <td>
                         <p class="text-sm font-weight-bold mb-0">{{$order->customer_name}}</p>
                       </td>
-                      <td>
+                      <td style="white-space:unset;">
                         <span class="text-xs font-weight-bold">{{$order->address}}</span>
                       </td>
                       <td>
                         <span class="text-xs font-weight-bold">{{$order->contact}}</span>
                       </td>
                       <td>
+                        <span class="text-xs font-weight-bold">{{$order->city}}</span>
+                      </td>
+                      <td>
                         <span class="text-xs font-weight-bold">
                           <?php
-                          if($order->status == 0){
+                          if($order->order_status == 0){
+
                           echo "<b style='color: red'>Pending</b>";
-                          }elseif($order->status == 1){
+
+                          }elseif($order->order_status == 1){
+
                           echo "<b style='color: blue'>Dispatched</b>";
+
                           }else{
+
                           echo "<b style='color: green'>Delivered</b>";
+
                          }
                           ?>
                         </span>

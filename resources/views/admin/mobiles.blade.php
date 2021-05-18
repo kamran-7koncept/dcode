@@ -73,17 +73,17 @@
              @if(session()->has('success'))
                  <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session()->get('success') }}
-                   <button type="button" style="float: right" class="close" data-dismiss="alert" aria-label="Close">
+                   <!-- <button type="button" style="float: right" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">×</span>
-                  </button>
+                  </button> -->
                  </div>
               @endif
                  @if(session()->has('error'))
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                      {{ session()->get('error') }}
-                     <button type="button" style="float: right" class="close" data-dismiss="alert" aria-label="Close">
+                     <!-- <button type="button" style="float: right" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">×</span>
-                    </button>
+                    </button> -->
                   </div>
                 @endif
             <div class="card-body px-0 pt-0 pb-2">
@@ -117,7 +117,7 @@
                       <td>
                         <p class="text-sm font-weight-bold mb-0">{{$product->price}}</p>
                       </td>
-                      <td>
+                      <td style="white-space:unset;">
                         <span class="text-xs font-weight-bold">{{$product->description}}</span>
                       </td>
                       <td>
