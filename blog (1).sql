@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2021 at 11:06 AM
+-- Generation Time: May 18, 2021 at 03:25 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -40,9 +40,6 @@ CREATE TABLE `color_images` (
 --
 
 INSERT INTO `color_images` (`color_id`, `product_id`, `img_name`, `created_at`, `updated_at`) VALUES
-(1, 62, '1-1-1619762208.jpg', NULL, NULL),
-(2, 62, '2-1-1619762208.jpg', NULL, NULL),
-(3, 62, '3-1-1619762208.jpg', NULL, NULL),
 (4, 63, '1-1-1620035473.jpg', NULL, NULL),
 (5, 63, '2-1-1620035473.jpg', NULL, NULL),
 (11, 69, '1-1-1620625987.jpg', NULL, NULL),
@@ -75,10 +72,9 @@ CREATE TABLE `customer_details` (
 --
 
 INSERT INTO `customer_details` (`customer_id`, `customer_email`, `product_id`, `customer_name`, `contact`, `address`, `city`, `created_at`, `updated_at`) VALUES
-(2, 'kamran@7koncepts.com', 59, 'Kamran Ali', '20920930293', 'g-11 islamabad', 'Islamabad', '2021-05-04 10:14:33', '2021-05-04 10:14:52'),
-(6, 'fizza@gmail.com', 68, 'Fizza Khan', '029393929834', 'g-11 markaz Islamabad', 'Islamabad', '2021-05-10 05:26:04', NULL),
 (7, 'hamid@gmail.com', 71, 'hamid khan', '92839283982', 'dhka kala khan rwp', 'Rawalpindi', '2021-05-11 06:50:05', NULL),
-(8, 'gull@ymail.com', 69, 'Gul Sher Khan', '03920392332', 'Sultan road street 5 FSD', 'FSF', '2021-05-11 08:51:17', NULL);
+(8, 'gull@ymail.com', 69, 'Gul Sher Khan', '03920392332', 'Sultan road street 5 FSD', 'FSF', '2021-05-11 08:51:17', NULL),
+(9, 'jhon-wick@gmail.com', 76, 'Jhon Wick', '92891829182', 'the address is in pending for your info', 'islaabad', '2021-05-18 06:21:10', NULL);
 
 -- --------------------------------------------------------
 
@@ -138,7 +134,7 @@ CREATE TABLE `orders` (
   `order_id` bigint(20) UNSIGNED NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
   `customer_id` bigint(20) UNSIGNED NOT NULL,
-  `status` int(20) NOT NULL DEFAULT 0 COMMENT '0= pending, 1=diepatched,3=delivered',
+  `order_status` int(20) NOT NULL DEFAULT 0 COMMENT '0= pending, 1=diepatched,3=delivered',
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -147,10 +143,10 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `product_id`, `customer_id`, `status`, `created_at`, `updated_at`) VALUES
-(10, 68, 6, 2, NULL, '2021-05-11 09:04:38'),
-(11, 71, 7, 1, '2021-05-11 06:50:05', '2021-05-11 09:05:29'),
-(12, 69, 8, 0, '2021-05-11 08:51:17', '2021-05-11 09:05:34');
+INSERT INTO `orders` (`order_id`, `product_id`, `customer_id`, `order_status`, `created_at`, `updated_at`) VALUES
+(11, 71, 7, 2, '2021-05-11 06:50:05', '2021-05-18 06:16:45'),
+(12, 69, 8, 1, '2021-05-11 08:51:17', '2021-05-18 06:10:36'),
+(13, 76, 9, 1, '2021-05-18 06:21:10', '2021-05-18 06:23:54');
 
 -- --------------------------------------------------------
 
@@ -188,14 +184,20 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `slug`, `details`, `price`, `description`, `image_path`, `status`, `created_at`, `updated_at`) VALUES
-(42, 'sss', 'sss', 'iuiou i ljkblkasu iuwe', 231, 'iolquw iu liuq wiuqw', '-1619424885.png', 0, NULL, NULL),
-(59, 'Humra', 'humra', 'its description', 555, 'infor', '1-1619510841.jpg', 0, NULL, NULL),
-(62, 'Real Me', 'real-me', 'the info for mobile', 333, 'the descriptions', '1-1619762175.jpg', 0, NULL, NULL),
-(63, 'OPPO A-90', 'oppo-a-90', 'database connections, as well as specify which connection should be used by default. Most of the configuration options within this file are driven by the values of your application\'s environment variables. Examples for most of Laravel\'s supported database systems are provided in this file.', 1200, 'database provided in this file.', '1-1620035372.jpg', 1, NULL, '2021-05-10 10:26:02'),
-(65, 'uuuu', 'uuuu', 'owienowin owine owinee voiwn v', 883, 'owin ovnoiwne oviwn evoinw ovine', '1-1620118661.jpg', 0, '2021-05-04 08:57:41', NULL),
-(68, 'zoom', 'zoom', 'its fr the mobile', 888, 'its the mobile for you', '1-1620212610.jpg', 0, '2021-05-05 11:03:30', NULL),
-(69, 'Techno Mobile', 'techno-mobile', 'its the detail for the new mobile', 555, 'the description of the file', '1-1620625953.jpg', 1, '2021-05-10 05:52:33', '2021-05-10 00:57:43'),
-(71, 'infinix A5', 'infinix-a5', 'the details about the product', 333, 'description if any', '1-1620715304.jpg', 1, '2021-05-11 06:41:44', '2021-05-11 01:47:08');
+(63, 'OPPO A-90', 'oppo-a-90', 'database connections, as well as specify which connection should be used by default. Most of the configuration options within this file are driven by the values of your application\'s environment variables. Examples for most of Laravel\'s supported database systems are provided in this file.', 1200, 'database provided in this file.', '1-1621247140.jpg', 1, NULL, '2021-05-17 10:25:40'),
+(69, 'Techno Mobile', 'techno-mobile', 'its the detail for the new mobile', 555, 'the description of the file', '1-1621231998.png', 1, '2021-05-10 05:52:33', '2021-05-17 06:13:18'),
+(71, 'infinix A5', 'infinix-a5', 'the details about the product', 333, 'description if any', '1-1621247117.jpg', 1, '2021-05-11 06:41:44', '2021-05-17 10:25:17'),
+(73, 'hhhhh', 'hhhhh', NULL, 223, 'its the descruopto o bviubw iu', '1-1621239500.jpg', 0, '2021-05-17 08:18:20', NULL),
+(76, 'tabs con', 'tabs-con', NULL, 2323, 'its the description', '1-1621240077.jpg', 1, '2021-05-17 08:27:57', '2021-05-17 03:32:42'),
+(78, 'jjkk', 'jjkk', NULL, 232, 'iue ibw ivb wib ;ivwbu e; bvkuw eb;ivu ;wieub ivubw ;eiub viwuke', '1-1621248191.jpg', 0, '2021-05-17 10:43:11', NULL),
+(83, 'sssd', 'sssd', NULL, 221, 'qwudiuqwbdiuqwdbqiwudbqwiudbkwd oie fbw beviu bweivu bwv bwv ubwvu bwvuew bk boi coi bi;uwb ev wbev iubweiu bv', '1-1621249056.jpg', 0, '2021-05-17 10:57:36', NULL),
+(84, 'wwwwe', 'wwwwe', NULL, 222, 'its the description for he mobile info', '1-1621320977.jpg', 0, '2021-05-18 06:56:17', NULL),
+(85, 'jjkdw3', 'jjkdw3', NULL, 322, 'kj owie oi weoi bwiebkbwekbkb  e iwe b bwei iw ei eoi o8wg fo9 owef giowief gowief', '1-1621321177.jpg', 0, '2021-05-18 06:59:37', NULL),
+(93, 'edcds', 'edcds', NULL, 222, 'wbubuwbcbb  uw bcu w cwu bcuy buy cwub cuy byu yucuwc wcuy bub w ycy bwu ybcu bwcuy w cuywb uc bwuyb cuybw  bcuybwucb uw c wuyb c', '1-1621328157.jpg', 0, '2021-05-18 08:55:57', NULL),
+(94, 'assaxz', 'assaxz', NULL, 223, 'j j cu wbucbuwbuycbwbcjbn  s udb cj j jjs jslkdj ksnd n sn i piu ciun iu couiu bwuyebuyb wocwojbbc oiiuuwb eouoycb owube clkjnciuue', '1-1621328244.jpg', 0, '2021-05-18 08:57:24', NULL),
+(95, 'ggghhg', 'ggghhg', NULL, 777, 'ytdxuku6xk66 ukudkudkuduy  u yyu uy dukyd yud yu yuu fyu uyf u fyu uyyu', '1-1621329008.jpg', 0, '2021-05-18 09:10:08', NULL),
+(99, 'eerdf', 'eerdf', NULL, 2323, ';o wieiuweiu', '1-1621329599.jpg', 0, '2021-05-18 09:19:59', NULL),
+(100, 'wewesdsd', 'wewesdsd', NULL, 3323, 'wO EWEHWOIAOWIE ;OI HOIH O po heoir o;aieh roi heori io eori hpo ehrpoj voe;irh oeir', '1-1621329990.jpg', 0, '2021-05-18 09:26:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -206,7 +208,7 @@ INSERT INTO `products` (`id`, `name`, `slug`, `details`, `price`, `description`,
 CREATE TABLE `product_colors` (
   `color_id` bigint(20) UNSIGNED NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
-  `color_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `color_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `color_img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -217,20 +219,40 @@ CREATE TABLE `product_colors` (
 --
 
 INSERT INTO `product_colors` (`color_id`, `product_id`, `color_name`, `color_img`, `created_at`, `updated_at`) VALUES
-(6, 59, 'Red', NULL, NULL, NULL),
-(7, 59, 'Green', NULL, NULL, NULL),
-(8, 59, 'Blude', NULL, NULL, NULL),
-(15, 62, 'Red', NULL, NULL, NULL),
-(16, 62, 'Green', NULL, NULL, NULL),
 (17, 63, 'Purple', NULL, NULL, NULL),
 (18, 63, 'Yellow', NULL, NULL, NULL),
 (19, 63, 'Black', NULL, NULL, NULL),
-(25, 69, 'Red', NULL, NULL, NULL),
-(26, 69, 'Green', NULL, NULL, NULL),
-(27, 69, 'Blue', NULL, NULL, NULL),
+(25, 69, 'Red', '1-1-1621239415.jpg', NULL, NULL),
+(26, 69, 'Green', '2-1-1621239415.jpg', NULL, NULL),
+(27, 69, 'Blue', '3-1-1621239415.jpg', NULL, NULL),
 (28, 71, 'Red', NULL, NULL, NULL),
 (29, 71, 'Blue', NULL, NULL, NULL),
-(30, 71, 'Green', NULL, NULL, NULL);
+(30, 71, 'Green', NULL, NULL, NULL),
+(31, 73, '1-1-1621239564.jpg', '1-1-1621239564.jpg', NULL, NULL),
+(32, 73, '2-1-1621239564.jpg', '2-1-1621239564.jpg', NULL, NULL),
+(33, 73, '3-1-1621239564.jpg', '3-1-1621239564.jpg', NULL, NULL),
+(36, 76, 'mehroon', '0-1-1621240116.jpg', NULL, NULL),
+(37, 76, 'mehr-pop', '1-1-1621240116.jpg', NULL, NULL),
+(38, 76, 'Zeolight', '1-1-1621240116.jpg', NULL, NULL),
+(41, 78, 'red', '1-1-1621248218.jpg', NULL, NULL),
+(42, 78, 'rede', '2-1-1621248218.jpg', NULL, NULL),
+(43, 78, 'red', '3-1-1621248218.jpg', NULL, NULL),
+(52, 83, 'aaa', '1-1-1621249083.jpg', NULL, NULL),
+(53, 84, NULL, '1-1-1621321020.jpg', NULL, NULL),
+(54, 84, NULL, '2-1-1621321020.jpg', NULL, NULL),
+(55, 85, NULL, '1-1-1621321204.jpg', NULL, NULL),
+(56, 85, NULL, '2-1-1621321204.jpg', NULL, NULL),
+(67, 93, 'www', '1-1-1621328185.jpg', NULL, NULL),
+(68, 93, 'ssss', '2-1-1621328185.jpg', NULL, NULL),
+(69, 94, 'sees3', '1-1-1621328270.jpg', NULL, NULL),
+(70, 94, 'wwxs', '2-1-1621328270.jpg', NULL, NULL),
+(71, 95, 'fff', '1-1-1621329035.jpg', NULL, NULL),
+(72, 95, 'ggg', '2-1-1621329035.jpg', NULL, NULL),
+(79, 99, 'weew', '1-1-1621329619.jpg', NULL, NULL),
+(80, 99, 'wewe', '2-1-1621329619.jpg', NULL, NULL),
+(81, 99, 'wefew', '3-1-1621329620.jpg', NULL, NULL),
+(82, 100, 'rrrrr', '1-1-1621330016.jpg', NULL, NULL),
+(83, 100, 'wwwww', '2-1-1621330016.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -252,19 +274,35 @@ CREATE TABLE `product_creativities` (
 --
 
 INSERT INTO `product_creativities` (`creativity_id`, `product_id`, `creativity_name`, `creativity_img`, `created_at`, `updated_at`) VALUES
-(12, 59, NULL, '1-1-1619510849.jpg', '2021-04-27 08:07:29', '2021-04-27 08:07:29'),
-(13, 59, NULL, '2-1-1619510849.jpg', '2021-04-27 08:07:29', '2021-04-27 08:07:29'),
-(18, 62, NULL, '1-1-1619762184.jpg', '2021-04-30 05:56:24', '2021-04-30 05:56:24'),
-(19, 62, NULL, '2-1-1619762184.jpg', '2021-04-30 05:56:25', '2021-04-30 05:56:25'),
 (20, 63, NULL, '1-1-1620035426.jpg', '2021-05-03 09:50:26', '2021-05-03 09:50:26'),
 (21, 63, NULL, '2-1-1620035426.jpg', '2021-05-03 09:50:27', '2021-05-03 09:50:27'),
-(26, 68, NULL, '1-1-1620212628.jpg', '2021-05-05 11:03:48', '2021-05-05 11:03:48'),
-(27, 68, NULL, '2-1-1620212628.jpg', '2021-05-05 11:03:48', '2021-05-05 11:03:48'),
-(28, 68, NULL, '3-1-1620212628.jpg', '2021-05-05 11:03:48', '2021-05-05 11:03:48'),
-(29, 69, NULL, '1-1-1620625963.jpg', '2021-05-10 05:52:43', '2021-05-10 05:52:43'),
-(30, 69, NULL, '2-1-1620625963.jpg', '2021-05-10 05:52:43', '2021-05-10 05:52:43'),
+(29, 69, NULL, '1-1-1621232838.jpg', '2021-05-10 05:52:43', '2021-05-17 06:27:18'),
+(30, 69, NULL, '2-1-1621232838.png', '2021-05-10 05:52:43', '2021-05-17 06:27:18'),
 (33, 71, NULL, '1-1-1620715316.jpg', '2021-05-11 06:41:56', '2021-05-11 06:41:56'),
-(34, 71, NULL, '2-1-1620715316.jpg', '2021-05-11 06:41:56', '2021-05-11 06:41:56');
+(34, 71, NULL, '2-1-1620715316.jpg', '2021-05-11 06:41:56', '2021-05-11 06:41:56'),
+(35, 73, NULL, '1-1-1621239513.jpg', '2021-05-17 08:18:33', '2021-05-17 08:18:33'),
+(36, 73, NULL, '2-1-1621239513.jpg', '2021-05-17 08:18:33', '2021-05-17 08:18:33'),
+(41, 76, NULL, '1-1-1621240088.jpg', '2021-05-17 08:28:08', '2021-05-17 08:28:08'),
+(42, 76, NULL, '2-1-1621240088.jpg', '2021-05-17 08:28:08', '2021-05-17 08:28:08'),
+(45, 78, NULL, '1-1-1621248201.jpg', '2021-05-17 10:43:21', '2021-05-17 10:43:21'),
+(46, 78, NULL, '2-1-1621248201.jpg', '2021-05-17 10:43:21', '2021-05-17 10:43:21'),
+(47, 78, NULL, '3-1-1621248201.jpg', '2021-05-17 10:43:21', '2021-05-17 10:43:21'),
+(57, 83, NULL, '1-1-1621249065.jpg', '2021-05-17 10:57:45', '2021-05-17 10:57:45'),
+(58, 83, NULL, '2-1-1621249065.jpg', '2021-05-17 10:57:45', '2021-05-17 10:57:45'),
+(59, 84, NULL, '1-1-1621320989.jpg', '2021-05-18 06:56:29', '2021-05-18 06:56:29'),
+(60, 84, NULL, '2-1-1621320989.jpg', '2021-05-18 06:56:29', '2021-05-18 06:56:29'),
+(61, 85, NULL, '1-1-1621321186.jpg', '2021-05-18 06:59:46', '2021-05-18 06:59:46'),
+(62, 85, NULL, '2-1-1621321186.jpg', '2021-05-18 06:59:46', '2021-05-18 06:59:46'),
+(77, 93, NULL, '1-1-1621328169.jpg', '2021-05-18 08:56:09', '2021-05-18 08:56:09'),
+(78, 93, NULL, '2-1-1621328169.jpg', '2021-05-18 08:56:10', '2021-05-18 08:56:10'),
+(79, 94, NULL, '1-1-1621328254.jpg', '2021-05-18 08:57:34', '2021-05-18 08:57:34'),
+(80, 94, NULL, '2-1-1621328254.jpg', '2021-05-18 08:57:34', '2021-05-18 08:57:34'),
+(81, 95, NULL, '1-1-1621329017.jpg', '2021-05-18 09:10:17', '2021-05-18 09:10:17'),
+(82, 95, NULL, '2-1-1621329017.jpg', '2021-05-18 09:10:17', '2021-05-18 09:10:17'),
+(88, 99, NULL, '1-1-1621329605.jpg', '2021-05-18 09:20:05', '2021-05-18 09:20:05'),
+(89, 99, NULL, '2-1-1621329605.jpg', '2021-05-18 09:20:05', '2021-05-18 09:20:05'),
+(90, 100, NULL, '1-1-1621330000.jpg', '2021-05-18 09:26:40', '2021-05-18 09:26:40'),
+(91, 100, NULL, '2-1-1621330000.jpg', '2021-05-18 09:26:40', '2021-05-18 09:26:40');
 
 -- --------------------------------------------------------
 
@@ -288,13 +326,20 @@ CREATE TABLE `product_details` (
 --
 
 INSERT INTO `product_details` (`detail_id`, `product_id`, `overview_img`, `overview_info`, `sleek_img`, `sleek_info`, `created_at`, `updated_at`) VALUES
-(31, 42, '42-1619424885.png', NULL, '681-1620212611.jpg', NULL, NULL, NULL),
-(50, 62, '621-1619762175.jpg', NULL, '741-1619762175.jpg', NULL, NULL, NULL),
 (51, 63, '631-1620035372.jpg', NULL, '751-1620035372.jpg', NULL, NULL, NULL),
-(53, 65, '651-1620118661.jpg', NULL, '771-1620118661.jpg', NULL, NULL, NULL),
-(56, 68, '681-1620212611.jpg', NULL, '801-1620212611.jpg', NULL, NULL, NULL),
-(57, 69, '691-1620625953.jpg', NULL, '811-1620625953.jpg', NULL, NULL, NULL),
-(59, 71, '711-1620715304.jpg', NULL, '831-1620715304.jpg', NULL, NULL, NULL);
+(57, 69, '111-1621232759.jpg', 'overview of the mob produyct', '1-1621232759.jpg', 'sleek info of mobile', NULL, '2021-05-17 01:25:59'),
+(59, 71, '711-1620715304.jpg', NULL, '831-1620715304.jpg', NULL, NULL, NULL),
+(61, 73, '731-1621239500.jpg', NULL, '851-1621239500.jpg', NULL, NULL, NULL),
+(64, 76, '761-1621240077.jpg', NULL, '881-1621240077.jpg', NULL, NULL, NULL),
+(66, 78, '781-1621248191.jpg', NULL, '901-1621248191.jpg', NULL, NULL, NULL),
+(71, 83, '831-1621249056.jpg', NULL, '951-1621249056.jpg', NULL, NULL, NULL),
+(72, 84, '841-1621320977.jpg', NULL, '961-1621320977.jpg', NULL, NULL, NULL),
+(73, 85, '851-1621321177.jpg', NULL, '971-1621321177.jpg', NULL, NULL, NULL),
+(81, 93, '931-1621328157.jpg', NULL, '1051-1621328157.jpg', NULL, NULL, NULL),
+(82, 94, '941-1621328244.jpg', NULL, '1061-1621328244.jpg', NULL, NULL, NULL),
+(83, 95, '951-1621329008.jpg', NULL, '1071-1621329008.jpg', NULL, NULL, NULL),
+(87, 99, '991-1621329599.jpg', NULL, '1111-1621329599.jpg', NULL, NULL, NULL),
+(88, 100, '1001-1621329990.jpg', NULL, '1121-1621329990.jpg', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -331,16 +376,15 @@ CREATE TABLE `product_videos` (
 --
 
 INSERT INTO `product_videos` (`video_id`, `product_id`, `video_name`, `video_link`, `created_at`, `updated_at`) VALUES
-(4, 42, NULL, '<iframe src=\"https://www.youtube.com/embed/-byoPeyPYOU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', NULL, NULL),
-(5, 42, NULL, '<iframe  src=\"https://www.youtube.com/embed/-byoPeyPYOU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', NULL, NULL),
-(6, 42, NULL, '<iframe  src=\"https://www.youtube.com/embed/-byoPeyPYOU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', NULL, NULL),
-(7, 42, NULL, '<iframe  src=\"https://www.youtube.com/embed/-byoPeyPYOU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', NULL, NULL),
 (8, 69, NULL, '<iframe  src=\"https://www.youtube.com/embed/O0UIfj4y5Q0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', NULL, NULL),
 (9, 69, NULL, '<iframe  src=\"https://www.youtube.com/embed/O0UIfj4y5Q0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', NULL, NULL),
 (10, 69, NULL, '<iframe src=\"https://www.youtube.com/embed/O0UIfj4y5Q0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', NULL, NULL),
 (14, 71, NULL, '<iframe  src=\"https://www.youtube.com/embed/8IqSkI5xru0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', NULL, NULL),
 (15, 71, NULL, '<iframe src=\"https://www.youtube.com/embed/8IqSkI5xru0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', NULL, NULL),
-(16, 71, NULL, '<iframe src=\"https://www.youtube.com/embed/8IqSkI5xru0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', NULL, NULL);
+(16, 71, NULL, '<iframe src=\"https://www.youtube.com/embed/8IqSkI5xru0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', NULL, NULL),
+(17, 76, NULL, '<iframe  src=\"https://www.youtube.com/embed/q7m1FqKXCAg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', NULL, NULL),
+(18, 76, NULL, '<iframe  src=\"https://www.youtube.com/embed/q7m1FqKXCAg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', NULL, NULL),
+(19, 76, NULL, '<iframe  src=\"https://www.youtube.com/embed/q7m1FqKXCAg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -389,11 +433,10 @@ CREATE TABLE `specifications` (
 --
 
 INSERT INTO `specifications` (`specs_id`, `product_id`, `dimentions`, `weight`, `os`, `sim_support`, `display_type`, `resolution`, `internal_memory`, `external_memory`, `ram`, `battery`, `phone_size`, `technology`, `wlan`, `bluetooth`, `gps`, `radio`, `data`, `usb`, `nfc`, `cpu`, `gpu`, `chipset`, `network`, `protection`, `talk_time`, `standby_time`, `front_camera`, `back_camera`, `description`, `created_at`, `updated_at`) VALUES
-(4, 62, '129*123', '500mg', 'Android 11-1', 'Nano Sim Support', '100GZ', '720*720', '64GB', '15', '8GB', '5000ma', 'size A', 'techno', 'wlan', 'bluetooth A', 'gps', 'radio', 'data', 'usb', 'nfc', 'cpu', 'gpu', 'chipset', 'network', 'protect', '8hours', '12hours', '17-A', '54', 'its the further details about it', '2021-04-30 07:47:39', '2021-05-10 06:34:08'),
 (5, 63, 'dimention1200', 'weight', 'os', 'sim supprt', 'display type', 'reoslution1', 'internl', 'xteral', 'ram', 'batry type', 'size', 'technplo', 'wlan1', 'blutooth', 'gps', 'radio', 'data', 'usb', 'nfc', 'cpuq1', 'gpu', 'chipset', 'netweoj', 'protection', 'talk time', 'standby', 'front', 'back', NULL, '2021-05-03 11:50:58', '2021-05-10 05:40:42'),
-(6, 42, 'dimane', 'weih', 'os', 'sim sp', 'display', 'resolution', 'exter', 'memerurm', 'ram', '2938amh', 'size', 'technology', 'wlan', 'blu', 'gos', 'radio', 'data', 'usb', 'nfc', 'cpu', 'gpu', 'chipse', 'network', 'protect', 'talk', 'stand', 'front back', 'inter', NULL, '2021-05-04 11:19:06', '2021-05-10 05:21:45'),
 (10, 69, 'techno dimention', 'techno weight', 'OS11', 'dual sim support', 'techno display', 'techno resolution', '14GB in', '12GB card', '4GB am', '5400ahm', 'techno size', 'techno tech', 'WLAN', 'bluetooth', 'GPS techno', 'Radio techno', 'DATA NETWORK', 'USB Port', 'nfc', 'CPU', 'GPS', 'Chipset', 'techno network', 'techno protects', '11hours', '18 hurs', '16 MP front', '65 MP back', NULL, '2021-05-10 05:56:05', '2021-05-10 05:56:05'),
-(11, 71, 'dimention-1', 'phone weight', 'ODS', 'sim support', 'display type', 'resolution-1', 'intrenal', 'external', 'ram', 'batry type', 'size', 'tecnology', 'wlan-1', 'bluetooth', 'gps', 'radio', 'data', 'usb', 'nfc', 'cpu-1', 'gpu', 'chipset', 'network', 'protection', '11 hours', '22 hours', 'front cam-1', 'back cam', NULL, '2021-05-11 06:46:23', '2021-05-11 01:48:12');
+(11, 71, 'dimention-1', 'phone weight', 'ODS', 'sim support', 'display type', 'resolution-1', 'intrenal', 'external', 'ram', 'batry type', 'size', 'tecnology', 'wlan-1', 'bluetooth', 'gps', 'radio', 'data', 'usb', 'nfc', 'cpu-1', 'gpu', 'chipset', 'network', 'protection', '11 hours', '22 hours', 'front cam-1', 'back cam', NULL, '2021-05-11 06:46:23', '2021-05-11 01:48:12'),
+(12, 76, 'wew', 'weew', 'sd', 'sd', 'sd', 'wesd', 'wvwev', 'wevwev', 'wevwev', 'wevwev', 'ewwe', 'ds', 'wew', 'sd', 'sdds', 'dsq', 'ERVER', 'wefE', 'erfvewrv', 'sd', 'sd', 'sdds', 'weew', 'ds', 'wvewev', 'wevwev', 'wecwev', 'wvwev', NULL, '2021-05-17 08:31:12', '2021-05-17 08:31:12');
 
 -- --------------------------------------------------------
 
@@ -567,7 +610,7 @@ ALTER TABLE `color_images`
 -- AUTO_INCREMENT for table `customer_details`
 --
 ALTER TABLE `customer_details`
-  MODIFY `customer_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `customer_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -585,31 +628,31 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `order_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `product_colors`
 --
 ALTER TABLE `product_colors`
-  MODIFY `color_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `color_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `product_creativities`
 --
 ALTER TABLE `product_creativities`
-  MODIFY `creativity_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `creativity_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `product_details`
 --
 ALTER TABLE `product_details`
-  MODIFY `detail_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `detail_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT for table `product_sliders`
@@ -621,13 +664,13 @@ ALTER TABLE `product_sliders`
 -- AUTO_INCREMENT for table `product_videos`
 --
 ALTER TABLE `product_videos`
-  MODIFY `video_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `video_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `specifications`
 --
 ALTER TABLE `specifications`
-  MODIFY `specs_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `specs_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
