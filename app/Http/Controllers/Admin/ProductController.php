@@ -309,7 +309,7 @@ class ProductController extends Controller
                     'color_img' => $data[$i]]);
 
                    }
-            return redirect('/mobile/products')->with('success','You have successfully Updated info.'); 
+            return redirect('/admin/products')->with('success','You have successfully Updated info.'); 
             //     DB::table('color_images')->insertGetId($values);
                 
             }else{
@@ -322,7 +322,7 @@ class ProductController extends Controller
 
                    }
 
-            return redirect('/mobile/products')->with('success','You have successfully Updated info.');
+            return redirect('/admin/products')->with('success','You have successfully Updated info.');
             }
         
         }
@@ -510,7 +510,7 @@ class ProductController extends Controller
                     $product_creativity = ProductCreativity::where('product_id', $request->product_id)->get();
                     
 
-                    if (count($product) > 0 && count($product_detail) > 0 && count($product_videos) > 0 && count($product_creativity) > 0) {
+                    if (count($product) > 0 && count($product_detail) > 0 && count($product_creativity) > 0) {
 
                        $aa = Product::where('id', $request->product_id)
                         ->update([
