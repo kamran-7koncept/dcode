@@ -87,7 +87,7 @@
               <div class="table-responsive p-0">
                 <form  method="POST" action='{{url("/admin/update-product/")}}'  enctype="multipart/form-data" style="display: block" >
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                    <input type="text" name="product_id" value="{{$product->id}}">
+                    <input type="hidden" name="product_id" value="{{$product->id}}">
                     <div class="form-group">
                     <label for="Mobile Name">Name</label>
                     <input type="text" class="form-control" name="name" value="{{$product->name}}" placeholder="mobile name here" required="">

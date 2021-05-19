@@ -90,7 +90,7 @@
                             
                             <div class="form-group">
                                     <button class="btn btn-info w-25" type="submit">Update</button>
-                                    <button type="button" onclick="add_field()" class="btn btn-info w-25 float-right"> Add Color</button>
+                                   <!--  <button type="button" onclick="add_field()" class="btn btn-info w-25 float-right"> Add Color</button> -->
                             </div>
                             </form>
 
