@@ -12,7 +12,8 @@ class ProductController extends Controller
     //
     public function index(){
     	$products = DB::table('products')
-        /* ->limit(3)*/
+        ->where('status',1) 
+         ->limit(3)
         ->get();
 
         $pages =  WebPage::all();
