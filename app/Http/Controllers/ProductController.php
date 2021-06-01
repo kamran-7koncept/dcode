@@ -19,6 +19,14 @@ class ProductController extends Controller
         $pages =  WebPage::all();
         return view('welcome',compact('products','pages'));
     }
+    
+    public function shop()
+    {
+        $products = Product::all();
+      //  dd($products);
+        return view('shop')->withTitle('E-COMMERCE STORE | SHOP')->with(['products' => $products]);
+    }
+
 
     public function Details($enc_id){
         $pages =  WebPage::all();

@@ -16,10 +16,30 @@
 				});
 	 
 		}
-    function compare_mobile($name){ 
-   let name=document.getElementById("right_search").value;
+
+        function mobile_name(){ 
+   let name=document.getElementById("left_search").value;
           $.ajax({
             url: '/mobile/compare_details/'+name,
+            type: 'get', 
+            success: function(response){ 
+                console.log(response);
+                    $("#mobile_left_detail").html(response);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                  $("#mobile_left_detail").html("<p style='text-align:center;margin-top:50px'>Incompolete Record </p>");
+                     console.log(jqXHR);
+                     console.log(textStatus);
+                     console.log(errorThrown);    
+                }
+        });
+   
+    }
+
+    function compare_mobile(){ 
+   let name=document.getElementById("right_search").value;
+          $.ajax({
+            url: '/mobile/compare_details_right/'+name,
             type: 'get', 
             success: function(response){ 
                 console.log(response);

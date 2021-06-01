@@ -113,5 +113,9 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(".mobiles-list").first().click();    
+  
+</script>
 </body>
 </html>

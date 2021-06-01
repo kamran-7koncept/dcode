@@ -1,7 +1,7 @@
 <!-- navbar -->
 <nav class="navbar navbar-expand-md  bg-white navbar-light  fixed-top">
     <div class="container">
-        <a class="navbar-brand"><img width="193" src="{{asset('./storage/layout_images/code_logo.png')}}"></a>
+        <a class="navbar-brand" href="/"><img width="193" src="{{asset('./storage/layout_images/code_logo.png')}}"></a>
         <button type="button" class="navbar-toggler bg-light" data-toggle="collapse" data-target="#nav">
             <span class="navbar-toggler-icon"></span>
         </button>

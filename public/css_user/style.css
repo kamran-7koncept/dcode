@@ -346,7 +346,7 @@ body {
 
 /************COMPARE PAGE*****************/
 .compare-page-banner-4 {
-    background: url(../images/banner4.png);
+    background: url("../storage/layout_images/banner4.png");
     background-repeat: no-repeat !important;
     background-position: center top !important;
     background-size: cover !important;
@@ -468,7 +468,7 @@ body {
 }
 
 .product-page-banner-2 {
-    background: url("../images/product-page-banner-2.png");
+    background: url("../storage/layout_images/product-page-banner-2.png");
     background-repeat: no-repeat !important;
     background-position: center top !important;
     background-size: 100% auto !important;
@@ -476,7 +476,7 @@ body {
 }
 
 .product-page-banner-3 {
-    background: url("../images/product-page-banner-3.png");
+    background: url("../storage/layout_images/product-page-banner-3.png");
     background-repeat: no-repeat !important;
     background-position: center top !important;
     background-size: 100% auto !important;
@@ -484,7 +484,7 @@ body {
 }
 
 .product-page-banner-4 {
-    background: url("../images/product-page-banner-4.png");
+    background: url("../storage/layout_images/product-page-banner-4.png");
     background-repeat: no-repeat !important;
     background-position: center top !important;
     background-size: 100% auto !important;

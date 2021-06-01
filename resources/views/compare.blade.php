@@ -1,45 +1,297 @@
-@extends('layouts.app')
-
-@section('content')
+@include('include.header')
  
-    <div class="container-fluid">
-      
-        <div class="row">
-             <div class="col-sm-3 bg-dark scrollable " >
-                     @foreach($products as $product)
-                     @if($product->status == 1)
-                      <a class="btn btn-info mt-1 ml-5 mobiles-list" onclick="mobile({{$product->id}})">{{$product->name}}</a><br> 
-                      @endif
-                     @endforeach
+<section>
+    <div class="compare-page-banner-4" style='background: url("../storage/layout_images/banner4.png");'>
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-12 col-md-4 pl-md-0">
+                  <div class="right-menu">
+                      <div class="bg-orange right-menu-block" style="">
+                          <span class="menu-top-title">Phone Find </span>
+                          <img src="{{asset('./storage/layout_images/phone-icon.png')}}"   class="img-fluid"/>
+                      </div>
+                      <ul class="bg-black menu-list">
+                        @foreach($products as $product)
+                            @if($product->status == 1)
+
+                            <li class="active">
+                              <a href="#" class="mobiles-list" onclick="mobile({{$product->id}})">{{$product->name}}</a>
+                          </li>
+                       
+                            @endif
+                        @endforeach
+                          
+                      </ul>
+                  </div>
               </div>
-              <div class="col-sm-9">
-                <img src="{{asset('./storage/images/sliders/slider-1.jpg')}}" class="img img-responsive" style="width: 100%">
+              <div class="col-12 col-md-8 text-center pt-5 mt-md-2">
+                  <img src="{{asset('./storage/layout_images/mobile-slider-large-3.png')}}"  class="img-fluid"/>
+                  <h1 class="text-orange pt-3 font-weight-bold">COMPARE SPEC</h1>
               </div>
-                  
-        </div>
-    </div>
-    <div class="container mt-5">
-      <div class="row">
-          <div class="col-sm-6 mt-4" >
-            <!-- <p>Please Enter Model name</p>
-            <input type="text" name="mobile_name" class=" ">
-             <button type="button"  class="btn btn-sm btn-success">Search</button>
-              -->
-             <div id="mobile_left_detail" class="mt-5">
-            
-      
-          </div>
-          </div>
-          <div class="col-sm-6">
-            <p>Please Enter Model name</p>
-             <input type="text" name="mobile_name"id="right_search"  class=" ">
-             <button type="button" onclick="compare_mobile()"  class="btn btn-sm btn-success">Search</button>
-             <div id="mobile_right_detail">
-            
-          </div>
           </div>
       </div>
-      
     </div>
-    
-@endsection
+</section>
+<section class="my-5">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-sm-6 "  >
+             
+                <div id="mobile_left_detail" class="mt-5">
+            
+      
+                </div>
+          </div>
+          <div class="col-sm-6">
+            
+                <div id="mobile_right_detail">
+                     <h3 class="compare-main-title mt-5">Please enter model name or part of it</h3>
+                    <div class="mt-4"><span class="compare-title">Compare with </span>
+                        <input class="compare-search-field" type="text" name="mobile_name" id="right_search" />
+                        <span><button class="compare-search-button" onclick="compare_mobile()">Search</button></span>
+                    </div>
+                    <div class="mt-5 pt-md-2 text-center" id="right_image">
+                        <img src="{{asset('./storage/layout_images/compare-default-mobile.png')}}"    class="img-fluid"/><br>
+                    </div>
+                    <table class="table table-bordered " style="margin-top: 135px">
+                    <tr>
+                        <td class="column-1">NETWORK</td>
+                        <td class="column-2">Technology</td>
+                        <td class="column-3"></td>
+                         
+                    </tr>
+                    <tr>
+                        <td class="column-1">BODY</td>
+                        <td class="column-2">Dimensions</td>
+                        <td class="column-3"></td>
+                         
+                    </tr>
+
+                    <tr>
+                        <td class="column-1">DISPLAY</td>
+                        <td class="column-2">Type</td>
+                        <td class="column-3"></td>
+                         
+                    </tr>
+                    <tr>
+                        <td class="column-1">NETWORK</td>
+                        <td class="column-2">Technology</td>
+                        <td class="column-3"></td>
+                         
+                    </tr>
+                    <tr>
+                        <td class="column-1">BODY</td>
+                        <td class="column-2">Dimensions</td>
+                        <td class="column-3"></td>
+                         
+                    </tr>
+
+                    <tr>
+                        <td class="column-1">DISPLAY</td>
+                        <td class="column-2">Type</td>
+                        <td class="column-3"></td>
+                         
+                    </tr>
+                    <tr>
+                        <td class="column-1">NETWORK</td>
+                        <td class="column-2">Technology</td>
+                        <td class="column-3"></td>
+                         
+                    </tr>
+                    <tr>
+                        <td class="column-1">BODY</td>
+                        <td class="column-2">Dimensions</td>
+                        <td class="column-3"></td>
+                         
+                    </tr>
+
+                    <tr>
+                        <td class="column-1">DISPLAY</td>
+                        <td class="column-2">Type</td>
+                        <td class="column-3"></td>
+                         
+                    </tr>
+                    <tr>
+                        <td class="column-1">NETWORK</td>
+                        <td class="column-2">Technology</td>
+                        <td class="column-3"></td>
+                         
+                    </tr>
+                    <tr>
+                        <td class="column-1">BODY</td>
+                        <td class="column-2">Dimensions</td>
+                        <td class="column-3"></td>
+                         
+                    </tr>
+
+                    <tr>
+                        <td class="column-1">DISPLAY</td>
+                        <td class="column-2">Type</td>
+                        <td class="column-3"></td>
+                        
+                    </tr>
+                </table>
+                </div> 
+                </div>
+          </div>
+
+            <!-- <div class="col-12 col-md-6 pr-md-5 compare-right-block">
+                <h3 class="compare-main-title">Please enter model name or part of it</h3>
+                <div class="mt-4"><span class="compare-title">Compare with </span>
+                    <input class="compare-search-field" type="text" name="mobile_name" id="left_search"placeholder="X Cherry Red"/>
+                    <span><button type="button" onclick="mobile_name()" class="compare-search-button">Search</button></span>
+                </div>
+                <div class="mt-5 pt-md-2 text-center" id="left_image">
+                    <img src='{{url("/images/$product->image_path")}}'   class="img-fluid"/><br>
+                    
+
+                    <a href='{{url("/product/$product->id")}}' class="btn font-weight-bold btn-yellow btn-padding-lg btn-square font-15 ml-3 mt-5">SPECIFICATIONS</a>
+                </div>
+            </div> -->
+
+           <!--  <div class="col-12 col-md-6  pl-md-5">
+                <h3 class="compare-main-title">Please enter model name or part of it</h3>
+                <div class="mt-4"><span class="compare-title">Compare with </span>
+                    <input class="compare-search-field" type="text" name="mobile_name" id="right_search" />
+                    <span><button class="compare-search-button" onclick="compare_mobile()">Search</button></span>
+                </div>
+                <div class="mt-5 pt-md-2 text-center" id="right_image">
+                    <img src="{{asset('./storage/layout_images/compare-default-mobile.png')}}"    class="img-fluid"/><br>
+                </div>
+            </div> -->
+        </div>
+   <!--     <div class="row my-5">
+
+            <div class="table table-responsive compare-table"  >
+                <table class="table table-bordered">
+                    <tr>
+                        <td class="column-1">NETWORK</td>
+                        <td class="column-2">Technology</td>
+                        <td class="column-3">GSM / CDMA / HSPA / EVDO</td>
+                        <td class="column-4"></td>
+                        <td class="column-5"></td>
+                    </tr>
+                    <tr>
+                        <td class="column-1">BODY</td>
+                        <td class="column-2">Dimensions</td>
+                        <td class="column-3">164.3 x 74.6 x 8.4 mm</td>
+                        <td class="column-4"></td>
+                        <td class="column-5"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="column-1">DISPLAY</td>
+                        <td class="column-2">Type</td>
+                        <td class="column-3">AMOLED, 1B colors, 120Hz</td>
+                        <td class="column-4"></td>
+                        <td class="column-5"></td>
+                    </tr>
+                    <tr>
+                        <td class="column-1">NETWORK</td>
+                        <td class="column-2">Technology</td>
+                        <td class="column-3">GSM / CDMA / HSPA / EVDO</td>
+                        <td class="column-4"></td>
+                        <td class="column-5"></td>
+                    </tr>
+                    <tr>
+                        <td class="column-1">BODY</td>
+                        <td class="column-2">Dimensions</td>
+                        <td class="column-3">164.3 x 74.6 x 8.4 mm</td>
+                        <td class="column-4"></td>
+                        <td class="column-5"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="column-1">DISPLAY</td>
+                        <td class="column-2">Type</td>
+                        <td class="column-3">AMOLED, 1B colors, 120Hz</td>
+                        <td class="column-4"></td>
+                        <td class="column-5"></td>
+                    </tr>
+                    <tr>
+                        <td class="column-1">NETWORK</td>
+                        <td class="column-2">Technology</td>
+                        <td class="column-3">GSM / CDMA / HSPA / EVDO</td>
+                        <td class="column-4"></td>
+                        <td class="column-5"></td>
+                    </tr>
+                    <tr>
+                        <td class="column-1">BODY</td>
+                        <td class="column-2">Dimensions</td>
+                        <td class="column-3">164.3 x 74.6 x 8.4 mm</td>
+                        <td class="column-4"></td>
+                        <td class="column-5"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="column-1">DISPLAY</td>
+                        <td class="column-2">Type</td>
+                        <td class="column-3">AMOLED, 1B colors, 120Hz</td>
+                        <td class="column-4"></td>
+                        <td class="column-5"></td>
+                    </tr>
+                    <tr>
+                        <td class="column-1">NETWORK</td>
+                        <td class="column-2">Technology</td>
+                        <td class="column-3">GSM / CDMA / HSPA / EVDO</td>
+                        <td class="column-4"></td>
+                        <td class="column-5"></td>
+                    </tr>
+                    <tr>
+                        <td class="column-1">BODY</td>
+                        <td class="column-2">Dimensions</td>
+                        <td class="column-3">164.3 x 74.6 x 8.4 mm</td>
+                        <td class="column-4"></td>
+                        <td class="column-5"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="column-1">DISPLAY</td>
+                        <td class="column-2">Type</td>
+                        <td class="column-3">AMOLED, 1B colors, 120Hz</td>
+                        <td class="column-4"></td>
+                        <td class="column-5"></td>
+                    </tr>
+                </table>
+
+            </div>
+
+
+        </div>
+    -->
+    </div>
+</section>
+<section class="my-5">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-12 col-md-10 m-auto text-center">
+                <h1 class="heading-title-1"><strong>Videos</strong></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <a href="#" data-toggle="modal" data-target="#showVideoModal"
+                   data-video="NLUtcA2bCJo" data-title="Mobile Video" data-description=""
+                   class="video-aside-buttons"><img
+                        src="{{asset('./storage/layout_images/video-thumnail-1.png')}}"  alt="Video 1" width="100%"
+                        class="img-fluid"></a>
+            </div>
+            <div class="col-12 col-md-4 mt-5 mt-md-0">
+                <a href="#" data-toggle="modal" data-target="#showVideoModal"
+                   data-video="NLUtcA2bCJo" data-title="Mobile Video" data-description=""
+                   class="video-aside-buttons"><img
+                       src="{{asset('./storage/layout_images/video-thumnail-2.png')}}" alt="Video 2" width="100%"
+                        class="img-fluid"></a>
+            </div>
+            <div class="col-12 col-md-4  mt-5 mt-md-0">
+                <a href="#" data-toggle="modal" data-target="#showVideoModal"
+                   data-video="NLUtcA2bCJo" data-title="Mobile Video" data-description=""
+                   class="video-aside-buttons"><img
+                       src="{{asset('./storage/layout_images/video-thumnail-3.png')}}" alt="Video 3" width="100%"
+                        class="img-fluid"></a>
+            </div>
+
+        </div>
+    </div>
+</section>
+@include('include.footer')

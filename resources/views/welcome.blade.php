@@ -9,7 +9,7 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <div class="code-home-slider  code-mobile-site-slider-1" >
+                <div class="code-home-slider code-mobile-site-slider-1" style='background: url("../storage/layout_images/banner1.png");' >
                     <div class="container position-relative">
                         <div class="row">
                             <div class="col-12 col-md-6 order-0">
@@ -26,7 +26,7 @@
                                     </span>
                                     <a class="btn btn-square btn-orange btn-lg border-0 ml-md-4"><strong>Learn
                                         More</strong></a>
-                                </div>
+                    </div>
                             </div>
                             <div class="col-12 col-md-6 d-none d-md-block">
                                 <img class="img-fluid" src="{{asset('./storage/layout_images/mobile-slider-large.png')}}"/>
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <div class="code-home-slider  code-mobile-site-slider-1">
+                <div class="code-home-slider  code-mobile-site-slider-1" style='background: url("../storage/layout_images/banner1.png");'>
                     <div class="container position-relative">
                         <div class="row">
                             <div class="col-12 col-md-6">
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <div class="code-home-slider  code-mobile-site-slider-1">
+                <div class="code-home-slider  code-mobile-site-slider-1" style='background: url("../storage/layout_images/banner1.png");'>
                     <div class="container position-relative">
                         <div class="row">
                             <div class="col-12 col-md-6">
@@ -98,22 +98,22 @@
         </a>
     </div>
 </div>
-                                @if(session()->has('success'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                {{ session()->get('success') }}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                                </div>
-                                    @endif
-                                    @if(session()->has('error'))
-                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    {{ session()->get('error') }}
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                        </button>
-                                    </div>
-                                     @endif
+@if(session()->has('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session()->get('success') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+</div>
+@endif
+@if(session()->has('error'))
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{ session()->get('error') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+</div>
+@endif
 <section class="py-5 bg-grey">
     <div class="container">
         <div class="row">
@@ -138,8 +138,10 @@
                 @endforeach
                 <div class="col-12 col-md-12">
                 <div class="text-center">
-                    <button class="btn btn-outline-secondary btn-lg btn-padding-sm btn-square-outline"> All product
-                    </button>
+
+                   <!--  <button class="btn btn-outline-secondary btn-lg btn-padding-sm btn-square-outline"> All product
+                    </button> -->
+                    <a href="/products" class="btn btn-outline-secondary btn-lg btn-padding-sm btn-square-outline" >All product</a>
                 </div>
             </div>
             @else
@@ -154,7 +156,7 @@
     </div>
 </section>
 <section>
-    <div class="home-page-banner-1">
+    <div class="home-page-banner-1" style='background: url("../storage/layout_images/home-page-banner-1.png");'>
         <div class="container">
             <div class="row pt-5">
                 <div class="text-white col-12 col-md-7 pt-md-5">
@@ -193,7 +195,7 @@
     <div class="">
         <div class="row">
             <div class="col-12 col-md-6 pl-0">
-                <div class="home-page-banner-2 text-white">
+                <div class="home-page-banner-2 text-white" style='background: url("../storage/layout_images/home-page-banner-2.png");'>
                     <div class="py-5 px-5 home-page-banner-block-1">
                         <h1 class="font-weight-bold">
                             <span class="text-orange">X</span> Piano Black
@@ -205,7 +207,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 pl-0">
-                <div class="home-page-banner-3 text-dark">
+                <div class="home-page-banner-3 text-dark" style='background: url("../storage/layout_images/home-page-banner-3.png");'>
                     <div class="py-5 px-5 float-right  home-page-banner-block-2">
                         <h1 class="font-weight-bold">
                             Bold <span class="text-voilet">Teal</span> v.2

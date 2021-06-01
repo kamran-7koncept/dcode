@@ -71,6 +71,17 @@ class CompareController extends Controller
         return view('ajax/compare_specs',compact('specifications'));
     }
 
+    public function show($name)
+    {
+        $specifications = DB::table('specifications')
+        ->join('products', 'products.id', '=', 'specifications.product_id')
+        ->where('products.name','like', "%$name%") 
+        ->first();
+       /* ->where('products.name','like', "%$name%") */
+
+        return view('ajax/compare_specs_right',compact('specifications'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

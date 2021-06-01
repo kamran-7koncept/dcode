@@ -40,9 +40,13 @@ Route::get('/product/{id_enc}',[App\Http\Controllers\ProductController::class, '
 Route::get('/mobile/details/{id}',[App\Http\Controllers\CompareController::class, 'show_left']);
 Route::get('/mobile/compare_details/{name}',[App\Http\Controllers\CompareController::class, 'show_right']);
 
+Route::get('/mobile/compare_details_right/{name}',[App\Http\Controllers\CompareController::class, 'show']);
+
+
 Route::get('/',[App\Http\Controllers\ProductController::class, 'index']);
 
-/*Route::get('/products', [App\Http\Controllers\CartController::class, 'shop'])->name('shop');
+Route::get('/products', [App\Http\Controllers\CartController::class, 'shop'])->name('shop');
+/*
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'cart'])->name('cart.index');
 Route::post('/add', [App\Http\Controllers\CartController::class, 'add'])->name('cart.store');
 Route::post('/update', [App\Http\Controllers\CartController::class, 'update'])->name('cart.update');

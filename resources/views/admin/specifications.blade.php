@@ -97,7 +97,7 @@
     <strong style="color: #4e73df">Body</strong>
   </div> 
     <label for="Mobile Dimentions">Dimentions</label>
-        <input type="text" class="form-control" name="dimentions" placeholder="Mobile Dimentions  like 162.5*72.2*8.3mn" required="" title="like 162.5*72.2*8.3mn!">
+        <input type="text" class="form-control" name="dimentions" placeholder="164.3 x 74.6 x 8.4 mm" required="" title="164.3 x 74.6 x 8.4 mm">
     <label for="Mobile Display Type">Size</label>
     <input type="text" class="form-control" name="phone_size" placeholder="Mobile Size like 400grams" required="" title="Mobile Size like 400grams!">
     
@@ -105,7 +105,7 @@
         <input type="text" class="form-control" name="weight" placeholder="Mobile Weight with Units" required="" title="Mobile Weight with Units">
 
  <label for="Mobile Weight">Network</label>
-        <input type="text" class="form-control" name="network" placeholder="Mobile Size with Units" required="" title="Mobile Size with Units">
+        <input type="text" class="form-control" name="network" placeholder="GSM / CDMA / HSPA / EVDO" required="" title="GSM / CDMA / HSPA / EVDO">
 
   </div>
 
@@ -117,13 +117,13 @@
    <label for="Mobile Display Type">Screen Resolution</label>
     <input type="text" class="form-control" name="resolution" placeholder="Mobile Screen Resolution like 720 x 1640 pixels" required="" title="like 720 x 1640 pixels!">
     <label for="Mobile Display Type">Technology</label>
-    <input type="text" class="form-control" name="technology" placeholder="Mobile Technology" required="" title="like 720 x 1640 pixels!">
+    <input type="text" class="form-control" name="technology" placeholder="Mobile Technology" required="" title="GSM / CDMA / HSPA / EVDO">
 
     <label for="Mobile Display Type">Sim Support</label>
     <input type="text" class="form-control" name="sim_support" placeholder="Mobile Sim Support like 1B Color, 120HZ" required="" title="like 1B Color, 120HZ!">
 
     <label for="Mobile Display Type">Display Type</label>
-    <input type="text" class="form-control" name="display_type" placeholder="Mobile Display like 1B Color, 120HZ" required="" title="like 1B Color, 120HZ!">
+    <input type="text" class="form-control" name="display_type" placeholder="AMOLED, 1B colors, 120Hz" required="" title="AMOLED, 1B colors, 120Hz">
 
     <label for="Mobile Display Type">Protection</label>
     <input type="text" class="form-control" name="protection" placeholder="Mobile Protection" required=""  >
