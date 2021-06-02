@@ -95,46 +95,131 @@
   @csrf
   <div class="tab">
   <div class="sidebar-heading">
-    <strong style="color: #4e73df">Body</strong>
+    <strong style="color: #4e73df">Display</strong>
   </div> 
+  <label for="Mobile Display Type">Display Type</label>
+    <input type="text" class="form-control" name="display_type" value="{{$specifications[0]->display_type}}" placeholder="AMOLED, 1B colors, 120Hz" required="" title="AMOLED, 1B colors, 120Hz">
+
     <label for="Mobile Dimentions">Dimentions</label>
-        <input type="text" class="form-control" name="dimentions" placeholder="Mobile Dimentions  like 162.5*72.2*8.3mn" value="{{$specifications[0]->dimentions}}" required="" title="like 162.5*72.2*8.3mn!">
+        <input type="text" class="form-control" value="{{$specifications[0]->dimentions}}" name="dimentions" placeholder="164.3 x 74.6 x 8.4 mm" required="" title="164.3 x 74.6 x 8.4 mm">
     <label for="Mobile Display Type">Size</label>
-    <input type="text" class="form-control" name="phone_size" placeholder="Mobile Size like 400grams" value="{{$specifications[0]->phone_size}}" required="" title="Mobile Size like 400grams!">
+    <input type="text" class="form-control" value="{{$specifications[0]->phone_size}}" name="phone_size" placeholder="Mobile Size like 400grams" required="" title="Mobile Size like 400grams!">
     
     <label for="Mobile Weight">Phone Weight</label>
-        <input type="text" class="form-control" name="weight" placeholder="Mobile Weight with Units" value="{{$specifications[0]->weight}}" required="" title="Mobile Weight with Units">
+        <input type="text" class="form-control" name="weight" placeholder="Mobile Weight with Units" required="" value="{{$specifications[0]->weight}}" title="Mobile Weight with Units">
+    <label for="Mobile Display Type">Screen Resolution</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->resolution}}" name="resolution" placeholder="Mobile Screen Resolution like 720 x 1640 pixels" required="" title="like 720 x 1640 pixels!">
+
+      <!-- new fields -->
+     <label for="Mobile Display Type">TP Technology</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->tp_technology}}" name="tp_technology" placeholder="Mobile Screen Resolution like 720 x 1640 pixels" required="" title="like 720 x 1640 pixels!">
+    <label for="Mobile Display Type">Display Ratio</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->display_ratio}}" name="display_ratio" placeholder="Mobile Screen Resolution like 720 x 1640 pixels" required="" title="like 720 x 1640 pixels!">
+    <label for="Mobile Display Type">PPI</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->ppi}}" name="ppi" placeholder="Mobile Screen Resolution like 720 x 1640 pixels" required="" title="like 720 x 1640 pixels!">
+    <label for="Mobile Display Type">TP Multitouch</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->tp_multitouch}}" name="tp_multitouch" placeholder="Mobile Screen Resolution like 720 x 1640 pixels" required="" title="like 720 x 1640 pixels!">
+      <!-- new fields -->
+
+      <div class="sidebar-heading">
+          <strong style="color: #4e73df">Memory</strong>
+      </div> 
+      <label for="Mobile Display Type">RAM</label>
+      <input type="text" class="form-control" value="{{$specifications[0]->ram}}" name="ram" placeholder="Mobile RAM like 2GB/4GB" required="" title="like 2GB/4GB!">
+      <label for="Mobile Display Type">Internal Memory</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->internal_memory}}" name="internal_memory" placeholder="Mobile Internal Storage like 8GB/16GB/64GB" required="" title="like 8GB/16GB/64GB!">
+    <label for="Mobile Display Type">External Memory</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->external_memory}}" name="external_memory" placeholder="Mobile Internal Storage like 8GB/16GB/64GB" required="" title="like 8GB/16GB/64GB!">
+  <!-- new fields -->
+
+    <label for="Mobile Display Type">ROM</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->rom}}" name="rom" placeholder="Mobile Internal Storage like 8GB/16GB/64GB" required="" title="like 8GB/16GB/64GB!">
+
+  <!-- new fields -->
 
  <label for="Mobile Weight">Network</label>
-        <input type="text" class="form-control" name="network" placeholder="Mobile Size with Units" value="{{$specifications[0]->network}}" required="" title="Mobile Size with Units">
+        <input type="text" class="form-control" value="{{$specifications[0]->network}}" name="network" placeholder="GSM / CDMA / HSPA / EVDO" required="" title="GSM / CDMA / HSPA / EVDO">
 
   </div>
 
   <div class="tab">
     <div class="sidebar-heading">
-    <strong style="color: #4e73df">Display</strong>
-  </div>
+      <strong style="color: #4e73df">Build Material</strong>
+    </div>
 
-   <label for="Mobile Display Type">Screen Resolution</label>
-    <input type="text" class="form-control" name="resolution" placeholder="Mobile Screen Resolution like 720 x 1640 pixels" value="{{$specifications[0]->resolution}}" required="" title="like 720 x 1640 pixels!">
+
+  <!-- new fields -->
+
+    <label for="Mobile Display Type">Frame</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->frame}}" name="frame" placeholder="Mobile Technology" required="" title="GSM / CDMA / HSPA / EVDO">
+    <label for="Mobile Display Type">Back Cover</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->back_cover}}" name="back_cover" placeholder="Mobile Technology" required="" title="GSM / CDMA / HSPA / EVDO">
+    <label for="Mobile Display Type">Sensors</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->sensors}}" name="sensors" placeholder="Mobile Technology" required="" title="GSM / CDMA / HSPA / EVDO">
+    <div class="sidebar-heading">
+      <strong style="color: #4e73df">Security</strong>
+    </div>
+    <label for="Mobile Display Type">Finger Print</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->finger_print}}" name="finger_print" placeholder="Mobile Technology" required="" title="GSM / CDMA / HSPA / EVDO">
+    <label for="Mobile Display Type">Face Unlock</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->face_unlock}}" name="face_unlock" placeholder="Mobile Technology" required="" title="GSM / CDMA / HSPA / EVDO">
+  <!-- new fields -->
+
+
+  <div class="sidebar-heading">
+      <strong style="color: #4e73df">Battery</strong>
+    </div>
+  <label for="Mobile Display Type">Battery Capacity (mAh)</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->battery}}" name="battery_type" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
+
+    <label for="Mobile Display Type">Stand By</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->standby_time}}" name="standby_time" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+
+    <label for="Mobile Display Type">Talk time</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->talk_time}}" name="talk_time" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+    <!-- new fields -->
+
+    <label for="Mobile Display Type">Battery Charging Rated Voltage</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->charging_voltage}}" name="charging_voltage" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+    <label for="Mobile Display Type">Video Streaming/Music</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->video_streaming}}" name="video_streaming" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+
+<!-- new fields -->
+    <div class="sidebar-heading">
+      <strong style="color: #4e73df">Charger</strong>
+    </div>
+    <!-- new fields -->
+    <label for="Mobile Display Type">fast charge</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->fast_charge}}" name="fast_charge" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+    <label for="Mobile Display Type">AC Input (V)</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->ac_input}}" name="ac_input" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+    <label for="Mobile Display Type">Output Voltage (V)</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->output_voltage}}" name="output_voltage" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+    <label for="Mobile Display Type">Output Current (A)</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->output_current}}" name="output_current" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+    <label for="Mobile Display Type">Charging time</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->charging_time}}" name="charging_time" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+     
+
+    <!-- new fields -->
+  
     <label for="Mobile Display Type">Technology</label>
-    <input type="text" value="{{$specifications[0]->technology}}" class="form-control" name="technology" placeholder="Mobile Technology" required="" title="like 720 x 1640 pixels!">
+    <input type="text" class="form-control" value="{{$specifications[0]->technology}}" name="technology" placeholder="Mobile Technology" required="" title="GSM / CDMA / HSPA / EVDO">
 
-    <label for="Mobile Display Type">Sim Support</label>
-    <input type="text" class="form-control" name="sim_support" placeholder="Mobile Sim Support like 1B Color, 120HZ" value="{{$specifications[0]->sim_support}}" required="" title="like 1B Color, 120HZ!">
+   <!--  <label for="Mobile Display Type">Sim Support</label>
+    <input type="text" class="form-control" name="sim1_support" placeholder="Mobile Sim Support like 1B Color, 120HZ" required="" title="like 1B Color, 120HZ!">
 
-    <label for="Mobile Display Type">Display Type</label>
-    <input type="text" class="form-control" name="display_type" placeholder="Mobile Display like 1B Color, 120HZ" value="{{$specifications[0]->display_type}}" required="" title="like 1B Color, 120HZ!">
+     -->
 
     <label for="Mobile Display Type">Protection</label>
-    <input type="text" value="{{$specifications[0]->protection}}" class="form-control" name="protection" placeholder="Mobile Protection" required=""  >
+    <input type="text" class="form-control" value="{{$specifications[0]->protection}}" name="protection" placeholder="Mobile Protection" required=""  >
 
   </div>
 
   <div class="tab">
     <div class="sidebar-heading">
-    <strong style="color: #4e73df">Processor</strong>
-  </div>
+      <strong style="color: #4e73df">Processor</strong>
+    </div>
   <label for="Mobile Display Type">CPU</label>
     <input type="text" class="form-control" value="{{$specifications[0]->cpu}}" name="cpu" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
      <label for="Mobile Display Type">Operating System(OS)</label>
@@ -143,71 +228,145 @@
     <input type="text" class="form-control" value="{{$specifications[0]->gpu}}" name="gpu" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
 
     <label for="Mobile Display Type">Chipset</label>
-    <input type="text" value="{{$specifications[0]->chipset}}" class="form-control" name="chipset" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
-    <!--  -->
+    <input type="text" class="form-control" value="{{$specifications[0]->chipset}}" name="chipset" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+   
+    <div class="sidebar-heading">
+      <strong style="color: #4e73df">SIM</strong>
+    </div>
+      <label for="Mobile Display Type">SIM 1 Support</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->sim1_support}}" name="sim1_support" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <label for="Mobile Display Type">SIM 2 Support</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->sim2_support}}" name="sim2_support" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+     
+     
+    <div class="sidebar-heading">
+      <strong style="color: #4e73df">Wireless</strong>
+    </div>
+    <label for="Mobile Display Type">Bluetooth</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->bluetooth}}"  name="bluetooth" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+
+     <!-- new fields -->
+    
+     
+    <label for="Mobile Display Type">WiFi (2.4 GHz)</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->wifi_2-4}}" name="wifi_2-4" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <label for="Mobile Display Type">WiFi (5 GHz)</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->wifi_5}}" name="wifi_5" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <label for="Mobile Display Type">WiFi Security</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->wifi_security}}" name="wifi_security" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <label for="Mobile Display Type">WiFi Hotspot</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->wifi_hotspot}}" name="wifi_hotspot" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <label for="Mobile Display Type">Screen Cast</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->screen_cast}}" name="screen_cast" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <!-- new fields -->
+ 
   </div>
 
   <div class="tab">
     <div class="sidebar-heading">
     <strong style="color: #4e73df">Connectivity</strong>
   </div>
+  <!-- new fields -->
+  <label for="Mobile Display Type">Feature</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->features}}" name="features" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
+    <!-- new fields -->
   <label for="Mobile Display Type">WLAN</label>
-    <input type="text" value="{{$specifications[0]->wlan}}" class="form-control" name="wlan" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
+    <input type="text" class="form-control"  value="{{$specifications[0]->wlan}}" name="wlan" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
 
-    <label for="Mobile Display Type">Bluetooth</label>
-    <input type="text" class="form-control" name="bluetooth" placeholder="Processor/GPU" value="{{$specifications[0]->bluetooth}}" required="" title="like Processor/GPU!">
+    
 
     <label for="Mobile Display Type">GPS</label>
-    <input type="text" class="form-control" name="gps" placeholder="Processor/Chipset" required="" value="{{$specifications[0]->gps}}" title="like Processor/Chipset!">
+    <input type="text" class="form-control" value="{{$specifications[0]->gps}}" name="gps" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
     <label for="Mobile Display Type">Radio</label>
-    <input type="text" value="{{$specifications[0]->radio}}" class="form-control" name="radio" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
-    <label for="Mobile Display Type">USB</label>
-    <input type="text" value="{{$specifications[0]->usb}}" class="form-control" name="usb" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <input type="text" class="form-control" value="{{$specifications[0]->radio}}" name="radio" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <label for="Mobile Display Type">USB/HDMI/MHL</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->usb}}" name="usb" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
     <label for="Mobile Display Type">Data</label>
-    <input type="text" value="{{$specifications[0]->data}}" class="form-control" name="data" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <input type="text" class="form-control" value="{{$specifications[0]->data}}" name="data" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
     <label for="Mobile Display Type">NFC</label>
     <input type="text" class="form-control" value="{{$specifications[0]->nfc}}" name="nfc" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+
+  <!-- new fields -->
+
+    <div class="sidebar-heading">
+    <strong style="color: #4e73df">Audio</strong>
+  </div>
     
+  <label for="Mobile Display Type">Audio Jack</label>
+    <input type="text" class="form-control"  value="{{$specifications[0]->audio_jack}}" name="audio_jack" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <label for="Mobile Display Type">Mic qty</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->mic_qty}}" name="mic_qty" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+
+
+  <!-- new fields -->
+
   </div>
   <div class="tab">
     <div class="sidebar-heading">
     <strong style="color: #4e73df">Camera</strong>
   </div>
-  <label for="Mobile Display Type">Front</label>
-    <input type="text" value="{{$specifications[0]->front_camera}}" class="form-control" name="front_camera" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
+  <label for="Mobile Display Type">Front Camera(pixels)</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->front_camera}}" name="front_camera" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
+ <!-- new fields -->
 
-    <label for="Mobile Display Type">Back</label>
+<label for="Mobile Display Type">Auto Focus(PDAF)</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->front_autofocus}}" name="front_autofocus" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
+    <label for="Mobile Display Type">Sensor Size(1/X inch)</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->sensor_size}}" name="sensor_size" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
+    <label for="Mobile Display Type">Aperture</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->aperture}}" name="aperture" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
+     <label for="Mobile Display Type">Video Recorder</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->front_record}}" name="front_record" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
+
+
+
+  <!-- new fields -->
+
+
+    <label for="Mobile Display Type">Rear Camera(pixels)</label>
     <input type="text" class="form-control" value="{{$specifications[0]->back_camera}}" name="back_camera" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+ <!-- new fields -->
+ <label for="Mobile Display Type">flashlight qty</label>
+    <input type="text" class="form-control" value="{{$specifications[0]->rear_flash}}" name="rear_flash" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+    <label for="Mobile Display Type">Video Recorder</label>
+    <input type="text" class="form-control"   name="rear_video" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
 
-    <label for="Mobile Display Type">Internal Memory</label>
-    <input type="text" value="{{$specifications[0]->internal_memory}}" class="form-control" name="internal_memory" placeholder="Mobile Internal Storage like 8GB/16GB/64GB" required="" title="like 8GB/16GB/64GB!">
-    <label for="Mobile Display Type">External Memory</label>
-    <input type="text" value="{{$specifications[0]->external_memory}}" class="form-control" name="external_memory" placeholder="Mobile Internal Storage like 8GB/16GB/64GB" required="" title="like 8GB/16GB/64GB!">
+
+  <!-- new fields -->
+    
  
-    <label for="Mobile Display Type">RAM</label>
-    <input type="text" value="{{$specifications[0]->ram}}" class="form-control" name="ram" placeholder="Mobile RAM like 2GB/4GB" required="" title="like 2GB/4GB!">
-    <div class="sidebar-heading">
-    <strong style="color: #4e73df">Battery</strong>
-  </div>
-  <label for="Mobile Display Type">Type</label>
-    <input type="text" value="{{$specifications[0]->battery}}" class="form-control" name="battery_type" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
-
-    <label for="Mobile Display Type">Stand By</label>
-    <input type="text" class="form-control" value="{{$specifications[0]->standby_time}}" name="standby_time" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
-
-    <label for="Mobile Display Type">Talk time</label>
-    <input type="text" value="{{$specifications[0]->talk_time}}" class="form-control" name="talk_time" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+  <!--   <label for="Mobile Display Type">RAM</label>
+    <input type="text" class="form-control" name="ram" placeholder="Mobile RAM like 2GB/4GB" required="" title="like 2GB/4GB!"> -->
+    
 
   </div>
  
   <div style="overflow:auto;" class="mt-3">
     <div style="float:right;">
-      <button type="button" id="prevBtn" onclick="nextPrev1(-1)">Previous</button>
-      <button type="button" id="nextBtn" onclick="nextPrev1(1)">Next</button>
-      <button type="submit" id="submitBtn"  >update</button>
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+      <button type="submit" style="display: none" id="submitBtn"  >Next</button>
 
     </div>
   </div>
+  <!-- Circles which indicates the steps of the form: -->
+
+  <div style="text-align:center;margin-top:40px;">
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+  </div>
+</form>
+
+                        </div>
+                    
+                             
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
   <!-- Circles which indicates the steps of the form: -->
 <script type="text/javascript">
   
@@ -220,6 +379,7 @@ function showTab1(n) {
   var x = document.getElementsByClassName("tab");
   x[n].style.display = "block";
   //... and fix the Previous/Next buttons:
+   
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
     document.getElementById("submitBtn").style.display = "none";
@@ -235,7 +395,7 @@ function showTab1(n) {
 
     document.getElementById("prevBtn").style.display = "inline";
   }
-  if (n > (x.length - 1)) {
+  if (n > (x.length)) {
    // document.getElementById("nextBtn").innerHTML = "Submit";
     document.getElementById("nextBtn").innerHTML = "Update";
 
@@ -249,7 +409,7 @@ function showTab1(n) {
   fixStepIndicator1(n)
 }
 
-function nextPrev1(n) {
+function nextPrev(n) {
   // This function will figure out which tab to display
   var x = document.getElementsByClassName("tab");
   // Exit the function if any field in the current tab is invalid:
@@ -260,11 +420,11 @@ function nextPrev1(n) {
   currentTab = currentTab + n;
   // if you have reached the end of the form...
 
- /* if (currentTab > x.length) {
+   if (currentTab >= x.length) {
     // ... the form gets submitted:
     document.getElementById("regForm").submit();
     return false;
-  }*/
+  } 
   // Otherwise, display the correct tab:
   showTab1(currentTab);
 }
@@ -298,26 +458,10 @@ function fixStepIndicator1(n) {
     x[i].className = x[i].className.replace(" active", "");
   }
   //... and adds the "active" class on the current step:
-  x[n].className += " active";
+  x[n].className += "active";
 }
-</script>
-  <div style="text-align:center;margin-top:40px;">
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-  </div>
-</form>
-
-                        </div>
-                    
-                             
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <!--   <footer class="footer pt-3">
+</script>   
+ <!--   <footer class="footer pt-3">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-4">

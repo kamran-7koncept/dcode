@@ -97,7 +97,7 @@
                                 
                                     <div class="form-group" >
                                    
-                                    <input type="text" class="form-control"  name="sleek_info" placeholder="Mobile Sleek info" required="" value="{{$product_details->sleek_info}}">
+                                    <input type="text" class="form-control"  name="sleek_info" placeholder="Mobile Sleek info"    value="{{$product_details->sleek_info}}">
                                     </div>
                                  
                                 <div class="form-group">
@@ -111,7 +111,7 @@
                                 
                                     <div class="form-group" >
                                    
-                                    <input type="text" class="form-control"  name="overview_info" placeholder="Mobile Overview info" required="" value="{{$product_details->overview_info}}">
+                                    <input type="text" class="form-control"  name="overview_info" placeholder="Mobile Overview info"   value="{{$product_details->overview_info}}">
                                     </div>
                                  
                                 <div class="form-group">

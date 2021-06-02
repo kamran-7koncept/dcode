@@ -138,6 +138,9 @@ Route::get('/admin/view-product/{id}', [App\Http\Controllers\Admin\ProductContro
 
 Route::get('/admin/orders', [App\Http\Controllers\Admin\OrderController::class,'index']);
 
+Route::get('/admin/home', [App\Http\Controllers\Admin\OrderController::class,'index']);
+
+
 Route::get('/admin/products',[App\Http\Controllers\Admin\ProductController::class,'index']);
 
 

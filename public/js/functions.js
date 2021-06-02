@@ -8,10 +8,12 @@
 				            $("#mobile_left_detail").html(response);
 				    },
 				    error: function (jqXHR, textStatus, errorThrown) {
-				          $("#mobile_left_detail").html("<p style='text-align:center;margin-top:50px'>Incompolete Record </p>");
-				             console.log(jqXHR);
+              $("#right_compare").text("No Product Found");
+
+				      //   $("#mobile_left_detail").html("<p style='text-align:center;margin-top:50px'>Incompolete Record </p>");
+				            /* console.log(jqXHR);
 				             console.log(textStatus);
-				             console.log(errorThrown);    
+				             console.log(errorThrown); */   
 				        }
 				});
 	 
@@ -27,10 +29,11 @@
                     $("#mobile_left_detail").html(response);
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                  $("#mobile_left_detail").html("<p style='text-align:center;margin-top:50px'>Incompolete Record </p>");
-                     console.log(jqXHR);
+              $("#left_compare").text("No Product Found");
+               //   $("#mobile_left_detail").html("<p style='text-align:center;margin-top:50px'>Incompolete Record </p>");
+                    /* console.log(jqXHR);
                      console.log(textStatus);
-                     console.log(errorThrown);    
+                     console.log(errorThrown); */   
                 }
         });
    
@@ -38,20 +41,31 @@
 
     function compare_mobile(){ 
    let name=document.getElementById("right_search").value;
-          $.ajax({
-            url: '/mobile/compare_details_right/'+name,
-            type: 'get', 
-            success: function(response){ 
-                console.log(response);
-                    $("#mobile_right_detail").html(response);
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                  $("#mobile_right_detail").html("<p style='text-align:center;margin-top:50px'>Incompolete Record </p>");
-                     console.log(jqXHR);
-                     console.log(textStatus);
-                     console.log(errorThrown);    
-                }
-        });
+   if (name != "") {
+    $("#right_compare").text("");
+
+       $.ajax({
+                  url: '/mobile/compare_details_right/'+name,
+                  type: 'get', 
+                  success: function(response){ 
+                      console.log(response);
+                          $("#mobile_right_detail").html(response);
+                  },
+                  error: function (jqXHR, textStatus, errorThrown) {
+              $("#right_compare").text("No Product Found");
+
+                  //      $("#mobile_right_detail").html("<p style='text-align:center;margin-top:50px'>Incompolete Record </p>");
+                       /*    console.log(jqXHR);
+                           console.log(textStatus);
+                           console.log(errorThrown); */   
+                      }
+              });
+
+   }else{
+    $("#right_compare").text("Enter mobile name ");
+
+   }
+         
    
     }
  

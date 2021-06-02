@@ -8,7 +8,9 @@
             <li data-target="#home-slider" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            
+
+           <!--  <div class="carousel-item active">
                 <div class="code-home-slider code-mobile-site-slider-1" style='background: url("../storage/layout_images/banner1.png");' >
                     <div class="container position-relative">
                         <div class="row">
@@ -26,7 +28,7 @@
                                     </span>
                                     <a class="btn btn-square btn-orange btn-lg border-0 ml-md-4"><strong>Learn
                                         More</strong></a>
-                    </div>
+                                </div>
                             </div>
                             <div class="col-12 col-md-6 d-none d-md-block">
                                 <img class="img-fluid" src="{{asset('./storage/layout_images/mobile-slider-large.png')}}"/>
@@ -61,24 +63,30 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item">
+            </div> -->
+            <?php 
+                $count = 1;
+                 
+            ?>
+             @foreach($products as $pro)
+                     
+            <div class='carousel-item <?php ($count == 1) ? "active" : "-"; ?>'>
                 <div class="code-home-slider  code-mobile-site-slider-1" style='background: url("../storage/layout_images/banner1.png");'>
                     <div class="container position-relative">
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="carousel-caption">
                                     <h1 class="display-1">
-                                        X Cherry Red
+                                        {{$pro->name}}
                                     </h1>
-                                    <p class="desc">Lorem lpsum is simple dummy text of the printing and typesetting
-                                        industry.</p>
-                                    <img class="img-fluid" src="{{asset('./storage/layout_images/mobile-spec.png')}}" />
+                                    <p class="desc">{{$pro->description}}</p>
+                                    <img class="img-fluid" src='{{url("/images/$pro->image_path")}}' />
                                     <div class="mt-5 pt-md-3"></div>
                                     <span class="price">
-                                        Rs. 40,987
+                                        Rs. {{$pro->price}}
                                     </span>
-                                    <a class="btn btn-square btn-orange btn-lg border-0 ml-md-4"><strong>Learn
+                                    <a class="btn btn-square btn-orange btn-lg border-0 ml-md-4" href='{{url("/product/$pro->id")}}' 
+                                    ><strong>Learn
                                         More</strong></a>
                                 </div>
                             </div>
@@ -89,6 +97,10 @@
                     </div>
                 </div>
             </div>
+            <?php $count++; ?>
+            
+        @endforeach
+
         </div>
         <a class="carousel-control-prev" href="#home-slider" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
@@ -127,7 +139,7 @@
                     @if($pro->status == 1)
             <div class="col-12 col-md-4">
                 <a  href='{{url("/product/$pro->id")}}'>
-                    <img class="img-fluid"  src="{{asset('./storage/layout_images/mobile-picture-1.png')}}"/>
+                    <img class="img-fluid"  src='{{url("/images/$pro->image_path")}}'/>
                 </a>
                     
                     <h3 class="mt-2"><strong>{{ $pro->name }}</strong></h3>

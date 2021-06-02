@@ -94,8 +94,11 @@
   @csrf
   <div class="tab">
   <div class="sidebar-heading">
-    <strong style="color: #4e73df">Body</strong>
+    <strong style="color: #4e73df">Display</strong>
   </div> 
+  <label for="Mobile Display Type">Display Type</label>
+    <input type="text" class="form-control" name="display_type" placeholder="AMOLED, 1B colors, 120Hz" required="" title="AMOLED, 1B colors, 120Hz">
+
     <label for="Mobile Dimentions">Dimentions</label>
         <input type="text" class="form-control" name="dimentions" placeholder="164.3 x 74.6 x 8.4 mm" required="" title="164.3 x 74.6 x 8.4 mm">
     <label for="Mobile Display Type">Size</label>
@@ -103,6 +106,35 @@
     
     <label for="Mobile Weight">Phone Weight</label>
         <input type="text" class="form-control" name="weight" placeholder="Mobile Weight with Units" required="" title="Mobile Weight with Units">
+    <label for="Mobile Display Type">Screen Resolution</label>
+    <input type="text" class="form-control" name="resolution" placeholder="Mobile Screen Resolution like 720 x 1640 pixels" required="" title="like 720 x 1640 pixels!">
+
+      <!-- new fields -->
+     <label for="Mobile Display Type">TP Technology</label>
+    <input type="text" class="form-control" name="tp_technology" placeholder="Mobile Screen Resolution like 720 x 1640 pixels" required="" title="like 720 x 1640 pixels!">
+    <label for="Mobile Display Type">Display Ratio</label>
+    <input type="text" class="form-control" name="display_ratio" placeholder="Mobile Screen Resolution like 720 x 1640 pixels" required="" title="like 720 x 1640 pixels!">
+    <label for="Mobile Display Type">PPI</label>
+    <input type="text" class="form-control" name="ppi" placeholder="Mobile Screen Resolution like 720 x 1640 pixels" required="" title="like 720 x 1640 pixels!">
+    <label for="Mobile Display Type">TP Multitouch</label>
+    <input type="text" class="form-control" name="tp_multitouch" placeholder="Mobile Screen Resolution like 720 x 1640 pixels" required="" title="like 720 x 1640 pixels!">
+      <!-- new fields -->
+
+      <div class="sidebar-heading">
+          <strong style="color: #4e73df">Memory</strong>
+      </div> 
+      <label for="Mobile Display Type">RAM</label>
+      <input type="text" class="form-control" name="ram" placeholder="Mobile RAM like 2GB/4GB" required="" title="like 2GB/4GB!">
+      <label for="Mobile Display Type">Internal Memory</label>
+    <input type="text" class="form-control" name="internal_memory" placeholder="Mobile Internal Storage like 8GB/16GB/64GB" required="" title="like 8GB/16GB/64GB!">
+    <label for="Mobile Display Type">External Memory</label>
+    <input type="text" class="form-control" name="external_memory" placeholder="Mobile Internal Storage like 8GB/16GB/64GB" required="" title="like 8GB/16GB/64GB!">
+  <!-- new fields -->
+
+    <label for="Mobile Display Type">ROM</label>
+    <input type="text" class="form-control" name="rom" placeholder="Mobile Internal Storage like 8GB/16GB/64GB" required="" title="like 8GB/16GB/64GB!">
+
+  <!-- new fields -->
 
  <label for="Mobile Weight">Network</label>
         <input type="text" class="form-control" name="network" placeholder="GSM / CDMA / HSPA / EVDO" required="" title="GSM / CDMA / HSPA / EVDO">
@@ -111,19 +143,72 @@
 
   <div class="tab">
     <div class="sidebar-heading">
-    <strong style="color: #4e73df">Display</strong>
-  </div>
+      <strong style="color: #4e73df">Build Material</strong>
+    </div>
 
-   <label for="Mobile Display Type">Screen Resolution</label>
-    <input type="text" class="form-control" name="resolution" placeholder="Mobile Screen Resolution like 720 x 1640 pixels" required="" title="like 720 x 1640 pixels!">
+
+  <!-- new fields -->
+
+    <label for="Mobile Display Type">Frame</label>
+    <input type="text" class="form-control" name="frame" placeholder="Mobile Technology" required="" title="GSM / CDMA / HSPA / EVDO">
+    <label for="Mobile Display Type">Back Cover</label>
+    <input type="text" class="form-control" name="back_cover" placeholder="Mobile Technology" required="" title="GSM / CDMA / HSPA / EVDO">
+    <label for="Mobile Display Type">Sensors</label>
+    <input type="text" class="form-control" name="sensors" placeholder="Mobile Technology" required="" title="GSM / CDMA / HSPA / EVDO">
+    <div class="sidebar-heading">
+      <strong style="color: #4e73df">Security</strong>
+    </div>
+    <label for="Mobile Display Type">Finger Print</label>
+    <input type="text" class="form-control" name="finger_print" placeholder="Mobile Technology" required="" title="GSM / CDMA / HSPA / EVDO">
+    <label for="Mobile Display Type">Face Unlock</label>
+    <input type="text" class="form-control" name="face_unlock" placeholder="Mobile Technology" required="" title="GSM / CDMA / HSPA / EVDO">
+  <!-- new fields -->
+
+
+  <div class="sidebar-heading">
+      <strong style="color: #4e73df">Battery</strong>
+    </div>
+  <label for="Mobile Display Type">Battery Capacity (mAh)</label>
+    <input type="text" class="form-control" name="battery_type" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
+
+    <label for="Mobile Display Type">Stand By</label>
+    <input type="text" class="form-control" name="standby_time" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+
+    <label for="Mobile Display Type">Talk time</label>
+    <input type="text" class="form-control" name="talk_time" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+    <!-- new fields -->
+
+    <label for="Mobile Display Type">Battery Charging Rated Voltage</label>
+    <input type="text" class="form-control" name="charging_voltage" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+    <label for="Mobile Display Type">Video Streaming/Music</label>
+    <input type="text" class="form-control" name="video_streaming" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+
+<!-- new fields -->
+    <div class="sidebar-heading">
+      <strong style="color: #4e73df">Charger</strong>
+    </div>
+    <!-- new fields -->
+    <label for="Mobile Display Type">fast charge</label>
+    <input type="text" class="form-control" name="fast_charge" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+    <label for="Mobile Display Type">AC Input (V)</label>
+    <input type="text" class="form-control" name="ac_input" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+    <label for="Mobile Display Type">Output Voltage (V)</label>
+    <input type="text" class="form-control" name="output_voltage" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+    <label for="Mobile Display Type">Output Current (A)</label>
+    <input type="text" class="form-control" name="output_current" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+    <label for="Mobile Display Type">Charging time</label>
+    <input type="text" class="form-control" name="charging_time" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+     
+
+    <!-- new fields -->
+  
     <label for="Mobile Display Type">Technology</label>
     <input type="text" class="form-control" name="technology" placeholder="Mobile Technology" required="" title="GSM / CDMA / HSPA / EVDO">
 
-    <label for="Mobile Display Type">Sim Support</label>
-    <input type="text" class="form-control" name="sim_support" placeholder="Mobile Sim Support like 1B Color, 120HZ" required="" title="like 1B Color, 120HZ!">
+   <!--  <label for="Mobile Display Type">Sim Support</label>
+    <input type="text" class="form-control" name="sim1_support" placeholder="Mobile Sim Support like 1B Color, 120HZ" required="" title="like 1B Color, 120HZ!">
 
-    <label for="Mobile Display Type">Display Type</label>
-    <input type="text" class="form-control" name="display_type" placeholder="AMOLED, 1B colors, 120Hz" required="" title="AMOLED, 1B colors, 120Hz">
+     -->
 
     <label for="Mobile Display Type">Protection</label>
     <input type="text" class="form-control" name="protection" placeholder="Mobile Protection" required=""  >
@@ -132,8 +217,8 @@
 
   <div class="tab">
     <div class="sidebar-heading">
-    <strong style="color: #4e73df">Processor</strong>
-  </div>
+      <strong style="color: #4e73df">Processor</strong>
+    </div>
   <label for="Mobile Display Type">CPU</label>
     <input type="text" class="form-control" name="cpu" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
      <label for="Mobile Display Type">Operating System(OS)</label>
@@ -143,59 +228,115 @@
 
     <label for="Mobile Display Type">Chipset</label>
     <input type="text" class="form-control" name="chipset" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
-    <!--  -->
+   
+    <div class="sidebar-heading">
+      <strong style="color: #4e73df">SIM</strong>
+    </div>
+      <label for="Mobile Display Type">SIM 1 Support</label>
+    <input type="text" class="form-control" name="sim1_support" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <label for="Mobile Display Type">SIM 2 Support</label>
+    <input type="text" class="form-control" name="sim2_support" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+     
+     
+    <div class="sidebar-heading">
+      <strong style="color: #4e73df">Wireless</strong>
+    </div>
+    <label for="Mobile Display Type">Bluetooth</label>
+    <input type="text" class="form-control" name="bluetooth" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+
+     <!-- new fields -->
+    
+     
+    <label for="Mobile Display Type">WiFi (2.4 GHz)</label>
+    <input type="text" class="form-control" name="wifi_2-4" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <label for="Mobile Display Type">WiFi (5 GHz)</label>
+    <input type="text" class="form-control" name="wifi_5" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <label for="Mobile Display Type">WiFi Security</label>
+    <input type="text" class="form-control" name="wifi_security" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <label for="Mobile Display Type">WiFi Hotspot</label>
+    <input type="text" class="form-control" name="wifi_hotspot" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <label for="Mobile Display Type">Screen Cast</label>
+    <input type="text" class="form-control" name="screen_cast" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <!-- new fields -->
+ 
   </div>
 
   <div class="tab">
     <div class="sidebar-heading">
     <strong style="color: #4e73df">Connectivity</strong>
   </div>
+  <!-- new fields -->
+  <label for="Mobile Display Type">Feature</label>
+    <input type="text" class="form-control" name="features" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
+    <!-- new fields -->
   <label for="Mobile Display Type">WLAN</label>
     <input type="text" class="form-control" name="wlan" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
 
-    <label for="Mobile Display Type">Bluetooth</label>
-    <input type="text" class="form-control" name="bluetooth" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+    
 
     <label for="Mobile Display Type">GPS</label>
     <input type="text" class="form-control" name="gps" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
     <label for="Mobile Display Type">Radio</label>
     <input type="text" class="form-control" name="radio" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
-    <label for="Mobile Display Type">USB</label>
+    <label for="Mobile Display Type">USB/HDMI/MHL</label>
     <input type="text" class="form-control" name="usb" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
     <label for="Mobile Display Type">Data</label>
     <input type="text" class="form-control" name="data" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
     <label for="Mobile Display Type">NFC</label>
     <input type="text" class="form-control" name="nfc" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+
+  <!-- new fields -->
+
+    <div class="sidebar-heading">
+    <strong style="color: #4e73df">Audio</strong>
+  </div>
     
+  <label for="Mobile Display Type">Audio Jack</label>
+    <input type="text" class="form-control" name="audio_jack" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+    <label for="Mobile Display Type">Mic qty</label>
+    <input type="text" class="form-control" name="mic_qty" placeholder="Processor/Chipset" required="" title="like Processor/Chipset!">
+
+
+  <!-- new fields -->
+
   </div>
   <div class="tab">
     <div class="sidebar-heading">
     <strong style="color: #4e73df">Camera</strong>
   </div>
-  <label for="Mobile Display Type">Front</label>
+  <label for="Mobile Display Type">Front Camera(pixels)</label>
     <input type="text" class="form-control" name="front_camera" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
+ <!-- new fields -->
 
-    <label for="Mobile Display Type">Back</label>
+<label for="Mobile Display Type">Auto Focus(PDAF)</label>
+    <input type="text" class="form-control" name="front_autofocus" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
+    <label for="Mobile Display Type">Sensor Size(1/X inch)</label>
+    <input type="text" class="form-control" name="sensor_size" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
+    <label for="Mobile Display Type">Aperture</label>
+    <input type="text" class="form-control" name="aperture" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
+     <label for="Mobile Display Type">Video Recorder</label>
+    <input type="text" class="form-control" name="front_record" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
+
+
+
+  <!-- new fields -->
+
+
+    <label for="Mobile Display Type">Rear Camera(pixels)</label>
     <input type="text" class="form-control" name="back_camera" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+ <!-- new fields -->
+ <label for="Mobile Display Type">flashlight qty</label>
+    <input type="text" class="form-control" name="rear_flash" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+    <label for="Mobile Display Type">Video Recorder</label>
+    <input type="text" class="form-control" name="rear_video" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
 
-    <label for="Mobile Display Type">Internal Memory</label>
-    <input type="text" class="form-control" name="internal_memory" placeholder="Mobile Internal Storage like 8GB/16GB/64GB" required="" title="like 8GB/16GB/64GB!">
-    <label for="Mobile Display Type">External Memory</label>
-    <input type="text" class="form-control" name="external_memory" placeholder="Mobile Internal Storage like 8GB/16GB/64GB" required="" title="like 8GB/16GB/64GB!">
+
+  <!-- new fields -->
+    
  
-    <label for="Mobile Display Type">RAM</label>
-    <input type="text" class="form-control" name="ram" placeholder="Mobile RAM like 2GB/4GB" required="" title="like 2GB/4GB!">
-    <div class="sidebar-heading">
-    <strong style="color: #4e73df">Battery</strong>
-  </div>
-  <label for="Mobile Display Type">Type</label>
-    <input type="text" class="form-control" name="battery_type" placeholder="Processor/CPU" required="" title="like Processor/CPU!">
-
-    <label for="Mobile Display Type">Stand By</label>
-    <input type="text" class="form-control" name="standby_time" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
-
-    <label for="Mobile Display Type">Talk time</label>
-    <input type="text" class="form-control" name="talk_time" placeholder="Processor/GPU" required="" title="like Processor/GPU!">
+  <!--   <label for="Mobile Display Type">RAM</label>
+    <input type="text" class="form-control" name="ram" placeholder="Mobile RAM like 2GB/4GB" required="" title="like 2GB/4GB!"> -->
+    
 
   </div>
  

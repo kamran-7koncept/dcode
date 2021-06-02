@@ -50,6 +50,7 @@
                         <input class="compare-search-field" type="text" name="mobile_name" id="right_search" />
                         <span><button class="compare-search-button" onclick="compare_mobile()">Search</button></span>
                     </div>
+                    <p class="text-danger" id="right_compare"></p>
                     <div class="mt-5 pt-md-2 text-center" id="right_image">
                         <img src="{{asset('./storage/layout_images/compare-default-mobile.png')}}"    class="img-fluid"/><br>
                     </div>
@@ -82,7 +83,7 @@
                     <tr>
                         <td class="column-1">BODY</td>
                         <td class="column-2">Dimensions</td>
-                        <td class="column-3"></td>
+                        <td class="column-3"><br></td>
                          
                     </tr>
 
