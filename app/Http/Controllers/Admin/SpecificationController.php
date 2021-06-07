@@ -372,7 +372,7 @@ class SpecificationController extends Controller
 
                     if (count($product) > 0 && count($product_videos) > 0 && count($product_creativity) > 0) {
 
-                    $aa =    Product::where('id', $request->product_id)
+                        Product::where('id', $request->product_id)
                         ->update([
                                 'status' => 1
                             ]);

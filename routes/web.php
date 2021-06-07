@@ -22,6 +22,8 @@ Route::get('/order', function(){
 
 /*Route::get('/user/{name}', [App\Http\Controllers\WebPageController::class,'page']);
 */
+Route::get('/dealers', [App\Http\Controllers\DealerController::class, 'index']);
+
 Route::get('/compare-specifications', [App\Http\Controllers\CompareController::class, 'index']);
 
 Route::get('/about-us',function (){
@@ -33,6 +35,8 @@ Route::get('/policies',function (){
 Route::get('/terms-conditions',function (){
 	return view('terms-conditions');
 });
+
+Route::get('/mobile/colors/{id}',[App\Http\Controllers\ProductController::class, 'colors']);
 
 
 Route::get('/product/{id_enc}',[App\Http\Controllers\ProductController::class, 'details']);
@@ -54,6 +58,7 @@ Route::post('/remove', [App\Http\Controllers\CartController::class, 'remove'])->
 Route::post('/clear', [App\Http\Controllers\CartController::class, 'clear'])->name('cart.clear');
 */
 
+Route::get('/admin/dealers', [App\Http\Controllers\Admin\DealerController::class, 'index']);
  
  Route::get('/admin', function(){
 	return view('auth.login');
@@ -77,6 +82,10 @@ Route::PUT('/admin/order/{id}',[App\Http\Controllers\Admin\OrderController::clas
 
 Route::get('/mobile/create', function () {
     return view('admin.add_product');
+});
+
+Route::get('/dealer/create', function () {
+    return view('admin.add_dealer');
 });
 
 Route::get('/admin/add-page', function () {
@@ -114,7 +123,7 @@ Route::get('/admin/sleek/{id}', [App\Http\Controllers\Admin\ProductController::c
 
 Route::get('/admin/creativity/{id}', [App\Http\Controllers\Admin\ProductController::class,'update_creativity_view']);
 
-
+Route::post('/admin/dealer', [App\Http\Controllers\Admin\DealerController::class,'store']);
 
 Route::post('/admin/product/create', [App\Http\Controllers\Admin\ProductController::class,'store']);
 Route::post('/admin/product/creativity', [App\Http\Controllers\Admin\ProductController::class,'creativity']);

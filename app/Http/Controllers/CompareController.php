@@ -17,10 +17,17 @@ class CompareController extends Controller
     public function index()
     {
         $products = Product::all(); 
-         
-        $pages =  WebPage::all();
 
-        return view('compare',compact('products','pages'));
+         $allproducts = DB::table('products')
+        ->where('status',1) 
+        ->get();
+
+        $pages =  WebPage::all();
+        $product_videos = DB::table('product_videos')
+         ->limit(3)
+        ->get();
+
+        return view('compare',compact('products','pages','product_videos','allproducts'));
     }
 
     /**

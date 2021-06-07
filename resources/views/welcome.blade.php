@@ -67,11 +67,14 @@
             <?php 
                 $count = 1;
                  
-            ?>
-             @foreach($products as $pro)
-                     
-            <div class='carousel-item <?php ($count == 1) ? "active" : "-"; ?>'>
-                <div class="code-home-slider  code-mobile-site-slider-1" style='background: url("../storage/layout_images/banner1.png");'>
+             
+             foreach($products as $pro){  
+
+               ?>      
+
+            <div class="carousel-item <?php if($count == 1){ echo 'active';}else{ echo ''; } ?>">
+                <div class="code-home-slider  code-mobile-site-slider-1" style='background: url({{"../storage/layout_images/bg_banner_$count.png"}});'>
+
                     <div class="container position-relative">
                         <div class="row">
                             <div class="col-12 col-md-6">
@@ -79,27 +82,33 @@
                                     <h1 class="display-1">
                                         {{$pro->name}}
                                     </h1>
+                                    
                                     <p class="desc">{{$pro->description}}</p>
-                                    <img class="img-fluid" src='{{url("/images/$pro->image_path")}}' />
+                                    <img class="img-fluid" src='{{"../storage/layout_images/mobile-spec.png"}}'/>
+
                                     <div class="mt-5 pt-md-3"></div>
                                     <span class="price">
                                         Rs. {{$pro->price}}
                                     </span>
-                                    <a class="btn btn-square btn-orange btn-lg border-0 ml-md-4" href='{{url("/product/$pro->id")}}' 
+                                    <a class="btn btn-square btn-orange btn-lg border-0 ml-md-4" href='{{url("/product/$pro->slug")}}' 
                                     ><strong>Learn
                                         More</strong></a>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6  d-none d-md-block">
-                                <img class="img-fluid"  src="{{asset('./storage/layout_images/mobile-slider-large.png')}}"/>
+                               <!--  <img class="img-fluid"  src="{{asset('./storage/layout_images/mobile-slider-large.png')}}"/> -->
+                                <img class="img-fluid ml-5" src='{{url("/images/$pro->image_path")}}' />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <?php $count++; ?>
+            <?php 
+                $count++; 
+            }
+            ?>
             
-        @endforeach
+        
 
         </div>
         <a class="carousel-control-prev" href="#home-slider" data-slide="prev">
@@ -138,7 +147,7 @@
                 @foreach($products as $pro)
                     @if($pro->status == 1)
             <div class="col-12 col-md-4">
-                <a  href='{{url("/product/$pro->id")}}'>
+                <a  href='{{url("/product/$pro->slug")}}'>
                     <img class="img-fluid"  src='{{url("/images/$pro->image_path")}}'/>
                 </a>
                     
@@ -188,23 +197,24 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-10 m-auto text-center">
-                <h1 class="heading-title-1"><strong><span class="text-orange">X</span> Cherry Red</strong></h1>
+                <h1 class="heading-title-1"><strong><span class="text-orange">X</span> {{$product->name}}</strong></h1>
                 <br>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s</p>
-                <img class="img-fluid" src="{{asset('./storage/layout_images/mobile-banner-picture-1.png')}}" />
+                <p class="banner-description py-2">{{$product->description}}</p>
+                
+
+                <img class="img-fluid"  src='{{url("/images/$product->sleek_img")}}'/>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-12 col-md-10 m-auto text-center">
-                <h1 class="heading-title-1 text-purple">2021 New <span class="text-dark">Product</span> Launch
+                <h1 class="heading-title-1 text-purple"> New <span class="text-dark">Product</span> Launch
                 </h1>
             </div>
         </div>
     </div>
 </section>
 <section>
-    <div class="">
+    <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 pl-0">
                 <div class="home-page-banner-2 text-white" style='background: url("../storage/layout_images/home-page-banner-2.png");'>
@@ -241,27 +251,22 @@
             </div>
         </div>
         <div class="row">
+            @foreach($product_videos as $product_video)
+
             <div class="col-12 col-md-4">
                 <a href="#" data-toggle="modal" data-target="#showVideoModal"
                    data-video="NLUtcA2bCJo" data-title="Mobile Video" data-description=""
-                   class="video-aside-buttons"><img
+                   class="video-aside-buttons"><!-- <img
                         src="{{asset('./storage/layout_images/video-thumnail-1.png')}}"  alt="Video 1" width="100%"
-                        class="img-fluid"></a>
+                        class="img-fluid"> -->
+                            
+                             
+                        {!!$product_video->video_link!!}</iframe>
+                
+                        </a>
             </div>
-            <div class="col-12 col-md-4 mt-5 mt-md-0">
-                <a href="#" data-toggle="modal" data-target="#showVideoModal"
-                   data-video="NLUtcA2bCJo" data-title="Mobile Video" data-description=""
-                   class="video-aside-buttons"><img
-                       src="{{asset('./storage/layout_images/video-thumnail-2.png')}}" alt="Video 2" width="100%"
-                        class="img-fluid"></a>
-            </div>
-            <div class="col-12 col-md-4  mt-5 mt-md-0">
-                <a href="#" data-toggle="modal" data-target="#showVideoModal"
-                   data-video="NLUtcA2bCJo" data-title="Mobile Video" data-description=""
-                   class="video-aside-buttons"><img
-                       src="{{asset('./storage/layout_images/video-thumnail-3.png')}}" alt="Video 3" width="100%"
-                        class="img-fluid"></a>
-            </div>
+            @endforeach
+             
 
         </div>
     </div>

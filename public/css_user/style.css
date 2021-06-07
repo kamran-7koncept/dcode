@@ -1,6 +1,7 @@
 body {
     padding-top: 75px !important;
     font-family: Open Sans, sans-serif !important;
+    font-size: 12px !important;
 }
 
 .btn-yellow {
@@ -53,7 +54,7 @@ body {
 .btn-outline-white:hover {
     border: 1px solid #333333 !important;
     background-color: #fff !important;
-    color:#333333 !important;
+    color: #333333 !important;
 }
 
 .btn-outline-voilet {
@@ -63,7 +64,7 @@ body {
 .btn-outline-voilet:hover {
     border: 1px solid #049393 !important;
     background-color: #fff !important;
-    color:#049393 !important;
+    color: #049393 !important;
 }
 
 .btn-square-outline {
@@ -160,7 +161,8 @@ body {
     padding-top: .91rem !important;
     padding-bottom: .91rem !important;
 }
-.navbar-brand img{
+
+.navbar-brand img {
     margin-left: -50px;
 }
 
@@ -171,6 +173,7 @@ body {
 
 .navbar .order-button {
     font-weight: 600;
+    font-size: 14px !important;
 }
 
 .search-button {
@@ -200,36 +203,193 @@ body {
 
 .search-box input[type="button"] {
     width: 80px;
-    padding: 3px 0;
+    padding: 2px 0;
     background: #7305A9;
     color: #fff;
-    margin-left: -6px;
+    margin-left: -5px;
     border: 1px solid #7305A9;
     outline: none;
     cursor: pointer;
+    font-size: 12px !important;
 }
 
 .filter-icon:hover {
     cursor: pointer;
 }
 
+.nav-submenu-dropdown .dropdown-menu {
+    width: 1600px;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    min-height: 450px !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.submenu-tabs {
+    width: 220px !important;
+    margin-top: 20px;
+}
+
+.submenu-tabs .secondary-menu:hover .fa-angle-right {
+    display: block !important;
+}
+
+.submenu-tabs .secondary-menu .fa-angle-right {
+    margin-left: 2px;
+    font-weight: 300;
+    margin-bottom: 4px;
+}
+
+.widget-container {
+    display: none;
+}
+
+.submenu-tabs .secondary-menu:hover {
+    font-weight: 600;
+}
+
+.submenu-tabs .secondary-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 40px;
+    cursor: pointer;
+}
+
+.nav-submenu-link {
+    text-align: center;
+    font-size: 14px;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.nav-submenu-img img {
+    width: 80px;
+    height: 80px;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+"
+}
+
+.nav-submenu-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.nav-submenu-info:hover {
+    text-decoration: none !important;
+}
+
+.nav-submenu-info .nav-submenu-type {
+    display: block;
+    text-align: left;
+    color: #2eb4cb;
+}
+
+.nav-submenu-info .nav-submenu-type:hover {
+    text-decoration: none !important;
+}
+
+.nav-submenu-info .nav-submenu-type:hover {
+    text-decoration: none !important;
+}
+
+.dropdown-menu .nav-submenu-link:hover {
+    color: unset !important;
+}
+
+.nav-submenu-info .nav-submenu-title {
+    line-height: 18px;
+    margin-top: 4px;
+    color: #000;
+    font-size: 14px;
+    text-align: left;
+    width: 175px;
+}
+
 /***************** HOME SLIDER **************/
 .code-mobile-site-slider-1 {
-    background: url("../storage/layout_images/banner1.png");
+    background: url("../images/banner1.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .code-mobile-site-slider-2 {
-    background: url("../storage/layout_images/banner2.png");
+    background: url("../images/banner2.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .code-mobile-site-slider-3 {
-    background: url("../storage/layout_images/banner3.png");
+    background: url("../images/banner3.png");
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.code-mobile-site-radio-btn-slider-3 {
+    background: url("../images/radio_button_mobile_slider.png");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+.radio-button-slider {
+    padding-bottom: 200px;
+}
+
+.radio-button-slider .carousel-indicators li {
+    width: 30px !important;
+    height: 30px !important;
+    margin-top: 10px;
+    margin-left: 70px;
+    margin-right: 70px;
+    background-color: #333333 !important;
+}
+
+.radio-button-slider .carousel-indicators {
+    bottom: -150px;
+}
+
+.radio-button-slider .text-under-indicators {
+    display: inline;
+    position: absolute;
+    right: 0;
+    bottom: -170px;
+    left: 0;
+    z-index: 15;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-left: 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
+}
+
+.radio-button-slider .text-under-indicators li {
+    display: inline;
+    margin-right: 40px;
+    margin-left: 40px;
+    font-size: 14px;
+    font-weight: 600
 }
 
 .carousel-control-next-icon, .carousel-control-prev-icon {
@@ -257,7 +417,8 @@ body {
 
 .code-carousel .code-home-slider .container {
     min-height: 560px !important;
-    padding-top: 20px;
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
 }
 
 .code-carousel .code-home-slider .carousel-caption {
@@ -277,13 +438,13 @@ body {
 }
 
 .code-carousel .code-home-slider .carousel-caption .display-1 {
-    font-size: 3rem !important;
+    font-size: 36px !important;
     font-weight: 600 !important;
     line-height: 1.2;
 }
 
 .code-carousel .code-home-slider .carousel-caption .desc {
-    font-size: 1.2rem;
+    font-size: 14px;
     opacity: 0.8;
     line-height: 1.8rem;
     margin-bottom: 1rem;
@@ -296,13 +457,14 @@ body {
     line-height: 1.2;
 }
 
+
 /********************* HOME PAGE ********************/
 .heading-title-1 {
-    font-size: 2.9rem !important;
+    font-size: 36px !important;
 }
 
 .home-page-banner-1 {
-    background: url("../storage/layout_images/home-page-banner-1.png");
+    background: url("../images/home-page-banner-1.png");
     background-repeat: no-repeat !important;
     background-position: center top !important;
     background-size: 100% auto !important;
@@ -310,11 +472,11 @@ body {
 }
 
 .banner-description {
-    font-size: 1.2rem;
+    font-size: 14px;
 }
 
 .home-page-banner-2 {
-    background: url("../storage/layout_images/home-page-banner-2.png");
+    background: url(../images/home-page-banner-2.png);
     background-repeat: no-repeat !important;
     background-position: center top !important;
     background-size: 100% auto !important;
@@ -322,7 +484,7 @@ body {
 }
 
 .home-page-banner-3 {
-    background: url("../storage/layout_images/home-page-banner-3.png");
+    background: url(../images/home-page-banner-3.png);
     background-repeat: no-repeat !important;
     background-position: center top !important;
     background-size: 100% auto !important;
@@ -335,6 +497,15 @@ body {
     margin-right: 10px;
 }
 
+.home-page-banner-block-1 h1, home-page-banner-block-2 h1,
+.product-page-banner-1 h1, .product-page-banner-4 h2 {
+    font-size: 36px !important;
+}
+
+.code-mobile-products h3, h4 {
+    font-size: 24px !important;
+}
+
 .home-page-banner-block-2 {
     width: 350px;
 }
@@ -344,9 +515,20 @@ body {
     height: 335px;
 }
 
+.mobile-background-video {
+    position: absolute;
+    left: 13%;
+    top: 39%;
+}
+
+.mobile-background-video .video-frame {
+    width: 845px !important;
+    height: 397px !important;
+}
+
 /************COMPARE PAGE*****************/
 .compare-page-banner-4 {
-    background: url("../storage/layout_images/banner4.png");
+    background: url(../images/banner4.png);
     background-repeat: no-repeat !important;
     background-position: center top !important;
     background-size: cover !important;
@@ -362,8 +544,9 @@ body {
 !important;
 }
 
+
 .right-menu .right-menu-block .menu-top-title {
-    font-size: 2rem;
+    font-size: 36px;
     vertical-align: middle;
     color: white;
     margin-right: 20px;
@@ -382,7 +565,7 @@ body {
 .right-menu .menu-list li a {
     padding: 6px 16px 6px 6px;
     color: white;
-    font-size: 1.2rem;
+    font-size: 14px;
     font-weight: 600;
 }
 
@@ -464,11 +647,11 @@ body {
 }
 
 .heading-title-2 {
-    font-size: 2.4rem !important;
+    font-size: 36px !important;
 }
 
 .product-page-banner-2 {
-    background: url("../storage/layout_images/product-page-banner-2.png");
+    background: url("../images/product-page-banner-2.png");
     background-repeat: no-repeat !important;
     background-position: center top !important;
     background-size: 100% auto !important;
@@ -476,7 +659,7 @@ body {
 }
 
 .product-page-banner-3 {
-    background: url("../storage/layout_images/product-page-banner-3.png");
+    background: url("../images/product-page-banner-3.png");
     background-repeat: no-repeat !important;
     background-position: center top !important;
     background-size: 100% auto !important;
@@ -484,11 +667,11 @@ body {
 }
 
 .product-page-banner-4 {
-    background: url("../storage/layout_images/product-page-banner-4.png");
+    background: url("../images/product-page-banner-4.png");
     background-repeat: no-repeat !important;
     background-position: center top !important;
-    background-size: 100% auto !important;
-    height: 772px;
+    background-size: 100% 100% !important;
+    min-height: 800px;
 }
 
 .mobile-color-option {
@@ -508,46 +691,100 @@ body {
 .mobile-color-option-title-2 {
     margin-left: -60px;
 }
+
+.code-mobile-products {
+    text-align: center !important;
+}
+
+.gallery-wrap {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 70vh;
+}
+
+.gallery-wrap .item {
+    flex: 1;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: flex 0.8s ease;
+}
+
+.gallery-wrap .item:hover {
+    flex: 7;
+}
+
+.gallery-wrap .item-1 {
+    background-image: url("../images/gallary_image_1.png");
+}
+
+.gallery-wrap .item-2 {
+    background-image: url("../images/banner1.png");
+}
+
+.gallery-wrap .item-3 {
+    background-image: url("../images/banner2.png");
+}
+
+.gallery-wrap .item-4 {
+    background-image: url("../images/banner3.png");
+}
+
+.gallery-wrap .item-5 {
+    background-image: url("../images/banner4.png");
+}
+
 /********************Warranty ***********************/
-.code-mobile-site-warranty-block{
-    margin-bottom:32px;
+.code-mobile-site-warranty-block {
+    margin-bottom: 32px;
     color: #040404;
 }
-.heading-title-4{
+
+.heading-title-4 {
     font-size: 36px !important;
     font-weight: 400;
 }
-.heading-title-5{
-    font-size: 24px;
+
+.heading-title-5 {
+    font-size: 14px;
     font-weight: 400;
 }
+
 /*******************END of Warranty *****************/
 /*********************Locator ***********************/
-.code-mobile-site-locator-block{
+.code-mobile-site-locator-block {
     color: #040404;
-    margin-top:30px;
+    margin-top: 30px;
 }
-.code-mobile-site-locator-sub-block{
+
+.code-mobile-site-locator-sub-block {
     color: #040404;
-    margin-top:30px;
-    margin-bottom:30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
-.heading-divider{
+
+.heading-divider {
     border-top: 0.5px solid #303438 !important;
 }
-.heading-title-6{
-    font-size:33px !important;
+
+.heading-title-6 {
+    font-size: 14px !important;
     font-weight: 400;
 }
-.heading-title-7{
-    font-size:20px !important;
+
+.heading-title-7 {
+    font-size: 12px !important;
     font-weight: 400;
     line-height: 1.6;
 }
-.heading-title-7 .first-title{
+
+.heading-title-7 .first-title {
     color: #e75224;
     font-weight: 400;
 }
+
 /*******************END of Locator********************/
 /******************** FOOTER ******************/
 .code-mobile-site-footer {
@@ -575,7 +812,7 @@ body {
 }
 
 .code-mobile-site-footer .footer-title {
-    font-size: 1.9rem;
+    font-size: 12px;
     font-weight: 1;
 }
 
@@ -599,11 +836,46 @@ body {
 .code-mobile-site-footer .social-icons a {
     padding-right: 20px;
 }
+
+
 /********MOBILE RESPONSIVE ***********/
+@media only screen and (max-width: 1024px) {
+    .mobile-background-video .video-frame {
+        display: none !important;
+    }
+}
+
 @media only screen and (max-width: 767px) {
+    .radio-button-slider .carousel-indicators {
+        bottom: -10px;
+    }
+
+    .radio-button-slider .text-under-indicators {
+        bottom: -40px;
+    }
+
+    .radio-button-slider .text-under-indicators li {
+        display: inline;
+        margin-right: 10px !important;
+        margin-left: 10px !important;
+    }
+
+    .radio-button-slider .carousel-indicators li {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
     .code-carousel .code-home-slider .container {
-        min-height: 360px !important;
+        min-height: 400px !important;
         padding-top: 30px;
+    }
+
+    .radio-button-slider .code-home-slider .container {
+        min-height: 250px !important;
+    }
+
+    .radio-button-slider {
+        padding-bottom: 50px;
     }
 
     .code-carousel .code-home-slider .carousel-caption {
@@ -627,7 +899,7 @@ body {
     }
 
     .code-carousel .code-home-slider .carousel-caption .price {
-        font-size: 1.6rem !important;
+        font-size: 36px !important;
     }
 
     .carousel-control-next-icon, .carousel-control-prev-icon {
@@ -650,17 +922,13 @@ body {
         margin-right: 10px;
     }
 
-    .code-mobile-products {
-        text-align: center;
-    }
-
     .product-page-banner-1 {
         background-size: cover !important;
         height: 450px;
     }
 
     .heading-title-3 {
-        font-size: 1.1rem;
+        font-size: 36px !important;
     }
 
     .product-page-banner-2 {
@@ -698,5 +966,20 @@ body {
         top: unset;
         right: unset;
         margin-left: 11px;
+    }
+
+    .mobile-background-video {
+        position: absolute;
+        left: 15%;
+        top: 67%;
+    }
+
+    .mobile-background-video .video-frame {
+        display: none !important;
+    }
+
+    .product-page-banner-4 {
+        background-size: 100% 100% !important;
+        min-height: 550px;
     }
 }

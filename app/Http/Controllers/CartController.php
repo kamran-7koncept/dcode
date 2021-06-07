@@ -4,15 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
     //
     public function shop()
     {
-        $products = Product::all();
-      //  dd($products);
-        return view('shop')->withTitle('E-COMMERCE STORE | SHOP')->with(['products' => $products]);
+        $all_products = Product::where('status', 1)->get();
+      //  dd($all_products);
+        $products = DB::table('products')
+        ->where('status',1) 
+         ->limit(3)
+        ->get();
+
+        $allproducts = DB::table('products')
+        ->where('status',1) 
+        ->get();
+
+
+        $product = DB::table('products')
+        ->join('product_details', 'products.id', '=', 'product_details.product_id')
+        ->first();
+        return view('shop')->withTitle('E-COMMERCE STORE | SHOP')->with(['products' => $products,'all_products'=>$all_products,'product'=>$product,'allproducts'=>$allproducts]);
     }
 
     public function cart()  {

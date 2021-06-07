@@ -151,12 +151,12 @@
                  <a class="btn btn-info" href='{{url("/admin/view-product/$product->id")}}'><i class="fas fa-eye"></i></a>
               </div>
               <div class="dropdown ">
-                <a  href='#' class="btn btn-info btn-icon-split" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon text-white-50">
+                <a  href='{{url("/admin/info/$product->id")}}' class="btn btn-info btn-icon-split" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon text-white-50">
                     +
                 </span></a>
                 <div class="dropdown-content" style="margin-left: -100px">
                   <a  href='{{url("/admin/info/$product->id")}}' id="dropdownMenuLink" class="dropdown-item" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Specifications</a>
-                  <a class="dropdown-item"  href='{{url("/admin/video/$product->id")}}' id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Videos</a>
+                  <!-- <a class="dropdown-item"  href='{{url("/admin/video/$product->id")}}' id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Videos</a> -->
             </div>
 
           </div>

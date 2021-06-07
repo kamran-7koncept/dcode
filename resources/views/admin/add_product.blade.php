@@ -130,6 +130,11 @@
                                     <label for="Mobile Sleek">Cretivity Image <b>(choose only 2 images)</b> </label><br>
                                     <input type="file"  name="creativity_imgs[]" placeholder="mobile Creativity images here" required="" multiple>
                                 </div>
+                                 <div class="form-group">
+                                    <label for="Mobile Sleek">Videos<b>remove height and width from frame</b> </label><br>
+                                    <textarea type="text" name="video_link" class="form-control mt-2" required=""></textarea>
+                                 </div>
+
                                 <div class="form-group">
                                     <button class="btn btn-info w-25" type="submit">Next</button>
                                 </div>

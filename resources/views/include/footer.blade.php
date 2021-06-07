@@ -28,7 +28,7 @@
                                 <a href="#">Accessories</a>
                             </li>
                             <li>
-                                <a href="#">Store Locator</a>
+                                <a href="/dealers">Store Locator</a>
                             </li>
                             <li>
                                 <a href="#">Workd if Dcode</a>
@@ -40,18 +40,14 @@
                             <li>
                                 <a href="#">Recommend</a>
                             </li>
-                            <li>
-                                <a href="#">X Piano Black</a>
-                            </li>
-                            <li>
-                                <a href="#">Yale Blue</a>
-                            </li>
-                            <li>
-                                <a href="#">Cypher Black</a>
-                            </li>
-                            <li>
-                                <a href="#">X Cherry Red</a>
-                            </li>
+                            @foreach($products as $pro)
+                                @if($pro->status == 1)
+                                <li>
+                                    <a href="/product/{{$pro->slug}}">{{$pro->name}}</a>
+                                </li>
+                                @endif
+                             @endforeach
+                             
 
                         </ul>
                     </div>
@@ -106,7 +102,7 @@
                 </button>
             </div>
             <div class="modal-body" style="width:100%;">
-                <div>
+                <div id="video_section">
                         <iframe class="video-frame" src="https://www.youtube.com/embed/t7jbT1YhyQU?feature=oembed&autoplay=1&mute=1" frameborder="0" allowfullscreen=""></iframe>
                 </div>
             </div>
@@ -115,7 +111,19 @@
 </div>
 <script type="text/javascript">
     $(".mobiles-list").first().click();    
-  
+ 
+    $('#main-menu .secondary-menu').mouseover(function () {
+        var $this = $(this);
+        var id = $this.attr('rel');
+        var $currentWidget = $('#' + id);
+        $currentWidget.show().siblings('.widget-container').hide();
+    });
+    $('#wrap').mouseleave(function () {
+        $('.widget-container').hide();
+        $('#first-widget').show();
+    });
+
+     
 </script>
 </body>
 </html>

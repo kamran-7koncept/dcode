@@ -393,6 +393,9 @@ class ProductController extends Controller
                  DB::table('product_creativities')->insertGetId($values);
                 
             }
+            DB::table('product_videos')->insert(array('video_link' => $request->video_link, 'product_id' =>$product_id));
+
+            
 
          }
          return back()->with('Success','Operation Successfull'); 

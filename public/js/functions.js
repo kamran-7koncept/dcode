@@ -18,7 +18,26 @@
 				});
 	 
 		}
+    function colors(id){ 
+   
+          $.ajax({
+            url: '/mobile/colors/'+id,
+            type: 'get', 
+            success: function(response){ 
+                console.log(response);
+                    $("#first-widget").html(response);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+              $("#first-widget").text("No Colors Found");
 
+              //   $("#mobile_left_detail").html("<p style='text-align:center;margin-top:50px'>Incompolete Record </p>");
+                    /* console.log(jqXHR);
+                     console.log(textStatus);
+                     console.log(errorThrown); */   
+                }
+        });
+   
+    }
         function mobile_name(){ 
    let name=document.getElementById("left_search").value;
           $.ajax({
