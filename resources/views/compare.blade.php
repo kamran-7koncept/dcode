@@ -64,32 +64,5 @@
  
     </div>
 </section>
-<section class="my-5">
-    <div class="container">
-        <div class="row my-5">
-            <div class="col-12 col-md-10 m-auto text-center">
-                <h1 class="heading-title-1"><strong>Videos</strong></h1>
-            </div>
-        </div>
-         <div class="row">
-            @foreach($product_videos as $product_video)
-
-            <div class="col-12 col-md-4">
-                <a href="#" data-toggle="modal" data-target="#showVideoModal"
-                   data-video="NLUtcA2bCJo" data-title="Mobile Video" data-description=""
-                   class="video-aside-buttons"><!-- <img
-                        src="{{asset('./storage/layout_images/video-thumnail-1.png')}}"  alt="Video 1" width="100%"
-                        class="img-fluid"> -->
-                            
-                             
-                        {!!$product_video->video_link!!}</iframe>
-                
-                        </a>
-            </div>
-            @endforeach
-             
-
-        </div>
-    </div>
-</section>
+ 
 @include('include.footer')

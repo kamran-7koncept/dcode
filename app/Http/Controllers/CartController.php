@@ -21,12 +21,17 @@ class CartController extends Controller
         $allproducts = DB::table('products')
         ->where('status',1) 
         ->get();
-
+        $colors = DB::table('products')
+        ->join('product_colors', 'products.id', '=', 'product_colors.product_id')
+        ->get(); 
+        $product_videos = DB::table('product_videos')
+         ->limit(3)
+        ->get();
 
         $product = DB::table('products')
         ->join('product_details', 'products.id', '=', 'product_details.product_id')
         ->first();
-        return view('shop')->withTitle('E-COMMERCE STORE | SHOP')->with(['products' => $products,'all_products'=>$all_products,'product'=>$product,'allproducts'=>$allproducts]);
+        return view('shop')->withTitle('E-COMMERCE STORE | SHOP')->with(['products' => $products,'all_products'=>$all_products,'product'=>$product,'allproducts'=>$allproducts,'product_videos'=>$product_videos,'colors'=>$colors]);
     }
 
     public function cart()  {

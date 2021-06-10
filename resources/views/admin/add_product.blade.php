@@ -108,15 +108,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="Mobile Image">Mobile Image </label><br>
-                                    <input type="file" min="0"  name="image" placeholder="mobile Description here" required="">
+                                    <input type="file" min="0" class="form-control"  name="image" placeholder="mobile Description here" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="Mobile Overview">Overview Image </label><br>
-                                    <input type="file" min="0"  name="overview_img" placeholder="mobile Description here" required="">
+                                    <input type="file" min="0" class="form-control"  name="overview_img" placeholder="mobile Description here" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="Mobile Sleek">Sleek Image </label><br>
-                                    <input type="file" min="0"  name="sleek_img" placeholder="mobile Description here" required="">
+                                    <input type="file" min="0" class="form-control"  name="sleek_img" placeholder="mobile Description here" required="">
                                 </div>
                                 <div class="form-group">
                                     <button id="add_product"  class="btn btn-info w-25" type="submit" >Next</button>
@@ -128,7 +128,7 @@
                                 <input type="hidden" class="product_id_sec" name="product_id" id="product_id_sec" value="" />
                                 <div class="form-group">
                                     <label for="Mobile Sleek">Cretivity Image <b>(choose only 2 images)</b> </label><br>
-                                    <input type="file"  name="creativity_imgs[]" placeholder="mobile Creativity images here" required="" multiple>
+                                    <input type="file" class="form-control"  name="creativity_imgs[]" placeholder="mobile Creativity images here" required="" multiple>
                                 </div>
                                  <div class="form-group">
                                     <label for="Mobile Sleek">Videos<b>remove height and width from frame</b> </label><br>
@@ -155,7 +155,7 @@
                                  
                                 <div class="form-group">
                                     <label for="Mobile Sleek">Colors </label><br>
-                                    <input type="file"  name="color_imgs[]" placeholder="mobile Creativity images here" required="" multiple>
+                                    <input type="file" class="form-control"  name="color_imgs[]" placeholder="mobile Creativity images here" required="" multiple>
                                 </div>
 
                                 <div class="col-md-4 mt-5">

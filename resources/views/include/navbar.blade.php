@@ -58,7 +58,7 @@
                 </li>
                 <li class="nav-item dropdown  nav-submenu-dropdown" data-toggle="dropdown">
                     <a class="nav-link px-3 dropdown-toggle" href="#">Smartphones <i class="fa fa-angle-down"></i></a>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu" onmouseout="show()">
                         <div class="container p-4  nav-submenu">
                             <div class="row bg-white">
                                 <div class="col-md-3" id="wrap">
@@ -66,8 +66,8 @@
                                         <?php $counter=0; ?>
                                         @foreach($allproducts as $allproduct)
 
-                                        <div class="secondary-menu first-link parent" rel="first-widget" data-index="{{$counter++}}" onmouseover="colors({{$allproduct->id}}) ">
-                                            <label>{{$allproduct->name}}</label> <i style="display:none" class="fa fa-angle-right"></i>
+                                        <div class="secondary-menu first-link parent" rel="first-widget" data-index="{{$counter++}}"  onmouseover="show_info({{$allproduct->id}})">
+                                            <label  >{{$allproduct->name}}</label> <i  class="fa fa-angle-right"></i>
                                         </div>
                                         @endforeach
                                         
@@ -75,9 +75,16 @@
                                     </div>
                                 </div>
                                 <div class="col-md-9">
-                                    <div id="first-widget" class="widget-container row ">
+
+                                    <?php
+                                        $counter=0;
+                                    ?>
+                                    @foreach($allproducts as $allproduct)
+                                    <div id="a{{$allproduct->id}}" class="widget-container row ">
+                                        @foreach($colors as $color)
+                                            @if($allproduct->id == $color->id)
                                         <div class="col-12 col-md-4">
-                                            <a class="nav-submenu-link" href="#" target="_blank" title="realme C21">
+                                            <a class="nav-submenu-link" href="#" target="_blank" title=" Product">
                                                 <div class="nav-submenu-img">
                                                     <label></label>
                                                     <img   src='{{url("/images/realme.png")}}' alt="" class="">
@@ -91,6 +98,12 @@
                                                 </div>
                                             </a>
                                         </div>
+                                        @endif
+                                        @endforeach
+                                    </div>
+                                    @endforeach
+
+                                   <!--  <div id="second-widget" style="display:none" class="widget-container row">
                                         <div class="col-12 col-md-4">
                                             <a class="nav-submenu-link" href="#" target="_blank" title="realme C21">
                                                 <div class="nav-submenu-img">
@@ -106,162 +119,11 @@
                                                 </div>
                                             </a>
                                         </div>
+                                         
                                          
                                         
                                          
-                                        <div class="col-12 col-md-4">
-                                            <a class="nav-submenu-link" href="#" target="_blank" title="realme C21">
-                                                <div class="nav-submenu-img">
-                                                    <label></label>
-                                                    <img src="images/realme.png" alt="" class="">
-                                                </div>
-                                                <div class="nav-submenu-info">
-                                                    <p class="nav-submenu-type"></p>
-                                                    <p class="nav-submenu-title">realme C21</p>
-                                                    <p class="nav-submenu-price">
-                                                        Rs. 24,999
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-12 col-md-4">
-                                            <a class="nav-submenu-link" href="#" target="_blank" title="realme C21">
-                                                <div class="nav-submenu-img">
-                                                    <label></label>
-                                                    <img src="images/realme.png" alt="" class="">
-                                                </div>
-                                                <div class="nav-submenu-info">
-                                                    <p class="nav-submenu-type"></p>
-                                                    <p class="nav-submenu-title">realme C21</p>
-                                                    <p class="nav-submenu-price">
-                                                        Rs. 24,999
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-12 col-md-4">
-                                            <a class="nav-submenu-link" href="#" target="_blank" title="realme C21">
-                                                <div class="nav-submenu-img">
-                                                    <label></label>
-                                                    <img src="images/realme.png" alt="" class="">
-                                                </div>
-                                                <div class="nav-submenu-info">
-                                                    <p class="nav-submenu-type"></p>
-                                                    <p class="nav-submenu-title">realme C21</p>
-                                                    <p class="nav-submenu-price">
-                                                        Rs. 24,999
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-12 col-md-4">
-                                            <a class="nav-submenu-link" href="#" target="_blank" title="realme C21">
-                                                <div class="nav-submenu-img">
-                                                    <label></label>
-                                                    <img src="images/realme.png" alt="" class="">
-                                                </div>
-                                                <div class="nav-submenu-info">
-                                                    <p class="nav-submenu-type"></p>
-                                                    <p class="nav-submenu-title">realme C21</p>
-                                                    <p class="nav-submenu-price">
-                                                        Rs. 24,999
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                    <div id="second-widget" style="display:none" class="widget-container row">
-                                        <div class="col-12 col-md-4">
-                                            <a class="nav-submenu-link" href="#" target="_blank" title="realme C21">
-                                                <div class="nav-submenu-img">
-                                                    <label></label>
-                                                    <img src="images/realme.png" alt="" class="">
-                                                </div>
-                                                <div class="nav-submenu-info">
-                                                    <p class="nav-submenu-type"></p>
-                                                    <p class="nav-submenu-title">realme C21</p>
-                                                    <p class="nav-submenu-price">
-                                                        Rs. 24,999
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-12 col-md-4">
-                                            <a class="nav-submenu-link" href="#" target="_blank" title="realme C21">
-                                                <div class="nav-submenu-img">
-                                                    <label></label>
-                                                    <img src="images/realme.png" alt="" class="">
-                                                </div>
-                                                <div class="nav-submenu-info">
-                                                    <p class="nav-submenu-type"></p>
-                                                    <p class="nav-submenu-title">realme C21</p>
-                                                    <p class="nav-submenu-price">
-                                                        Rs. 24,999
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-12 col-md-4">
-                                            <a class="nav-submenu-link" href="#" target="_blank" title="realme C21">
-                                                <div class="nav-submenu-img">
-                                                    <label></label>
-                                                    <img src="images/realme.png" alt="" class="">
-                                                </div>
-                                                <div class="nav-submenu-info">
-                                                    <p class="nav-submenu-type"></p>
-                                                    <p class="nav-submenu-title">realme C21</p>
-                                                    <p class="nav-submenu-price">
-                                                        Rs. 24,999
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-12 col-md-4">
-                                            <a class="nav-submenu-link" href="#" target="_blank" title="realme C21">
-                                                <div class="nav-submenu-img">
-                                                    <label></label>
-                                                    <img src="images/realme.png" alt="" class="">
-                                                </div>
-                                                <div class="nav-submenu-info">
-                                                    <p class="nav-submenu-type"></p>
-                                                    <p class="nav-submenu-title">realme C21</p>
-                                                    <p class="nav-submenu-price">
-                                                        Rs. 24,999
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-12 col-md-4">
-                                            <a class="nav-submenu-link" href="#" target="_blank" title="realme C21">
-                                                <div class="nav-submenu-img">
-                                                    <label></label>
-                                                    <img src="images/realme.png" alt="" class="">
-                                                </div>
-                                                <div class="nav-submenu-info">
-                                                    <p class="nav-submenu-type"></p>
-                                                    <p class="nav-submenu-title">realme C21</p>
-                                                    <p class="nav-submenu-price">
-                                                        Rs. 24,999
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-12 col-md-4">
-                                            <a class="nav-submenu-link" href="#" target="_blank" title="realme C21">
-                                                <div class="nav-submenu-img">
-                                                    <label></label>
-                                                    <img src="images/realme.png" alt="" class="">
-                                                </div>
-                                                <div class="nav-submenu-info">
-                                                    <p class="nav-submenu-type"></p>
-                                                    <p class="nav-submenu-title">realme C21</p>
-                                                    <p class="nav-submenu-price">
-                                                        Rs. 24,999
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
+                                         
                                     </div>
                                     <div id="third-widget" style="display:none" class="widget-container row">
                                         <div class="col-12 col-md-4">
@@ -279,38 +141,11 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="col-12 col-md-4">
-                                            <a class="nav-submenu-link" href="#" target="_blank" title="realme C21">
-                                                <div class="nav-submenu-img">
-                                                    <label></label>
-                                                    <img src="images/realme.png" alt="" class="">
-                                                </div>
-                                                <div class="nav-submenu-info">
-                                                    <p class="nav-submenu-type"></p>
-                                                    <p class="nav-submenu-title">realme C21</p>
-                                                    <p class="nav-submenu-price">
-                                                        Rs. 24,999
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-12 col-md-4">
-                                            <a class="nav-submenu-link" href="#" target="_blank" title="realme C21">
-                                                <div class="nav-submenu-img">
-                                                    <label></label>
-                                                    <img src="images/realme.png" alt="" class="">
-                                                </div>
-                                                <div class="nav-submenu-info">
-                                                    <p class="nav-submenu-type"></p>
-                                                    <p class="nav-submenu-title">realme C21</p>
-                                                    <p class="nav-submenu-price">
-                                                        Rs. 24,999
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
+                                         
+                                         
                                     </div>
                                     <div id="fourth-widget" style="display:none" class="widget-container row">
+
                                         <div class="col-12 col-md-4">
                                             <a class="nav-submenu-link" href="#" target="_blank" title="realme C21">
                                                 <div class="nav-submenu-img">
@@ -326,7 +161,8 @@
                                                 </div>
                                             </a>
                                         </div>
-                                    </div>
+
+                                    </div> -->
 
                                 </div>
                             </div>
@@ -350,7 +186,7 @@
                     type="button">Order
                 Now
             </button> -->
-            @if($path == "dealers" || $path == "compare-specifications" || $path == "/" || $path == "order" || $path == "about-us" || $path == "terms-conditions" || $path == "policies")
+            @if($path == "dealers" || $path == "compare-specifications" || $path == "/" || $path == "order" || $path == "about-us" || $path == "terms-conditions" || $path == "policies" || $path == "products")
 
                 @else
                 <form method="POST" action='{{url("/order/")}}'>
@@ -366,3 +202,4 @@
         </div>
     </div>
 </nav>
+ 

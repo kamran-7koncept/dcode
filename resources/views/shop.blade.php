@@ -45,7 +45,8 @@
                ?>      
 
             <div class="carousel-item <?php if($count == 1){ echo 'active';}else{ echo ''; } ?>">
-                <div class="code-home-slider  code-mobile-site-slider-1" style='background: url("../storage/layout_images/banner1.png");'>
+                <div class="code-home-slider  code-mobile-site-slider-1" style='background: url({{"../storage/layout_images/bg_banner_$count.png"}});'>
+
                     <div class="container position-relative">
                         <div class="row">
                             <div class="col-12 col-md-6">
@@ -53,20 +54,19 @@
                                     <h1 class="display-1">
                                         {{$pro->name}}
                                     </h1>
+                                    
                                     <p class="desc">{{$pro->description}}</p>
-                                   
+                                    <img class="img-fluid" src='{{"../storage/layout_images/mobile-spec.png"}}'/>
+
                                     <div class="mt-5 pt-md-3"></div>
-                                    <span class="price">
-                                        Rs. {{$pro->price}}
-                                    </span>
-                                    <a class="btn btn-square btn-orange btn-lg border-0 ml-md-4" href='{{url("/product/$pro->slug")}}' 
-                                    ><strong>Learn
-                                        More</strong></a>
+                                     
+                                    <a class="btn btn-square btn-orange btn-lg border-0 ml-md-4" href='#' 
+                                    ><strong>Order Now</strong></a>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6  d-none d-md-block">
                                <!--  <img class="img-fluid"  src="{{asset('./storage/layout_images/mobile-slider-large.png')}}"/> -->
-                                <img class="img-fluid mt-5 ml-5" src='{{url("/images/$pro->image_path")}}' />
+                                <img class="img-fluid ml-5" src='{{url("/images/product$count.png")}}' />
                             </div>
                         </div>
                     </div>
@@ -77,6 +77,7 @@
             }
             ?>
             
+            
         </div>
         <a class="carousel-control-prev" href="#home-slider" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
@@ -86,7 +87,7 @@
         </a>
     </div>
 </div>
-<section class="py-5">
+<section class="py-5 bg-grey">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-12">
@@ -122,11 +123,14 @@
         <div class="row pt-5 code-mobile-products">
             @foreach($all_products as $pro)
                 <div class="col-12 col-md-4">
-                    <a  href='{{url("/product/$pro->slug")}}'>
-                        <img class="img-fluid"src='{{url("/images/$pro->image_path")}}'/>
+                    <div style="background-color: white;" class="mt-3">
+                        <a  href='{{url("/product/$pro->slug")}}'>
+                        <img class="img-fluid mt-5  " src='{{url("/images/$pro->image_path")}}'/>
                     </a>
                     <h3 class="mt-2"><strong>{{ $pro->name }}</strong></h3>
-                    <h4 class="text-orange"><strong>${{ $pro->price }}</strong></h4>
+                    <h4 class="text-orange " style="padding-bottom: 30px;"><strong >${{ $pro->price }}</strong></h4>
+                    </div>
+                    
                 </div>
             @endforeach
         </div>
@@ -151,37 +155,7 @@
         </div>
     </div>
 </section>
-<section class="my-5">
-    <div class="container">
-        <div class="row my-5">
-            <div class="col-12 col-md-10 m-auto text-center">
-                <h1 class="heading-title-1"><strong>Videos</strong></h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-4">
-                <a href="#" data-toggle="modal" data-target="#showVideoModal"
-                   data-video="NLUtcA2bCJo" data-title="Mobile Video" data-description=""
-                   class="video-aside-buttons"><img
-                       src="{{asset('./storage/layout_images/video-thumnail-1.png')}}" alt="Video 1" width="100%"
-                        class="img-fluid"></a>
-            </div>
-            <div class="col-12 col-md-4 mt-5 mt-md-0">
-                <a href="#" data-toggle="modal" data-target="#showVideoModal"
-                   data-video="NLUtcA2bCJo" data-title="Mobile Video" data-description=""
-                   class="video-aside-buttons"><img
-                       src="{{asset('./storage/layout_images/video-thumnail-2.png')}}" alt="Video 2" width="100%"
-                        class="img-fluid"></a>
-            </div>
-            <div class="col-12 col-md-4  mt-5 mt-md-0">
-                <a href="#" data-toggle="modal" data-target="#showVideoModal"
-                   data-video="NLUtcA2bCJo" data-title="Mobile Video" data-description=""
-                   class="video-aside-buttons"><img
-                       src="{{asset('./storage/layout_images/video-thumnail-3.png')}}" alt="Video 3" width="100%"
-                        class="img-fluid"></a>
-            </div>
 
-        </div>
-    </div>
-</section>
+ 
+
 @include('include.footer') 

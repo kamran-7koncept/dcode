@@ -8,49 +8,80 @@
             <li data-target="#home-slider" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-             
-             <?php 
-                $count = 1;
-                 
-             
-             foreach($products as $pro){  
-
-               ?>      
-
-            <div class="carousel-item <?php if($count == 1){ echo 'active';}else{ echo ''; } ?>">
-                <div class="code-home-slider  code-mobile-site-slider-1" style='background: url("../storage/layout_images/banner1.png");'>
+             <div class="carousel-item active">
+                <div class="code-home-slider code-mobile-site-slider-1" style='background: url("../storage/layout_images/bg_banner_1.png");' >
                     <div class="container position-relative">
                         <div class="row">
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-6 order-0">
                                 <div class="carousel-caption">
                                     <h1 class="display-1">
-                                        {{$pro->name}}
+                                        X CHERRY RED 
                                     </h1>
-                                    <p class="desc">{{$pro->description}}</p>
-                                   
+                                    
+                                    <img class="img-fluid" src="{{asset('./storage/layout_images/mobile-spec.png')}}"/>
                                     <div class="mt-5 pt-md-3"></div>
-                                    <span class="price">
-                                        Rs. {{$pro->price}}
-                                    </span>
-                                    <a class="btn btn-square btn-orange btn-lg border-0 ml-md-4" href='{{url("/product/$pro->slug")}}' 
-                                    ><strong>Learn
-                                        More</strong></a>
+                                    
+                                    <a class="btn btn-square btn-orange btn-lg border-0 ml-md-4"><strong> 
+                                        Order Now</strong></a>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6  d-none d-md-block">
-                               <!--  <img class="img-fluid"  src="{{asset('./storage/layout_images/mobile-slider-large.png')}}"/> -->
-                                <img class="img-fluid mt-5 ml-5" src='{{url("/images/$pro->image_path")}}' />
+                            <div class="col-12 col-md-6 d-none d-md-block">
+                                <img class="img-fluid" src='{{url("/images/product1.png")}}'/>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <?php 
-                $count++; 
-            }
-            ?>
-            
-            
+            <div class="carousel-item">
+                <div class="code-home-slider  code-mobile-site-slider-1" style='background: url("../storage/layout_images/bg_banner_2.png");'>
+                    <div class="container position-relative">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="carousel-caption">
+                                    <h1 class="display-1">
+                                        BOLD BLACK 
+                                    </h1>
+                                    
+                                    <img class="img-fluid" src="{{asset('./storage/layout_images/mobile-spec.png')}}" src="images/mobile-spec.png"/>
+                                    <div class="mt-5 pt-md-3"></div>
+                                     
+                                    <a class="btn btn-square btn-orange btn-lg border-0 ml-md-4"><strong> 
+                                        Order Now</strong></a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6  d-none d-md-block">
+                                <img class="img-fluid" src='{{url("/images/product2.png")}}'  />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="code-home-slider  code-mobile-site-slider-1" style='background: url("../storage/layout_images/bg_banner_3.png");'>
+                    <div class="container position-relative">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="carousel-caption" style="margin-bottom: 50px">
+                                    <h1 class="display-1">
+                                        X CHERRY RED 
+                                    </h1>
+                                    
+                                    <img class="img-fluid" src="{{asset('./storage/layout_images/mobile-spec.png')}}" src="images/mobile-spec.png"/>
+                                    <div class="mt-5 pt-md-3"></div>
+                                    
+                                    <a class="btn btn-square btn-orange btn-lg border-0 ml-md-4"><strong> 
+                                        Order Now</strong></a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6  d-none d-md-block">
+                                <img class="img-fluid" src='{{url("/images/product3.png")}}'  />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+           
         </div>
         <a class="carousel-control-prev" href="#home-slider" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
@@ -64,7 +95,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-4">
-                <div class="heading-title-2 text-left"> {{$pro->name}} </div>
+                <div class="heading-title-2 text-left"> {{$product->name}} </div>
             </div>
             <div class="col-12 col-md-8">
                 <ul class="list-unstyled text-right font-weight-bold pt-3">
@@ -169,17 +200,17 @@
     </div>
     <div class="code-carousel radio-button-slider">
         <div id="radio-button-slider" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
+            <ol class="carousel-indicators" style="bottom: 0px;">
                 <!-- <li data-target="#radio-button-slider" data-slide-to="0" class="active">1</li> -->
                 <?php 
                     $counter=0;
                 ?>
-                @foreach($colors as $color)
+                @foreach($colors_info as $color)
                 <li class="<?php if($counter == 0){ echo 'active';}?>" data-target="#radio-button-slider" data-slide-to="{{$counter++}}">{{$counter}}</li>
                 @endforeach
             </ol>
             <ul class="text-under-indicators" style="list-style: none;">
-                @foreach($colors as $color)
+                @foreach($colors_info as $color)
                  
                 <li style="display:inline;margin-left:40px;font-size:14px;font-weight:600">{{$color->color_name}}</li>
                 @endforeach
@@ -188,7 +219,7 @@
                 <?php 
                     $count= 0 ;
                 ?>
-                @foreach($colors as $color)
+                @foreach($colors_info as $color)
                 <div class="carousel-item <?php if($count++ == 0){ echo 'active';}?>">
                     <div class="code-home-slider  code-mobile-site-radio-btn-slider-3" style="background: url('/images/{{$color->color_img}}');background-repeat:no-repeat; margin-left: 40%">
                         <div class="container position-relative">
@@ -226,34 +257,7 @@
         </div>
     </div>
 </section>
-<section class="my-5">
-    <div class="container">
-        <div class="row my-5">
-            <div class="col-12 col-md-10 m-auto text-center">
-                <h1 class="heading-title-1"><strong>Videos</strong></h1>
-            </div>
-        </div>
-       <div class="row">
-            @foreach($product_videos as $product_video)
-
-            <div class="col-12 col-md-4">
-                <a href="#" data-toggle="modal" data-target="#showVideoModal"
-                   data-video="NLUtcA2bCJo" data-title="Mobile Video" data-description=""
-                   class="video-aside-buttons"><!-- <img
-                        src="{{asset('./storage/layout_images/video-thumnail-1.png')}}"  alt="Video 1" width="100%"
-                        class="img-fluid"> -->
-                            
-                             
-                        {!!$product_video->video_link!!}</iframe>
-                
-                        </a>
-            </div>
-            @endforeach
-             
-
-        </div>
-    </div>
-</section>
+ 
 @include('include.footer') 
 
 

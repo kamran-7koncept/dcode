@@ -7,13 +7,16 @@
     "require": {
         "php": "^7.3|^8.0",
         "cohensive/embed": "^5.5",
+        "cosenary/instagram": "^2.3",
         "darryldecode/cart": "^4.2",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.3",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
+        "php-http/guzzle6-adapter": "^2.0",
+        "php-http/message": "^1.11",
+        "vinkla/instagram": "^9.3",
         "wildbit/swiftmailer-postmark": "^3.3"
     },
     "require-dev": {

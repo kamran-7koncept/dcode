@@ -5,6 +5,9 @@
             background-color: #e9eaef;
             width: 12%;
         }
+        .table-bordered td, .table-bordered th {
+                    border: 1px solid #a8aeb3;
+                    }
     </style>    
         <div style="border-right: 2px solid black;">
             <h3 class="compare-main-title">Please enter model name or part of it</h3>

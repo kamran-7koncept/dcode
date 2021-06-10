@@ -59,6 +59,8 @@ Route::post('/clear', [App\Http\Controllers\CartController::class, 'clear'])->na
 */
 
 Route::get('/admin/dealers', [App\Http\Controllers\Admin\DealerController::class, 'index']);
+
+Route::get('/admin/slider', [App\Http\Controllers\Admin\SliderController::class, 'index']);
  
  Route::get('/admin', function(){
 	return view('auth.login');
@@ -141,6 +143,9 @@ Route::post('/admin/add-videos/', [App\Http\Controllers\Admin\ProductController:
 Route::post('/admin/verify-product', [App\Http\Controllers\Admin\ProductController::class,'verify_product']);
 
 Route::get('/admin/update-product/{id}', [App\Http\Controllers\Admin\ProductController::class,'update_product_view']);
+
+Route::PUT('/admin/update-slider', [App\Http\Controllers\Admin\SliderController::class,'view']);
+
 
 Route::get('/admin/view-product/{id}', [App\Http\Controllers\Admin\ProductController::class,'detail_view']);
 

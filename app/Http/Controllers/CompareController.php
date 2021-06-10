@@ -21,13 +21,15 @@ class CompareController extends Controller
          $allproducts = DB::table('products')
         ->where('status',1) 
         ->get();
-
+        $colors = DB::table('products')
+        ->join('product_colors', 'products.id', '=', 'product_colors.product_id')
+        ->get(); 
         $pages =  WebPage::all();
         $product_videos = DB::table('product_videos')
          ->limit(3)
         ->get();
 
-        return view('compare',compact('products','pages','product_videos','allproducts'));
+        return view('compare',compact('products','pages','product_videos','allproducts','colors'));
     }
 
     /**

@@ -24,12 +24,16 @@ class ProductController extends Controller
         ->join('product_details', 'products.id', '=', 'product_details.product_id')
         ->first();
 
+        $colors = DB::table('products')
+        ->join('product_colors', 'products.id', '=', 'product_colors.product_id')
+        ->get(); 
+
         $product_videos = DB::table('product_videos')
          ->limit(3)
         ->get();
 
         $pages =  WebPage::all();
-        return view('welcome',compact('products','pages','product','product_videos','allproducts'));
+        return view('welcome',compact('products','pages','product','product_videos','allproducts','colors'));
     }
 
     public function colors($id){
@@ -54,7 +58,9 @@ class ProductController extends Controller
 
     public function Details($enc_id){
         $pages =  WebPage::all();
-
+        $allproducts = DB::table('products')
+        ->where('status',1) 
+        ->get();
         $products = DB::table('products')
         ->where('status',1) 
          ->limit(3)
@@ -70,10 +76,12 @@ class ProductController extends Controller
          $product_creativities = DB::table('product_creativities')
     	->where('product_id',$product->id) 
         ->get();  
-        $colors = DB::table('product_colors')
+        $colors_info = DB::table('product_colors')
     	->where('product_id',$product->id) 
         ->get(); 
-
+        $colors = DB::table('products')
+        ->join('product_colors', 'products.id', '=', 'product_colors.product_id')
+        ->get(); 
         $color_images = DB::table('product_colors')
         ->join('products', 'products.id', '=', 'product_colors.product_id')
         ->where('product_colors.product_id',$product->id) 
@@ -82,7 +90,7 @@ class ProductController extends Controller
         $product_videos = DB::table('product_videos')
          ->limit(3)
         ->get();
-        return view('product_details',compact('product','product_creativities','colors','color_images','pages','products','product_videos'));
+        return view('product_details',compact('product','product_creativities','colors','color_images','pages','products','product_videos','allproducts','colors_info'));
     }else{
         return redirect("/")->with("error","Please Choose one of the product");
     }

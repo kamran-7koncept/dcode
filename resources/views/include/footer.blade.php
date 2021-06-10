@@ -123,6 +123,23 @@
         $('#first-widget').show();
     });
 
+
+
+
+        function show_info(id) {
+             
+            $(".widget-container").css("display", "none");
+     
+            $("#a"+id).css("display", "flex");
+
+             
+        }
+        function show(){
+            $(".widget-container").css("display", "flex");
+
+        }
+
+    
      
 </script>
 </body>

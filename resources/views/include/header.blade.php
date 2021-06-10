@@ -21,6 +21,40 @@
     <script type="text/javascript" src="{{asset('js/functions.js') }}"></script>
 
     <title>CODE MOBILE SITE</title>
+    <style type="text/css">
+     
+     /*   h1, h2, h3, h4, h5, h6,span {
+                
+              font-family: 'nexa bold';
+     
+                 @font-face {
+                   font-family: 'Proxima Nova';
+                  src: url({{asset('css/FontsFree.ttf') }});
+                }
+                
+                  
+            }
+            */
+            p{
+                 font-family: 'Proxima Nova', sans-serif; 
+               /* @font-face {
+                  font-family: 'Proxima Nova Rg', sans-serif;
+                  src: url({{asset('css/NEXA-LIGHT.OTF') }});
+                } */
+            }
+            @font-face {
+              font-family: 'nexabold';
+              src: url('fonts/lovely_font.eot'); 
+              src: 
+                local('Nexa Bold'),
+                local('Nexa-Bold'),
+                url({{asset('css/NEXA-LIGHT.OTF') }}) 
+                format('opentype');
+
+            }
+            h1, h2, h3, h4, h5, h6,span { font-family: 'nexabold', sans-serif; }
+ 
+    </style>
 </head>
 <body>
 @include('include.navbar')
